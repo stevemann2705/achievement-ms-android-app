@@ -24,6 +24,9 @@
         <activity
             android:name="in.stevemann.sams.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="in.stevemann.sams.ResetPasswordActivity"
+            android:theme="@style/AppTheme.Dark" />
     </application>
 
 </manifest>

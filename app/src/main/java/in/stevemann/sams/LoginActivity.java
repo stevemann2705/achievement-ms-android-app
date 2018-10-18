@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
 
     RESTClient client = new RESTClient();
+    String token = null;
 
     @BindView(R.id.input_email)
     EditText _emailText;
@@ -90,7 +91,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
-                String token = null;
                 try {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
@@ -128,6 +128,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        if(token != null && !token.isEmpty()){
+            CommonUtils.token = token;
+            Log.i("COMMONUTILS.token:", "CommonUtils.token set successfully to value - " + token);
+        }
+        if(email != null && !email.isEmpty()){
+            CommonUtils.email = email;
+            Log.i("COMMONUTILS.email:", "CommonUtils.email set successfully to value - " + email);
+        }
 
     }
 
