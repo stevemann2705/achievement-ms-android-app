@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SAMS</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="signup_prompt">No account yet? Create one</string>
+    <string name="login_button">Login</string>
+
+    <string-array name="department_array">
+        <item>computerscience</item>
+        <item>education</item>
+        <item>management</item>
+        <item>Select Department</item>
+    </string-array>
+</resources>
