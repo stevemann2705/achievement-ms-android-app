@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
+import in.stevemann.sams.utils.CryptoUtil;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
 
     RESTClient client = new RESTClient();
     String token = null;
+
+    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_email)
     EditText _emailText;
@@ -94,6 +97,8 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
+                    cryptoUtil.encryptToken(token, getApplicationContext());
+                    cryptoUtil.saveToken(getApplicationContext());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

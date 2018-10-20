@@ -6,6 +6,7 @@
     <string name="signup_prompt">No account yet? Create one</string>
     <string name="login_button">Login</string>
     <string name="reset_button">Reset Password</string>
+    <string name="action_logout">Logout</string>
 
     <string-array name="department_array">
         <item>computerscience</item>
