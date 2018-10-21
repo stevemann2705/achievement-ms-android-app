@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="56dp"
+        android:paddingRight="24dp">
+
+        <!--  Current Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/input_current_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Current Email"
+            android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Update Details"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:id="@+id/textView" />
+        <TableRow
+            android:id="@+id/hr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444" />
+
+        <!--  New Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/input_new_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="New Email"
+            android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- First Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_reset_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Last Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_reset_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_reset_profile"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="@string/update_profile_button" />
+
+    </LinearLayout>
+</ScrollView>
