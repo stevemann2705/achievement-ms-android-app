@@ -106,6 +106,10 @@ public class CryptoUtil {
 
         TokenUtil.writeData(Objects.requireNonNull(encrypter).getIVString() + " " + encrypter.getEncryptionText(), context);
     }
+
+    public static void deleteEncryption(){
+        Encrypter.deleteEncrypter();
+    }
 }
 
 class Decrypter {
@@ -219,5 +223,10 @@ class Encrypter {
 
     String getIVString() {
         return Base64.encodeToString(iv, Base64.NO_WRAP);
+    }
+
+    // CAUTION: Handle with care.
+    static void deleteEncrypter(){
+        singleton = null;
     }
 }

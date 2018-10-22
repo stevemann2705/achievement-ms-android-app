@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_logout){
             TokenUtil.deleteData(this);
+            cryptoUtil.deleteEncryption();
             Log.i("LOGOUT: ","Deleted existing token and logged out successfully.");
             Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class);
