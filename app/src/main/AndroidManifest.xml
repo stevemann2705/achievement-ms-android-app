@@ -30,6 +30,9 @@
         <activity
             android:name="in.stevemann.sams.ResetProfileActivity"
             android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="in.stevemann.sams.AddAchievementActivity"
+            android:theme="@style/AppTheme.Dark" />
     </application>
 
 </manifest>

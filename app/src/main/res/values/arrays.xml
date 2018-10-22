@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="department_array">
+        <item>computerscience</item>
+        <item>education</item>
+        <item>management</item>
+        <item>Select Department</item>
+    </string-array>
+
+    <string-array name="section_array">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>Select Section</item>
+    </string-array>
+
+    <string-array name="semester_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>Select Semester</item>
+    </string-array>
+
+    <string-array name="shift_array">
+        <item>morning</item>
+        <item>evening</item>
+        <item>Select Shift</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>sports</item>
+        <item>cultural</item>
+        <item>technical</item>
+        <item>others</item>
+        <item>Select Category</item>
+    </string-array>
+</resources>

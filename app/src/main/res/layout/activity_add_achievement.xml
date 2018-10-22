@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="56dp"
+        android:paddingRight="24dp">
+
+        <!-- Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Roll Number Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_rollNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_roll_no"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Section Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_section"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@color/primary_dark"
+            android:entries="@array/section_array"
+            android:popupBackground="@color/primary_dark" />
+
+        <!-- Session Start Year Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_sessionFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_sessionFrom"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Session End Year Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_sessionTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/inout_sessionTo"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Semester Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_semester"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@color/primary_dark"
+            android:entries="@array/semester_array"
+            android:popupBackground="@color/primary_dark" />
+
+        <!-- Department Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_department"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@color/primary_dark"
+            android:entries="@array/department_array"
+            android:popupBackground="@color/primary_dark" />
+
+        <!-- Shift Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_shift"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@color/primary_dark"
+            android:entries="@array/shift_array"
+            android:popupBackground="@color/primary_dark" />
+
+        <!-- Event Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_eventName"
+                android:inputType="date" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Date Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_eventDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_eventDate"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Title Awarded Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_titleAwarded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_titleAwarded"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Event Venue Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_eventVenue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_eventVenue"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Shift Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_category"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@color/primary_dark"
+            android:entries="@array/category_array"
+            android:popupBackground="@color/primary_dark" />
+
+        <!-- Event Description Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/input_eventDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_eventDescription"
+                android:inputType="textLongMessage" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0">
+
+            <CheckBox android:id="@+id/checkbox_participated"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbox_participated"
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+            <CheckBox android:id="@+id/checkbox_organized"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbox_organized"
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <!-- Image Input Button -->
+        <Button
+            android:id="@+id/btn_image"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="12dp"
+            android:text="@string/btn_image"
+            android:onClick="getImageString"/>
+
+        <!-- Submit Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="@string/btn_submit" />
+
+    </LinearLayout>
+</ScrollView>
