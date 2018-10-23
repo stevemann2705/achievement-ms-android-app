@@ -19,20 +19,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="in.stevemann.sams.LoginActivity"
+            android:name=".LoginActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name="in.stevemann.sams.SignupActivity"
+            android:name=".SignupActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name="in.stevemann.sams.ResetPasswordActivity"
+            android:name=".ResetPasswordActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name="in.stevemann.sams.ResetProfileActivity"
+            android:name=".ResetProfileActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name="in.stevemann.sams.AddAchievementActivity"
+            android:name=".AddAchievementActivity"
             android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".ApprovedAchievementsLayout"></activity>
     </application>
 
 </manifest>
