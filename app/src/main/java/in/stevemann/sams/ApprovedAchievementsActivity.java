@@ -17,18 +17,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
 
-public class ApprovedAchievementsLayout extends AppCompatActivity {
+public class ApprovedAchievementsActivity extends AppCompatActivity {
 
     RESTClient client = new RESTClient();
 
     RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
-    private List<ListItem> listItems;
+    private List<AchievementModel> achievementModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +38,14 @@ public class ApprovedAchievementsLayout extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        listItems = new ArrayList<>();
+        achievementModels = new ArrayList<>();
 
         loadRecyclerViewData();
     }
 
     private void loadRecyclerViewData() {
 
-        final ProgressDialog progressDialog = new ProgressDialog(ApprovedAchievementsLayout.this,
+        final ProgressDialog progressDialog = new ProgressDialog(ApprovedAchievementsActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading Data...");
@@ -60,19 +59,39 @@ public class ApprovedAchievementsLayout extends AppCompatActivity {
                 //System.out.println(timeline.length());
                 for(int i = 0; i<timeline.length(); i++){
                     JSONObject o = null;
-                    ListItem item = null;
+                    AchievementModel item = null;
                     try {
                         o = timeline.getJSONObject(i);
-                        item = new ListItem(o.getString("eventName"), o.getString("rollNo"));
+                        item = new AchievementModel(
+                                o.getString("_id"),
+                                o.getString("eventName"),
+                                o.getString("rollNo"),
+                                o.getInt("semester"),
+                                o.getString("sessionFrom"),
+                                o.getString("name"),
+                                o.getBoolean("participated"),
+                                o.getString("description"),
+                                o.getString("shift"),
+                                o.getString("sessionTo"),
+                                o.getString("section"),
+                                o.getString("department"),
+                                o.getString("date"),
+                                o.getString("rating"),
+                                o.getString("approvedBy"),
+                                o.getString("category"),
+                                o.getString("title"),
+                                o.getString("imageUrl"),
+                                o.getBoolean("approved"),
+                                o.getString("venue")
+                        );
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    listItems.add(item);
+                    achievementModels.add(item);
                 }
 
-                //System.out.println(listItems.size());
                 progressDialog.dismiss();
-                adapter = new ApprovedAchievementsAdapter(listItems, getApplicationContext());
+                adapter = new ApprovedAchievementsAdapter(achievementModels, getApplicationContext());
                 recyclerView.setAdapter(adapter);
             }
 
@@ -81,7 +100,6 @@ public class ApprovedAchievementsLayout extends AppCompatActivity {
                 progressDialog.dismiss();
                 System.out.println("Error");
                 Log.e("ACHIEVEMENTS DATA LOAD", String.valueOf(statusCode));
-                // TODO: Handle onFailure() for signup
             }
         });
     }

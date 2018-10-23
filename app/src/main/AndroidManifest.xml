@@ -33,7 +33,8 @@
         <activity
             android:name=".AddAchievementActivity"
             android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".ApprovedAchievementsLayout"></activity>
+        <activity android:name=".ApprovedAchievementsActivity" />
+        <activity android:name=".AchievementDetailsActivity"></activity>
     </application>
 
 </manifest>

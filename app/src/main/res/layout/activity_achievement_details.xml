@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AchievementDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="56dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Name"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_student_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Name"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_roll_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Roll No."/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_semester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Semester"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_sessionFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session From"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_sessionTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session To"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_participated_or_organised"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Participated Or Organised"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_shift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shift"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Section"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rating"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_approved_by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Approved By"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_imageUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Image"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_approved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Approved"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/achievement_details_venue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Venue" />
+
+    </LinearLayout>
+</ScrollView>

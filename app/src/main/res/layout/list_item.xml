@@ -9,6 +9,7 @@
         android:layout_margin="5dp">
 
         <LinearLayout
+            android:id="@+id/linear_layout_approved_achievement_card"
             android:padding="@dimen/activity_horizontal_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
