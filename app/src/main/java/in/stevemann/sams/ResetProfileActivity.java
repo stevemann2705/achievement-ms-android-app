@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class ResetProfileActivity extends AppCompatActivity {
-    private static final String TAG = "ResetPasswordActivity";
+    private static final String TAG = "ResetProfileActivity";
 
     RESTClient client = new RESTClient();
 
@@ -40,7 +40,7 @@ public class ResetProfileActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset_password);
+        setContentView(R.layout.activity_reset_profile);
         ButterKnife.bind(this);
 
         _resetProfileButton.setOnClickListener(new View.OnClickListener() {
