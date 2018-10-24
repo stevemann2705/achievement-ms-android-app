@@ -1,8 +1,12 @@
 package in.stevemann.sams;
 
+import android.content.Context;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import cz.msebera.android.httpclient.HttpEntity;
 
 public class RESTClient {
     private static final String BASE_URL = "http://10.0.2.2:8090/";
@@ -15,6 +19,10 @@ public class RESTClient {
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.post(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void post(Context context, String url, HttpEntity entity, String type, AsyncHttpResponseHandler responseHandler) {
+        client.post(context, getAbsoluteUrl(url), entity, type, responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

@@ -66,8 +66,8 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textViewEventName = itemView.findViewById(R.id.textViewEventName);
-            textViewRollNo = itemView.findViewById(R.id.textViewRollNo);
+            textViewEventName = itemView.findViewById(R.id.textViewEventNameApproved);
+            textViewRollNo = itemView.findViewById(R.id.textViewRollNoApproved);
             linearLayout = itemView.findViewById(R.id.linear_layout_approved_achievement_card);
         }
     }

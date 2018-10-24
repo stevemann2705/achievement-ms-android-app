@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }*/
-        Intent intent = new Intent(getApplicationContext(), AddAchievementActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         startActivity(intent);
     }
 
