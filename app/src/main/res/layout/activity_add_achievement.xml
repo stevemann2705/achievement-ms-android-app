@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_eventName"
-                android:inputType="date" />
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Date Label -->

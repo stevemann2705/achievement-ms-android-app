@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(!tokenExists()){
+        /*if(!tokenExists()){
             Log.i("TOKEN: ","Token doesn't even exist");
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
                     // TODO: Handle onFailure() for token validity check.
                 }
             });
-        }
+
+        }*/
+        Intent intent = new Intent(getApplicationContext(), AddAchievementActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -1,12 +1,20 @@
 package in.stevemann.sams;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.SyncStateContract;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -71,7 +79,7 @@ public class AddAchievementActivity extends AppCompatActivity {
     @BindView(R.id.checkbox_organized)
     CheckBox _organisedCheckBox;
     @BindView(R.id.btn_image)
-    ImageButton _imageButton;
+    Button _imageButton;
     @BindView(R.id.btn_submit)
     Button _submitButton;
 
@@ -80,11 +88,30 @@ public class AddAchievementActivity extends AppCompatActivity {
     boolean booleanParticipated = true;
     String imageGot = null;
 
+    private static final int PERMISSION_REQUEST_CODE = 1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_add_achievement);
         ButterKnife.bind(this);
+
+        if (Build.VERSION.SDK_INT >= 23)
+        {
+            if (checkPermission())
+            {
+                // Code for above or equal 23 API Oriented Device
+                // Your Permission granted already .Do next code
+            } else {
+                requestPermission(); // Code for permission
+            }
+        }
+        else
+        {
+
+            // Code for Below 23 API Oriented Device
+            // Do next code
+        }
 
         _submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -285,28 +312,28 @@ public class AddAchievementActivity extends AppCompatActivity {
         String category = _category.getSelectedItem().toString();
         String eventDescription = _eventDescriptionText.getText().toString();
         boolean participated = booleanParticipated;
-        String image = imageGot;
 
-        // TODO: Recheck Signup Logic
         RequestParams params = new RequestParams();
-        params.put("name", name);
+        params.put("title", titleAwarded);
         params.put("rollNo", rollNo);
+        params.put("department", department);
+        params.put("semester", semester);
+        params.put("date", eventDate);
+        params.put("shift", shift);
         params.put("section", section);
         params.put("sessionFrom", sessionFrom);
         params.put("sessionTo", sessionTo);
-        params.put("semester", semester);
-        params.put("department", department);
-        params.put("eventName", eventName);
-        params.put("eventDate", eventDate);
-        params.put("titleAwarded", titleAwarded);
-        params.put("eventVenue", eventVenue);
+        params.put("venue", eventVenue);
         params.put("category", category);
-        params.put("eventDescription", eventDescription);
-        params.put("participated", participated);
+        params.put("participated", String.valueOf(participated));
+        params.put("name", name);
+        params.put("description", eventDescription);
+        params.put("eventName", eventName);
 
         File myFile = new File(imageGot);
+
         try {
-            params.put("image", myFile);
+            params.put("image", myFile, "image/jpg");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -315,7 +342,8 @@ public class AddAchievementActivity extends AppCompatActivity {
         client.post("achievements/add", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
-                boolean response = false;
+
+                boolean response = true;
                 try {
                     response = (boolean) timeline.get("bool");
                 } catch (JSONException e) {
@@ -346,9 +374,11 @@ public class AddAchievementActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("LOGIN AUTH RESPONSE", "Communication with server failed. Try again.");
-                // TODO: Handle onFailure() for signup
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("Failed: ", ""+statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
 
@@ -530,6 +560,7 @@ public class AddAchievementActivity extends AppCompatActivity {
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             imageGot = cursor.getString(columnIndex);
+            System.out.println(imageGot);
             cursor.close();
 
         }
@@ -559,6 +590,37 @@ public class AddAchievementActivity extends AppCompatActivity {
                     booleanParticipated = false;
                     _participatedCheckBox.setChecked(false);
                     break;
+        }
+    }
+
+    private boolean checkPermission() {
+        int result = ContextCompat.checkSelfPermission(AddAchievementActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void requestPermission() {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(AddAchievementActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            Toast.makeText(AddAchievementActivity.this, "Write External Storage permission allows us to do store images. Please allow this permission in App Settings.", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(AddAchievementActivity.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.e("value", "Permission Granted, Now you can use local drive .");
+                } else {
+                    Log.e("value", "Permission Denied, You cannot use local drive .");
+                }
+                break;
         }
     }
 }

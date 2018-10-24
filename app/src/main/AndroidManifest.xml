@@ -3,6 +3,8 @@
     package="in.stevemann.sams">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -20,21 +22,35 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:label="Login"
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".SignupActivity"
+            android:label="Signup"
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".ResetPasswordActivity"
+            android:label="Reset Password"
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".ResetProfileActivity"
+            android:label="Reset Profile"
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".AddAchievementActivity"
+            android:label="Add Achievement"
             android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".ApprovedAchievementsActivity" />
-        <activity android:name=".AchievementDetailsActivity"></activity>
+        <activity
+            android:name=".ApprovedAchievementsActivity"
+            android:label="Home" />
+        <activity
+            android:name=".AchievementDetailsActivity"
+            android:label="Achievement Details"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name=".DashboardActivity"
+            android:label="@string/title_activity_dashboard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

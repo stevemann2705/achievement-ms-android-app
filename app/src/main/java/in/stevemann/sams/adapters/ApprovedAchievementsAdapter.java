@@ -3,7 +3,6 @@ package in.stevemann.sams.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import java.util.List;
 
 import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.AchievementModel;
-import in.stevemann.sams.ApprovedAchievementsActivity;
 import in.stevemann.sams.R;
 
 public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAchievementsAdapter.ViewHolder> {
@@ -32,7 +30,7 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
+                .inflate(R.layout.list_item_approved_achievement, parent, false);
         return new ViewHolder(v);
     }
 
