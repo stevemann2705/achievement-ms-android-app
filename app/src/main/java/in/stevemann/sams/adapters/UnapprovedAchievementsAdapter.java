@@ -83,13 +83,8 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
                 final String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
                 RequestParams params = new RequestParams();
-                params.put("id", id);
-                params.put("token", token);
-                params.put("id", id);
-
-                System.out.println(params.has("id"));
-
-                RESTClient.post("achievements/approve", params, new JsonHttpResponseHandler(){
+                
+                RESTClient.post("achievements/approve?id="+id+"&token="+token, params, new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                         boolean response = false;
