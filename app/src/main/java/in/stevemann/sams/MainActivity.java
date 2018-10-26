@@ -1,8 +1,8 @@
 package in.stevemann.sams;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*if(!tokenExists()){
+        if (!tokenExists()) {
             Log.i("TOKEN: ","Token doesn't even exist");
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -42,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
             params.put("token", token);
 
 
-            client.get("users/isvalid", params, new JsonHttpResponseHandler(){
+            RESTClient.get("users/isvalid", params, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                     if(statusCode != 401){
                         Log.i("TOKEN: ","Yep, token exists, and is valid.");
+                        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                        startActivity(intent);
                     } else{
                         Log.i("TOKEN: ","Yep, token exists, but is not valid.");
                         Toast.makeText(getBaseContext(), "Token Expired. Please login again.", Toast.LENGTH_LONG).show();
@@ -58,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
-                    // TODO: Handle onFailure() for token validity check.
+                    Log.d("Failed: ", "" + statusCode);
+                    Log.d("Error : ", "" + throwable);
+                    Log.d("Caused By : ", "" + throwable.getCause());
                 }
             });
 
-        }*/
-        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-        startActivity(intent);
+        }
     }
 
     @Override
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_logout){
             TokenUtil.deleteData(this);
-            cryptoUtil.deleteEncryption();
+            CryptoUtil.deleteEncryption();
             Log.i("LOGOUT: ","Deleted existing token and logged out successfully.");
             Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class);

@@ -125,10 +125,8 @@ public class SignupActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String department = _department.getSelectedItem().toString();
         String password = _passwordText.getText().toString();
-        String reEnterPassword = _reEnterPasswordText.getText().toString();
         String code = _code.getText().toString();
 
-        // TODO: Recheck Signup Logic
         RequestParams params = new RequestParams();
         params.put("firstName", firstName);
         params.put("lastName", lastName);
@@ -137,7 +135,7 @@ public class SignupActivity extends AppCompatActivity {
         params.put("password", password);
         params.put("code", code);
 
-        client.post("users/add", params, new JsonHttpResponseHandler() {
+        RESTClient.post("users/add", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
@@ -173,8 +171,10 @@ public class SignupActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("LOGIN AUTH RESPONSE", "Communication with server failed. Try again.");
-                // TODO: Handle onFailure() for signup
+                progressDialog.dismiss();
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
 

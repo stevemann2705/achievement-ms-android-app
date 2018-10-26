@@ -17,23 +17,17 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.entity.StringEntity;
-import cz.msebera.android.httpclient.message.BasicHeader;
-import cz.msebera.android.httpclient.protocol.HTTP;
 import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.AchievementModel;
 import in.stevemann.sams.DashboardActivity;
 import in.stevemann.sams.R;
 import in.stevemann.sams.RESTClient;
-import in.stevemann.sams.SignupActivity;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
@@ -83,7 +77,7 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
                 final String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
                 RequestParams params = new RequestParams();
-                
+
                 RESTClient.post("achievements/approve?id="+id+"&token="+token, params, new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
@@ -106,8 +100,9 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
                     @Override
                     public void onFailure(int statusCode, Header[] headers, String error, Throwable throwable){
                         progressDialog.dismiss();
-                        System.out.println(error);
-                        Log.e("ACHIEVEMENTS DATA LOAD", String.valueOf(statusCode));
+                        Log.d("Failed: ", "" + statusCode);
+                        Log.d("Error : ", "" + throwable);
+                        Log.d("Caused By : ", "" + throwable.getCause());
                     }
                 });
             }
@@ -125,7 +120,6 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
 
     @Override
     public int getItemCount() {
-        System.out.println(achievementModels.size());
         return achievementModels.size();
     }
 

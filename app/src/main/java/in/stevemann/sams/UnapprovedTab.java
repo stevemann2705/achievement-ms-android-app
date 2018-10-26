@@ -1,7 +1,6 @@
 package in.stevemann.sams;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
 import in.stevemann.sams.adapters.UnapprovedAchievementsAdapter;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
@@ -65,12 +62,11 @@ public class UnapprovedTab extends Fragment {
         String iv = data[0];
 
         String token = cryptoUtil.decryptToken(encryptedToken, iv);
-        //System.out.println("H" + token);
 
         RequestParams params = new RequestParams();
         params.put("token", token);
 
-        client.get("achievements/unapproved", params, new JsonHttpResponseHandler(){
+        RESTClient.get("achievements/unapproved", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response;
@@ -81,7 +77,6 @@ public class UnapprovedTab extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                //System.out.println(timeline.length());
                 for(int i = 0; i<array.length(); i++){
                     JSONObject o = null;
                     AchievementModel item = null;
@@ -123,8 +118,9 @@ public class UnapprovedTab extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
                 progressDialog.dismiss();
-                System.out.println("Error");
-                Log.e("ACHIEVEMENTS DATA LOAD", String.valueOf(statusCode));
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
     }

@@ -1,8 +1,8 @@
 package in.stevemann.sams;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -53,7 +53,7 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
 
         RequestParams params = new RequestParams();
 
-        client.get("achievements/all", params, new JsonHttpResponseHandler(){
+        RESTClient.get("achievements/all", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
                 //System.out.println(timeline.length());
@@ -98,8 +98,9 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
                 progressDialog.dismiss();
-                System.out.println("Error");
-                Log.e("ACHIEVEMENTS DATA LOAD", String.valueOf(statusCode));
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
     }

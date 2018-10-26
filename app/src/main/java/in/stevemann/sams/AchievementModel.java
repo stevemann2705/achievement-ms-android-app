@@ -3,8 +3,6 @@ package in.stevemann.sams;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Objects;
-
 public class AchievementModel implements Parcelable {
     private String id;
     private String eventName;

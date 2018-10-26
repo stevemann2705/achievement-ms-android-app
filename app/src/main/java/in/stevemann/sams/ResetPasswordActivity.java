@@ -1,7 +1,6 @@
 package in.stevemann.sams;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -71,7 +70,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         params.put("currentpass", oldPassword);
         params.put("newpass", newPassword);
 
-        client.post("users/resetpass", params, new JsonHttpResponseHandler() {
+        RESTClient.post("users/resetpass", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
@@ -109,8 +108,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("LOGIN AUTH RESPONSE", "Communication with server failed. Try again.");
-                // TODO: Handle onFailure() for login
+                progressDialog.dismiss();
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
 

@@ -58,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 finish();
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         params.put("email", email);
         params.put("password", password);
 
-        client.post("users/auth", params, new JsonHttpResponseHandler() {
+        RESTClient.post("users/auth", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
@@ -98,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
                     cryptoUtil.encryptToken(token, getApplicationContext());
-                    cryptoUtil.saveToken(getApplicationContext());
+                    CryptoUtil.saveToken(getApplicationContext());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -128,8 +127,10 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("LOGIN AUTH RESPONSE", "Communication with server failed. Try again.");
-                // TODO: Handle onFailure() for login
+                progressDialog.dismiss();
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
 

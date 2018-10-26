@@ -80,7 +80,7 @@ public class ResetProfileActivity extends AppCompatActivity {
         params.put("lastName", lastName);
         params.put("password", password);
 
-        client.post("users/reset", params, new JsonHttpResponseHandler() {
+        RESTClient.post("users/reset", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
@@ -118,8 +118,10 @@ public class ResetProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("LOGIN AUTH RESPONSE", "Communication with server failed. Try again.");
-                // TODO: Handle onFailure() for login
+                progressDialog.dismiss();
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
 

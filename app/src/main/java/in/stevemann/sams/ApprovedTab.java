@@ -56,7 +56,7 @@ public class ApprovedTab extends Fragment {
 
         RequestParams params = new RequestParams();
 
-        client.get("achievements/all", params, new JsonHttpResponseHandler(){
+        RESTClient.get("achievements/all", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
                 //System.out.println(timeline.length());
@@ -101,8 +101,9 @@ public class ApprovedTab extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
                 progressDialog.dismiss();
-                System.out.println("Error");
-                Log.e("ACHIEVEMENTS DATA LOAD", String.valueOf(statusCode));
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
     }
