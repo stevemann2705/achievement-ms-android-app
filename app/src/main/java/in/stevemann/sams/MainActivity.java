@@ -19,7 +19,6 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class MainActivity extends AppCompatActivity {
     CryptoUtil cryptoUtil = CryptoUtil.getInstance();
-    RESTClient client = new RESTClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!tokenExists()) {
             Log.i("TOKEN: ","Token doesn't even exist");
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, ApprovedAchievementsActivity.class);
             startActivity(intent);
         }else {
             String encryptedData = TokenUtil.readData(this);
@@ -92,11 +91,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ResetProfileActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_logout){
+        } else if (id == R.id.action_login) {
             TokenUtil.deleteData(this);
             CryptoUtil.deleteEncryption();
-            Log.i("LOGOUT: ","Deleted existing token and logged out successfully.");
-            Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
