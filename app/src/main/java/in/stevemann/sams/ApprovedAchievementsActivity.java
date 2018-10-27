@@ -1,11 +1,15 @@
 package in.stevemann.sams;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -19,10 +23,10 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
+import in.stevemann.sams.utils.CryptoUtil;
+import in.stevemann.sams.utils.TokenUtil;
 
 public class ApprovedAchievementsActivity extends AppCompatActivity {
-
-    RESTClient client = new RESTClient();
 
     RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -103,5 +107,42 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
                 Log.d("Caused By : ", "" + throwable.getCause());
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_reset_password) {
+            Intent intent = new Intent(this, ResetPasswordActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_reset_profile) {
+            Intent intent = new Intent(this, ResetProfileActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_login) {
+            TokenUtil.deleteData(this);
+            CryptoUtil.deleteEncryption();
+            Log.i("LOGOUT: ", "Deleted existing token and logged out successfully.");
+            Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }

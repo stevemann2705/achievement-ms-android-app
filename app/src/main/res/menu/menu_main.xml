@@ -6,6 +6,8 @@
         android:orderInCategory="100" app:showAsAction="never"  />
     <item android:id="@+id/action_reset_profile" android:title="@string/action_reset_profile"
         android:orderInCategory="100" app:showAsAction="never"  />
-    <item android:id="@+id/action_logout" android:title="@string/action_logout"
+    <item
+        android:id="@+id/action_login"
+        android:title="@string/login"
         android:orderInCategory="100" app:showAsAction="never"  />
 </menu>
