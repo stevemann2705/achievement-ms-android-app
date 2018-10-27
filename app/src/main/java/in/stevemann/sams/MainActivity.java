@@ -83,12 +83,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_reset_password){
-            Intent intent = new Intent(this, ResetPasswordActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_reset_profile){
-            Intent intent = new Intent(this, ResetProfileActivity.class);
+        if (id == R.id.action_add_achievement) {
+            Intent intent = new Intent(this, AddAchievementActivity.class);
             startActivity(intent);
             return true;
         } else if (id == R.id.action_login) {

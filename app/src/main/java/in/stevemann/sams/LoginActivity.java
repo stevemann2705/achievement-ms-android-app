@@ -158,12 +158,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        // Disable going back to the MainActivity
-        moveTaskToBack(true);
-    }
-
     public void onLoginSuccess() {
         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         startActivity(intent);

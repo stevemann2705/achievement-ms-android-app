@@ -3,12 +3,14 @@ package in.stevemann.sams;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -37,6 +39,15 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approved_achievements_layout);
 
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_achievement);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddAchievementActivity.class);
+                startActivity(intent);
+            }
+        });
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -44,6 +55,12 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
         achievementModels = new ArrayList<>();
 
         loadRecyclerViewData();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Disable going back to the MainActivity
+        moveTaskToBack(true);
     }
 
     private void loadRecyclerViewData() {
@@ -123,12 +140,8 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_reset_password) {
-            Intent intent = new Intent(this, ResetPasswordActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_reset_profile) {
-            Intent intent = new Intent(this, ResetProfileActivity.class);
+        if (id == R.id.action_add_achievement) {
+            Intent intent = new Intent(this, AddAchievementActivity.class);
             startActivity(intent);
             return true;
         } else if (id == R.id.action_login) {
