@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -38,7 +37,7 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approved_achievements_layout);
 
-        recyclerView = findViewById(R.id.recyclerViewApproved);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -136,7 +135,6 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
             TokenUtil.deleteData(this);
             CryptoUtil.deleteEncryption();
             Log.i("LOGOUT: ", "Deleted existing token and logged out successfully.");
-            Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
