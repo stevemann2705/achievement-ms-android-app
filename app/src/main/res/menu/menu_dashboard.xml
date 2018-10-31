@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
+        android:id="@+id/action_dashboard_search"
+        android:title="@string/action_search"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_dashboard_reset_password"
         android:title="@string/action_reset_password"
         android:orderInCategory="100"

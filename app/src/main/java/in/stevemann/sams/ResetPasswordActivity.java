@@ -117,6 +117,11 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     public void onResetSuccess() {
         Toast.makeText(getBaseContext(), "Password Reset Successful", Toast.LENGTH_LONG).show();
         _resetButton.setEnabled(true);

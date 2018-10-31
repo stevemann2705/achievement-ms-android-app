@@ -96,6 +96,10 @@ public class DashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ApprovedAchievementsActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.action_dashboard_search) {
+            Intent intent = new Intent(this, SearchAchievementActivity.class);
+            startActivityForResult(intent, 0);
+            return true;
         }
 
 

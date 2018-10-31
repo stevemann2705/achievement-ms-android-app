@@ -1,11 +1,7 @@
 package in.stevemann.sams;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Spinner;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -79,5 +75,11 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         _sessionFromText.setText(achievementModel.getSessionFrom());
         _sessionToText.setText(achievementModel.getSessionTo());
         _semester.setText(String.valueOf(achievementModel.getSemester()));
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

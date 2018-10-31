@@ -39,8 +39,6 @@ import cz.msebera.android.httpclient.Header;
 public class AddAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAchievementActivity";
 
-    RESTClient client = new RESTClient();
-
     @BindView(R.id.input_name)
     EditText _nameText;
     @BindView(R.id.input_rollNo)

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_alignParentTop="true"
+        android:layout_height="0dp"
+        android:layout_width="0dp" />
+
+    <!-- Submit Button -->
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="12dp"
+        android:text="@string/btn_submit"
+        android:layout_alignParentBottom="true" />
+
+    <ScrollView
+        android:id="@+id/scrollViewSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="24dp"
+        android:paddingRight="24dp"
+        android:layout_above="@id/btn_search"
+        android:layout_below="@id/ll1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0">
+
+                <CheckBox
+                    android:id="@+id/checkboxSearch_approved"
+                    android:layout_height="wrap_content"
+                    android:text="Approved"
+                    android:onClick="onCheckboxClicked"
+                    android:layout_width="0dp"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/checkboxSearch_unapproved"
+                    android:layout_height="wrap_content"
+                    android:text="Unapproved"
+                    android:onClick="onCheckboxClicked"
+                    android:layout_width="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+
+            <!-- Roll Number Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/input_search_rollNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_roll_no"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Department Label -->
+            <android.widget.Spinner
+                android:id="@+id/input_search_department"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:background="@color/primary_dark"
+                android:entries="@array/department_array"
+                android:popupBackground="@color/primary_dark" />
+
+            <!-- Semester Label -->
+            <android.widget.Spinner
+                android:id="@+id/input_search_semester"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:background="@color/primary_dark"
+                android:entries="@array/semester_array"
+                android:popupBackground="@color/primary_dark" />
+
+            <!-- Section Label -->
+            <android.widget.Spinner
+                android:id="@+id/input_search_section"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:background="@color/primary_dark"
+                android:entries="@array/section_array"
+                android:popupBackground="@color/primary_dark" />
+
+            <!-- Shift Label -->
+            <android.widget.Spinner
+                android:id="@+id/input_search_shift"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:background="@color/primary_dark"
+                android:entries="@array/shift_array"
+                android:popupBackground="@color/primary_dark" />
+
+            <!-- Session Start Year Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/input_search_sessionFrom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_sessionFrom"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Session End Year Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/input_search_sessionTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/inout_sessionTo"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Start Date Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/input_search_eventStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date From"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- End Date Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/input_search_eventEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date To"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Category Label -->
+            <android.widget.Spinner
+                android:id="@+id/input_search_category"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:background="@color/primary_dark"
+                android:entries="@array/category_array"
+                android:popupBackground="@color/primary_dark" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

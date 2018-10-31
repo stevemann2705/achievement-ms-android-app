@@ -104,6 +104,11 @@ public class SignupActivity extends AppCompatActivity {
         _department.setSelection(adapter.getCount()); //set the hint the default selection so it appears on launch.
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     public void signup() {
         Log.d(TAG, "Signup");
 

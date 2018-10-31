@@ -16,12 +16,11 @@ import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.AchievementModel;
 import in.stevemann.sams.R;
 
-public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAchievementsAdapter.ViewHolder> {
-
+public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachResultsAchievementsAdapter.ViewHolder> {
     private List<AchievementModel> achievementModels;
     private Context context;
 
-    public ApprovedAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
+    public SeachResultsAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
         this.context = context;
     }
@@ -30,7 +29,7 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_approved_achievement, parent, false);
+                .inflate(R.layout.list_item_search_results, parent, false);
         return new ViewHolder(v);
     }
 
@@ -41,11 +40,11 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
         holder.textViewEventName.setText(achievementModel.getEventName());
         holder.textViewRollNo.setText(achievementModel.getRollNo());
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener(){
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
+                Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj", achievementModel);
                 v.getContext().startActivity(intent);
             }
         });
@@ -65,9 +64,9 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textViewEventName = itemView.findViewById(R.id.textViewEventNameApproved);
-            textViewRollNo = itemView.findViewById(R.id.textViewRollNoApproved);
-            linearLayout = itemView.findViewById(R.id.linear_layout_approved_achievement_card);
+            textViewEventName = itemView.findViewById(R.id.textViewEventNameSearchResult);
+            textViewRollNo = itemView.findViewById(R.id.textViewRollNoSeachResult);
+            linearLayout = itemView.findViewById(R.id.linear_layout_search_result_achievement_card);
         }
     }
 }

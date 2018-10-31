@@ -151,8 +151,11 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.action_search) {
+            Intent intent = new Intent(this, SearchAchievementActivity.class);
+            startActivityForResult(intent, 0);
+            return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }

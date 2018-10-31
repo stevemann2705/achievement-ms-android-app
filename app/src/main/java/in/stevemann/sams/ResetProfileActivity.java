@@ -127,6 +127,11 @@ public class ResetProfileActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     public void onResetSuccess() {
         Toast.makeText(getBaseContext(), "Profile Reset Successful", Toast.LENGTH_LONG).show();
         _resetProfileButton.setEnabled(true);
