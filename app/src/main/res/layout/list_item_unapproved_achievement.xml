@@ -42,7 +42,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Approve"/>
+                android:text="Approve"
+                android:textColor="@color/primaryTextColor" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
