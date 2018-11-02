@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,131 +13,419 @@
         android:paddingTop="56dp"
         android:paddingRight="24dp">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_event_name"
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Event Name"/>
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_student_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Student Name"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_event_name_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Event Name: "
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_roll_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Roll No."/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_event_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Event Name"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_semester"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Semester"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_sessionFrom"
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Session From"/>
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_sessionTo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Session To"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_student_name_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Name:"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_participated_or_organised"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Participated Or Organised"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_student_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_shift"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Shift"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_description"
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Description"/>
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Section"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_roll_no_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Roll No.:"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_roll_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Roll No."
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rating"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_category"
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Category"/>
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_approved_by"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Approved By"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_semester_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Semester:"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_semester"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Semester"
+                android:layout_weight="1" />
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_imageUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Image"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_approved"
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Approved"/>
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/achievement_details_venue"
-            android:layout_width="match_parent"
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_sessionFrom_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Session From:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_sessionFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Session From"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Venue" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_sessionTo_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Session To:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_sessionTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Session To"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_participated_or_organised_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Participated/Organised:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_participated_or_organised"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Participated/Organised"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_shift_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shift:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_shift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shift"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_description_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_section_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Section:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Section"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_date_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_rating_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_category_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_title_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_imageUrl_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_imageUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_approved_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Approved:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_approved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Approved"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_approved_by_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Approved By:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_approved_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Approved By"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_venue_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Venue:"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_margin="10dp"
+                android:id="@+id/achievement_details_venue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Venue"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

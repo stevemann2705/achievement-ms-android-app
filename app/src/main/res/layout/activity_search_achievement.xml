@@ -8,7 +8,8 @@
         android:id="@+id/ll1"
         android:layout_alignParentTop="true"
         android:layout_height="0dp"
-        android:layout_width="0dp" />
+        android:layout_width="0dp"
+        android:orientation="horizontal" />
 
     <!-- Submit Button -->
     <android.support.v7.widget.AppCompatButton
@@ -126,7 +127,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp">
-
                 <EditText
                     android:id="@+id/input_search_sessionFrom"
                     android:layout_width="match_parent"
