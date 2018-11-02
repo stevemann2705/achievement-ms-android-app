@@ -22,10 +22,12 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="Login" />
+            android:label="Login"
+            android:theme="@style/AppTheme.Light" />
         <activity
             android:name=".SignupActivity"
-            android:label="Signup" />
+            android:label="Signup"
+            android:theme="@style/AppTheme.Light" />
         <activity
             android:name=".ResetPasswordActivity"
             android:label="Reset Password"
@@ -36,7 +38,8 @@
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".AddAchievementActivity"
-            android:label="Add Achievement" />
+            android:label="Add Achievement"
+            android:theme="@style/AppTheme.Light" />
         <activity
             android:name=".ApprovedAchievementsActivity"
             android:label="Home" />
@@ -48,7 +51,10 @@
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SearchAchievementActivity" />
+        <activity
+            android:name=".SearchAchievementActivity"
+            android:label="Search Achievements"
+            android:theme="@style/AppTheme.Light" />
         <activity android:name=".SearchResultsActivity"></activity>
     </application>
 
