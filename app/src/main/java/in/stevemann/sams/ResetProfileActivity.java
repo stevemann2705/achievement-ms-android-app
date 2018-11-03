@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
+import in.stevemann.sams.utils.RESTClient;
 
 public class ResetProfileActivity extends AppCompatActivity {
     private static final String TAG = "ResetProfileActivity";

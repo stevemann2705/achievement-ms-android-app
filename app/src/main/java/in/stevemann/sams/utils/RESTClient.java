@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.utils;
 
 import android.content.Context;
 

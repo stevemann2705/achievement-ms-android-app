@@ -27,8 +27,8 @@ import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.AchievementModel;
 import in.stevemann.sams.DashboardActivity;
 import in.stevemann.sams.R;
-import in.stevemann.sams.RESTClient;
 import in.stevemann.sams.utils.CryptoUtil;
+import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<UnapprovedAchievementsAdapter.ViewHolder> {

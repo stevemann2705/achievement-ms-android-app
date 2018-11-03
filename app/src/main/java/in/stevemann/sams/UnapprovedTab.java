@@ -23,6 +23,7 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.adapters.UnapprovedAchievementsAdapter;
 import in.stevemann.sams.utils.CryptoUtil;
+import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class UnapprovedTab extends Fragment {

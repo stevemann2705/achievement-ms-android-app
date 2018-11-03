@@ -35,6 +35,7 @@ import java.io.FileNotFoundException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
+import in.stevemann.sams.utils.RESTClient;
 
 public class AddAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAchievementActivity";
