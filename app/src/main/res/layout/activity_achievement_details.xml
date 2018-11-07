@@ -427,5 +427,16 @@
 
         </LinearLayout>
 
+        <!-- Delete Achievement Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_delete_achievement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="Delete Achievement"
+            android:textColor="@color/primaryTextColor" />
+
     </LinearLayout>
 </ScrollView>

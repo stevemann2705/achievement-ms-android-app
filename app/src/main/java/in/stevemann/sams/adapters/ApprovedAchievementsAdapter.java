@@ -1,5 +1,6 @@
 package in.stevemann.sams.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,6 +15,8 @@ import java.util.List;
 
 import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.AchievementModel;
+import in.stevemann.sams.ApprovedAchievementsActivity;
+import in.stevemann.sams.DashboardActivity;
 import in.stevemann.sams.R;
 
 public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAchievementsAdapter.ViewHolder> {
@@ -46,6 +49,7 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
+                intent.putExtra("classFrom", DashboardActivity.class.toString());
                 v.getContext().startActivity(intent);
             }
         });

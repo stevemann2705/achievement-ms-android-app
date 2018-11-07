@@ -1,17 +1,33 @@
 package in.stevemann.sams;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cz.msebera.android.httpclient.Header;
+import in.stevemann.sams.utils.CryptoUtil;
+import in.stevemann.sams.utils.RESTClient;
+import in.stevemann.sams.utils.TokenUtil;
 
 public class AchievementDetailsActivity extends AppCompatActivity {
 
     AchievementModel achievementModel = null;
+    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.achievement_details_event_name)
     TextView _eventNameText;
@@ -49,6 +65,8 @@ public class AchievementDetailsActivity extends AppCompatActivity {
     TextView _approvedText;
     @BindView(R.id.achievement_details_imageUrl)
     TextView _imageUrlText;
+    @BindView(R.id.btn_delete_achievement)
+    Button _deleteAchievementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +74,79 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_achievement_details);
         ButterKnife.bind(this);
         achievementModel = Objects.requireNonNull(getIntent().getExtras()).getParcelable("achievementObj");
+
+        if(DashboardActivity.class.toString().equals(getIntent().getExtras().getString("classFrom"))){
+            _deleteAchievementButton.setEnabled(true);
+            _deleteAchievementButton.setVisibility(View.VISIBLE);
+
+            _deleteAchievementButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final ProgressDialog progressDialog = new ProgressDialog(getApplicationContext(),
+                            R.style.AppTheme_Dark_Dialog);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.setMessage("Loading Unapproved Data...");
+                    progressDialog.show();
+
+                    String encryptedData = TokenUtil.readData(getApplicationContext());
+                    String[] data = encryptedData.split(" ");
+                    String encryptedToken = data[1];
+                    String iv = data[0];
+
+                    String token = cryptoUtil.decryptToken(encryptedToken, iv);
+
+                    RequestParams params = new RequestParams();
+                    params.put("token", token);
+                    params.put("id", achievementModel.getId());
+
+                    RESTClient.post("achievements/delete", params, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
+
+                            boolean response = true;
+                            try {
+                                response = (boolean) timeline.get("bool");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            if (response) {
+                                new android.os.Handler().postDelayed(
+                                        new Runnable() {
+                                            public void run() {
+                                                // On complete call either onLoginSuccess or onLoginFailed
+                                                onDeleteSuccess();
+                                                // onLoginFailed();
+                                                progressDialog.dismiss();
+                                            }
+                                        }, 3000);
+                            } else {
+                                new android.os.Handler().postDelayed(
+                                        new Runnable() {
+                                            public void run() {
+                                                // On complete call either onLoginSuccess or onLoginFailed
+                                                //onLoginSuccess();
+                                                onDeleteFailed();
+                                                progressDialog.dismiss();
+                                            }
+                                        }, 3000);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                            Log.d("Failed: ", ""+statusCode);
+                            Log.d("Error : ", "" + throwable);
+                            Log.d("Caused By : ", "" + throwable.getCause());
+                        }
+                    });
+                }
+            });
+        }
+        else{
+            _deleteAchievementButton.setVisibility(View.GONE);
+        }
 
         _eventNameText.setText(achievementModel.getEventName());
         _approvedByText.setText(achievementModel.getApprovedBy());
@@ -76,6 +167,18 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         _sessionToText.setText(achievementModel.getSessionTo());
         _semester.setText(String.valueOf(achievementModel.getSemester()));
 
+    }
+
+    public void onDeleteSuccess() {
+        _deleteAchievementButton.setEnabled(true);
+        Toast.makeText(getBaseContext(), "Achievement Deletion Successful", Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+    public void onDeleteFailed() {
+        Toast.makeText(getBaseContext(), "Achievement Deletion failed", Toast.LENGTH_LONG).show();
+        _deleteAchievementButton.setEnabled(true);
+        finish();
     }
 
     @Override

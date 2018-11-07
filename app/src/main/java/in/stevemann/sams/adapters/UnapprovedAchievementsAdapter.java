@@ -113,6 +113,7 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
+                intent.putExtra("classFrom", DashboardActivity.class.toString());
                 v.getContext().startActivity(intent);
             }
         });
