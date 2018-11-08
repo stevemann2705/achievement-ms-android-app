@@ -77,7 +77,6 @@ public class ApprovedAchievementsActivity extends AppCompatActivity {
         RESTClient.get("achievements/all", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
-                //System.out.println(timeline.length());
                 for(int i = 0; i<timeline.length(); i++){
                     JSONObject o = null;
                     AchievementModel item = null;
