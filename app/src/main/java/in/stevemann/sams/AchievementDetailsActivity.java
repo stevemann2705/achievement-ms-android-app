@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -76,6 +77,7 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         achievementModel = Objects.requireNonNull(getIntent().getExtras()).getParcelable("achievementObj");
 
+        System.out.println(DashboardActivity.class.toString()  + "                " + (getIntent().getExtras().getString("classFrom")));
         if(DashboardActivity.class.toString().equals(getIntent().getExtras().getString("classFrom"))){
             _deleteAchievementButton.setEnabled(true);
             _deleteAchievementButton.setVisibility(View.VISIBLE);
@@ -83,24 +85,21 @@ public class AchievementDetailsActivity extends AppCompatActivity {
             _deleteAchievementButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final ProgressDialog progressDialog = new ProgressDialog(getApplicationContext(),
+                    final ProgressDialog progressDialog = new ProgressDialog(v.getContext(),
                             R.style.AppTheme_Dark_Dialog);
                     progressDialog.setIndeterminate(true);
-                    progressDialog.setMessage("Loading Unapproved Data...");
+                    progressDialog.setMessage("Deleting Achievement...");
                     progressDialog.show();
 
                     String encryptedData = TokenUtil.readData(getApplicationContext());
                     String[] data = encryptedData.split(" ");
                     String encryptedToken = data[1];
                     String iv = data[0];
-
                     String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
-                    RequestParams params = new RequestParams();
-                    params.put("token", token);
-                    params.put("id", achievementModel.getId());
-
-                    RESTClient.post("achievements/delete", params, new JsonHttpResponseHandler() {
+                    RequestParams params = new RequestParams(); //this bloody thing just doesn't work with RequestParams so embedding the params in the URL is the only option. Way to go!
+                    
+                    new RESTClient().post("achievements/delete?id="+achievementModel.getId()+"&token="+token, params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
 
