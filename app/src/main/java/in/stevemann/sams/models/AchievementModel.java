@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

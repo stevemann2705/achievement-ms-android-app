@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -21,6 +20,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
+import in.stevemann.sams.models.AchievementModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.TokenUtil;
@@ -98,7 +98,7 @@ public class AchievementDetailsActivity extends AppCompatActivity {
                     String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
                     RequestParams params = new RequestParams(); //this bloody thing just doesn't work with RequestParams so embedding the params in the URL is the only option. Way to go!
-                    
+
                     new RESTClient().post("achievements/delete?id="+achievementModel.getId()+"&token="+token, params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {

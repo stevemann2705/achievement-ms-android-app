@@ -25,6 +25,7 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
+import in.stevemann.sams.models.AchievementModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.TokenUtil;

@@ -2,6 +2,8 @@ package in.stevemann.sams;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,14 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
-public class DashboardActivity extends AppCompatActivity {
-
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+public class ApprovedAchievementsActivityNew extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_approved_achievements_new);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,18 +56,22 @@ public class DashboardActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-    }
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        getMenuInflater().inflate(R.menu.menu_approved_achievements_activity_new, menu);
         return true;
     }
 
@@ -79,28 +83,22 @@ public class DashboardActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_dashboard_reset_password) {
-            Intent intent = new Intent(this, ResetPasswordActivity.class);
+        if (id == R.id.action_add_achievement) {
+            Intent intent = new Intent(this, AddAchievementActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_dashboard_reset_profile) {
-            Intent intent = new Intent(this, ResetProfileActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_dashboard_logout) {
+        } else if (id == R.id.action_login) {
             TokenUtil.deleteData(this);
             CryptoUtil.deleteEncryption();
-            Log.i("LOGOUT: ","Deleted existing token and logged out successfully.");
-            Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, ApprovedAchievementsActivity.class);
+            Log.i("LOGOUT: ", "Deleted existing token and logged out successfully.");
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_dashboard_search) {
+        } else if (id == R.id.action_search) {
             Intent intent = new Intent(this, SearchAchievementActivity.class);
             startActivityForResult(intent, 0);
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -117,14 +115,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
+            switch (position) {
                 case 0:
-                    ApprovedTab approvedTab = new ApprovedTab();
-                    return approvedTab;
+                    ApprovedAchievementsTab approvedAchievementsTab = new ApprovedAchievementsTab();
+                    return approvedAchievementsTab;
                 case 1:
-                    UnapprovedTab unapprovedTab = new UnapprovedTab();
-                    return unapprovedTab;
-                case 2:
                     AcademicsTab academicsTab = new AcademicsTab();
                     return academicsTab;
                 default:
@@ -134,8 +129,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 2 total pages.
-            return 3;
+            // Show 3 total pages.
+            return 2;
         }
     }
 }

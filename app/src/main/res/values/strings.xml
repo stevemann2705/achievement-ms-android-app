@@ -30,4 +30,6 @@
     <string name="login">Login</string>
     <string name="add_achievement">Add Achievement</string>
     <string name="action_search">Search</string>
+    <string name="title_activity_approved_achievements_new">ApprovedAchievementsActivityNew</string>
+    <string name="tab_text_3">Academics</string>
 </resources>

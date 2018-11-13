@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.List;
 
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
+import in.stevemann.sams.models.AchievementModel;
 
 public class SearchResultsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
