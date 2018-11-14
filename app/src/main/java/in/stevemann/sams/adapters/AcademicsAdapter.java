@@ -38,7 +38,7 @@ public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.View
     public void onBindViewHolder(@NonNull AcademicsAdapter.ViewHolder holder, int position) {
         final AcademicModel academicModel = academicModels.get(position);
 
-        holder.textViewName.setText(academicModel.getName());
+        holder.textViewAchievementAcademic.setText(academicModel.getName());
         holder.textViewRollNo.setText(academicModel.getRollNo());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
@@ -59,16 +59,16 @@ public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewName;
+        public TextView textViewAchievementAcademic;
         public TextView textViewRollNo;
         public LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textViewName = itemView.findViewById(R.id.textViewEventNameApproved);
-            textViewRollNo = itemView.findViewById(R.id.textViewRollNoApproved);
-            linearLayout = itemView.findViewById(R.id.linear_layout_approved_achievement_card);
+            textViewAchievementAcademic = itemView.findViewById(R.id.textViewAchievementAcademic);
+            textViewRollNo = itemView.findViewById(R.id.textViewRollNoAcademic);
+            linearLayout = itemView.findViewById(R.id.linear_layout_academic_card);
         }
     }
 }
