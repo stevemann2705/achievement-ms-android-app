@@ -34,15 +34,6 @@
             android:label="Add Achievement"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".ApprovedAchievementsActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".AchievementDetailsActivity"
             android:label="Achievement Details"
             android:theme="@style/AppTheme.Dark" />
@@ -56,9 +47,15 @@
             android:theme="@style/AppTheme.Light" />
         <activity android:name=".SearchResultsActivity" />
         <activity
-            android:name=".ApprovedAchievementsActivityNew"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_approved_achievements_new"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

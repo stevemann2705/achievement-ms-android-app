@@ -86,7 +86,7 @@ public class SearchAchievementActivity extends AppCompatActivity {
 
         callingClass = Objects.requireNonNull(this.getCallingActivity()).getClassName();
 
-        if ("in.stevemann.sams.ApprovedAchievementsActivity".equals(callingClass)) {
+        if ("in.stevemann.sams.HomeActivity".equals(callingClass)) {
             _approved.setChecked(true);
             _approved.setEnabled(false);
             _unapproved.setChecked(false);

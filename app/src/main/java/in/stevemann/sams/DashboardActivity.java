@@ -92,7 +92,7 @@ public class DashboardActivity extends AppCompatActivity {
             CryptoUtil.deleteEncryption();
             Log.i("LOGOUT: ","Deleted existing token and logged out successfully.");
             Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, ApprovedAchievementsActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             return true;
         } else if (id == R.id.action_dashboard_search) {
