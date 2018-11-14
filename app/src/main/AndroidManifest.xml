@@ -60,6 +60,10 @@
             android:name=".AcademicDetailsActivity"
             android:label="Achievement Details"
             android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name=".AddAcademicAchievementActivity"
+            android:label="Add Academic Achievement"
+            android:theme="@style/AppTheme.Light"></activity>
     </application>
 
 </manifest>

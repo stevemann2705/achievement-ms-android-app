@@ -19,7 +19,6 @@ import android.widget.Toast;
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;
 import in.stevemann.sams.tabs.UnapprovedTab;
-import in.stevemann.sams.utils.AddAcademicAchievement;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
@@ -49,11 +48,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.floatbutton_add_academic_achievement);
         fab.hide();
-        // TODO: Add Academic Achievement Activity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddAcademicAchievement.class);
+                Intent intent = new Intent(getApplicationContext(), AddAcademicAchievementActivity.class);
                 startActivity(intent);
             }
         });
