@@ -1,15 +1,11 @@
 package in.stevemann.sams.utils;
 
-import android.content.Context;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import cz.msebera.android.httpclient.HttpEntity;
-
 public class RESTClient {
-    private static final String BASE_URL = "http://10.0.2.2:8090/";
+    private static final String BASE_URL = "https://amsmsi.com/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
