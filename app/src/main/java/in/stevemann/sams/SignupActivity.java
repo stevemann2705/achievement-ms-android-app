@@ -39,6 +39,8 @@ public class SignupActivity extends AppCompatActivity {
     EditText _emailText;
     @BindView(R.id.input_department)
     Spinner _department;
+    @BindView(R.id.input_shift)
+    Spinner _shift;
     @BindView(R.id.input_code)
     EditText _code;
     @BindView(R.id.input_password)
@@ -74,7 +76,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+        ArrayAdapter<String> departmentAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -95,14 +97,43 @@ public class SignupActivity extends AppCompatActivity {
 
         };
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter.add("computerscience");
-        adapter.add("education");
-        adapter.add("management");
-        adapter.add("Department"); //Spinner selection text
+        departmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        departmentAdapter.add("computerscience");
+        departmentAdapter.add("education");
+        departmentAdapter.add("management");
+        departmentAdapter.add("Department"); //Spinner selection text
 
-        _department.setAdapter(adapter);
-        _department.setSelection(adapter.getCount()); //set the hint the default selection so it appears on launch.
+        _department.setAdapter(departmentAdapter);
+        _department.setSelection(departmentAdapter.getCount()); //set the hint the default selection so it appears on launch.
+
+        ArrayAdapter<String> shiftAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View v = super.getView(position, convertView, parent);
+                if (position == getCount()) {
+                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
+                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
+                }
+
+                return v;
+            }
+
+            @Override
+            public int getCount() {
+                return super.getCount() - 1; // you dont display last item. It is used as hint.
+            }
+
+        };
+
+        shiftAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        shiftAdapter.add("morning");
+        shiftAdapter.add("evening");
+        shiftAdapter.add("Shift"); //Spinner selection text
+
+        _shift.setAdapter(shiftAdapter);
+        _shift.setSelection(shiftAdapter.getCount()); //set the hint the default selection so it appears on launch.
     }
 
     @Override
@@ -130,6 +161,7 @@ public class SignupActivity extends AppCompatActivity {
         String lastName = _lastNameText.getText().toString();
         String email = _emailText.getText().toString();
         String department = _department.getSelectedItem().toString();
+        String shift = _shift.getSelectedItem().toString();
         String password = _passwordText.getText().toString();
         String code = _code.getText().toString();
 
@@ -137,6 +169,7 @@ public class SignupActivity extends AppCompatActivity {
         params.put("firstName", firstName);
         params.put("lastName", lastName);
         params.put("department", department);
+        params.put("shift", shift);
         params.put("email", email);
         params.put("password", password);
         params.put("code", code);
@@ -205,6 +238,7 @@ public class SignupActivity extends AppCompatActivity {
         String lastName = _lastNameText.getText().toString();
         String email = _emailText.getText().toString();
         String department = _department.getSelectedItem().toString();
+        String shift = _shift.getSelectedItem().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
         String code = _code.getText().toString();
@@ -239,6 +273,16 @@ public class SignupActivity extends AppCompatActivity {
             valid = false;
         } else {
             System.out.println("No Error in Department Spinner");
+        }
+
+        if ("Shift".equals(shift)) {
+            TextView errorText = (TextView) _shift.getSelectedView();
+            errorText.setError("");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select shift");
+            valid = false;
+        } else {
+            System.out.println("No Error in Shift Spinner");
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
