@@ -2,6 +2,7 @@ package in.stevemann.sams;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,11 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;
 import in.stevemann.sams.tabs.UnapprovedTab;
+import in.stevemann.sams.utils.AddAcademicAchievement;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
@@ -44,6 +47,17 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_academic_achievement);
+        fab.hide();
+        // TODO: Add Academic Achievement Activity
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddAcademicAchievement.class);
+                startActivity(intent);
+            }
+        });
+
         Toolbar toolbar = findViewById(R.id.toolbar_dashboard);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -57,8 +71,34 @@ public class DashboardActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs_dashboard);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+                setFabVisibility(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+    }
+
+    private void setFabVisibility(final int position) {
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_academic_achievement);
+        if (position == 2) {
+            fab.show();
+        } else {
+            fab.hide();
+        }
     }
 
     @Override

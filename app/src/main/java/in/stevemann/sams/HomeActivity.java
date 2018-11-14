@@ -52,6 +52,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_achievement);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddAchievementActivity.class);
+                startActivity(intent);
+            }
+        });
+
         if (tokenExists()) {
             String encryptedData = TokenUtil.readData(this);
             String[] data = encryptedData.split(" ");
@@ -102,17 +111,34 @@ public class HomeActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs_home);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
-        FloatingActionButton fab = findViewById(R.id.floatbutton_add_achievement);
-        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddAchievementActivity.class);
-                startActivity(intent);
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+                setFabVisibility(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
+    }
+
+    private void setFabVisibility(final int position) {
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_achievement);
+        if (position == 0) {
+            fab.show();
+        } else {
+            fab.hide();
+        }
     }
 
 

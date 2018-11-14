@@ -61,7 +61,7 @@
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_input_add"
         android:tint="@color/primaryTextColor"
-        app:backgroundTint="@color/primaryColor"
-        app:backgroundTintMode="src_atop" />
+        android:backgroundTint="@color/primaryColor"
+        android:backgroundTintMode="src_atop" />
 
 </android.support.design.widget.CoordinatorLayout>
