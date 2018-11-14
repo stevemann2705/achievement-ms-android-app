@@ -65,7 +65,7 @@ public class AcademicsTab extends Fragment {
                     try {
                         o = timeline.getJSONObject(i);
                         item = new AcademicModel(
-                                o.getString("id"),
+                                o.getString("_id"),
                                 o.getString("rollNo"),
                                 o.getString("name"),
                                 o.getString("batch"),
