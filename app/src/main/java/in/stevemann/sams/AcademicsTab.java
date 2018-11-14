@@ -1,6 +1,8 @@
 package in.stevemann.sams;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +45,7 @@ public class AcademicsTab extends Fragment {
         academicModels = new ArrayList<>();
 
         loadRecyclerViewData();
+
         return rootView;
     }
 
@@ -55,6 +58,7 @@ public class AcademicsTab extends Fragment {
         progressDialog.show();
 
         RequestParams params = new RequestParams();
+
 
         RESTClient.get("academic/getall", params, new JsonHttpResponseHandler() {
             @Override
@@ -89,7 +93,28 @@ public class AcademicsTab extends Fragment {
                 Log.d("Failed: ", "" + statusCode);
                 Log.d("Error : ", "" + throwable);
                 Log.d("Caused By : ", "" + throwable.getCause());
+
+                if (statusCode == 0) {
+                    try {
+                        AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+
+                        alertDialog.setTitle("Info");
+                        alertDialog.setMessage("Internet not available, Cross check your internet connectivity and try again");
+                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                getActivity().finish();
+
+                            }
+                        });
+
+                        alertDialog.show();
+                    } catch (Exception e) {
+                        Log.d("CONNECTION", "Show Dialog: " + e.getMessage());
+                    }
+                }
             }
         });
+
     }
 }
