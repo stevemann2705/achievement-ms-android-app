@@ -26,7 +26,6 @@ import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class AchievementDetailsActivity extends AppCompatActivity {
-    //comment
 
     AchievementModel achievementModel = null;
     CryptoUtil cryptoUtil = CryptoUtil.getInstance();
@@ -77,8 +76,8 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         achievementModel = Objects.requireNonNull(getIntent().getExtras()).getParcelable("achievementObj");
 
-        System.out.println(DashboardActivity.class.toString()  + "                " + (getIntent().getExtras().getString("classFrom")));
-        if(DashboardActivity.class.toString().equals(getIntent().getExtras().getString("classFrom"))){
+        System.out.println(TokenUtil.dataExists(this));
+        if (TokenUtil.dataExists(this)) {
             _deleteAchievementButton.setEnabled(true);
             _deleteAchievementButton.setVisibility(View.VISIBLE);
 
