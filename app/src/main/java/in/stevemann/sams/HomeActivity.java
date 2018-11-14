@@ -132,6 +132,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private void setFabVisibility(final int position) {
         FloatingActionButton fab = findViewById(R.id.floatbutton_add_achievement);
         if (position == 0) {
@@ -167,6 +172,7 @@ public class HomeActivity extends AppCompatActivity {
             Log.i("LOGOUT: ", "Deleted existing token and logged out successfully.");
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+            this.finish();
             return true;
         } else if (id == R.id.action_search) {
             Intent intent = new Intent(this, SearchAchievementActivity.class);

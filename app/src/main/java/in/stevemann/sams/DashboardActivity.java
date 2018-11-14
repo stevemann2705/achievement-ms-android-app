@@ -135,6 +135,7 @@ public class DashboardActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+            this.finish();
             return true;
         } else if (id == R.id.action_dashboard_search) {
             Intent intent = new Intent(this, SearchAchievementActivity.class);
