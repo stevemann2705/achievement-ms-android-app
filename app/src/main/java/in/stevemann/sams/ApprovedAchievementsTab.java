@@ -36,7 +36,7 @@ public class ApprovedAchievementsTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_approved_achievements, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerViewApproved);
+        recyclerView = rootView.findViewById(R.id.recyclerViewApprovedAchievements);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
