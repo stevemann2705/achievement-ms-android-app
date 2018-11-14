@@ -14,6 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import in.stevemann.sams.tabs.AcademicsTab;
+import in.stevemann.sams.tabs.ApprovedTab;
+import in.stevemann.sams.tabs.UnapprovedTab;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 

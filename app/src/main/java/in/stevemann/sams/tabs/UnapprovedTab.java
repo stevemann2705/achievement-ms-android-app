@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.tabs;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -21,11 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
+import in.stevemann.sams.R;
+import in.stevemann.sams.adapters.UnapprovedAchievementsAdapter;
 import in.stevemann.sams.models.AchievementModel;
+import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
+import in.stevemann.sams.utils.TokenUtil;
 
-public class ApprovedTab extends Fragment {
+public class UnapprovedTab extends Fragment {
+
+    RESTClient client = new RESTClient();
+    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -35,8 +41,8 @@ public class ApprovedTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_dashboard_approved, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerViewApproved);
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_unapproved, container, false);
+        recyclerView = rootView.findViewById(R.id.recyclerViewUnapproved);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -47,23 +53,38 @@ public class ApprovedTab extends Fragment {
     }
 
     private void loadRecyclerViewData() {
-
         final ProgressDialog progressDialog = new ProgressDialog(getContext(),
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Loading Approved Data...");
+        progressDialog.setMessage("Loading Unapproved Data...");
         progressDialog.show();
 
-        RequestParams params = new RequestParams();
+        String encryptedData = TokenUtil.readData(getContext());
+        String[] data = encryptedData.split(" ");
+        String encryptedToken = data[1];
+        String iv = data[0];
 
-        RESTClient.get("achievements/all", params, new JsonHttpResponseHandler() {
+        String token = cryptoUtil.decryptToken(encryptedToken, iv);
+
+        RequestParams params = new RequestParams();
+        params.put("token", token);
+
+        RESTClient.get("achievements/unapproved", params, new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
-                for(int i = 0; i<timeline.length(); i++){
+            public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
+                boolean response;
+                JSONArray array = null;
+                try {
+                    response = timeline.getBoolean("bool");
+                    array = timeline.getJSONArray("data");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                for(int i = 0; i<array.length(); i++){
                     JSONObject o = null;
                     AchievementModel item = null;
                     try {
-                        o = timeline.getJSONObject(i);
+                        o = array.getJSONObject(i);
                         item = new AchievementModel(
                                 o.getString("_id"),
                                 o.getString("eventName"),
@@ -79,7 +100,7 @@ public class ApprovedTab extends Fragment {
                                 o.getString("department"),
                                 o.getString("date"),
                                 o.getString("rating"),
-                                o.getString("approvedBy"),
+                                "null",
                                 o.getString("category"),
                                 o.getString("title"),
                                 o.getString("imageUrl"),
@@ -93,7 +114,7 @@ public class ApprovedTab extends Fragment {
                 }
 
                 progressDialog.dismiss();
-                adapter = new ApprovedAchievementsAdapter(achievementModels, getContext());
+                adapter = new UnapprovedAchievementsAdapter(achievementModels, getContext());
                 recyclerView.setAdapter(adapter);
             }
 

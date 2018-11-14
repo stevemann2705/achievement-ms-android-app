@@ -1,6 +1,8 @@
-package in.stevemann.sams;
+package in.stevemann.sams.tabs;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,28 +23,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
-import in.stevemann.sams.models.AchievementModel;
+import in.stevemann.sams.R;
+import in.stevemann.sams.adapters.AcademicsAdapter;
+import in.stevemann.sams.models.AcademicModel;
 import in.stevemann.sams.utils.RESTClient;
 
-public class ApprovedAchievementsTab extends Fragment {
+public class AcademicsTab extends Fragment {
 
     RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
-    private List<AchievementModel> achievementModels;
+    private List<AcademicModel> academicModels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_approved_achievements, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerViewApprovedAchievements);
+        View rootView = inflater.inflate(R.layout.fragment_academics, container, false);
+        recyclerView = rootView.findViewById(R.id.recyclerViewAcademics);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        achievementModels = new ArrayList<>();
+        academicModels = new ArrayList<>();
 
         loadRecyclerViewData();
+
         return rootView;
     }
 
@@ -51,49 +55,36 @@ public class ApprovedAchievementsTab extends Fragment {
         final ProgressDialog progressDialog = new ProgressDialog(getContext(),
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Loading Approved Data...");
+        progressDialog.setMessage("Loading Academics Data...");
         progressDialog.show();
 
         RequestParams params = new RequestParams();
 
-        RESTClient.get("achievements/all", params, new JsonHttpResponseHandler() {
+
+        RESTClient.get("academic/getall", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
                 for (int i = 0; i < timeline.length(); i++) {
                     JSONObject o = null;
-                    AchievementModel item = null;
+                    AcademicModel item = null;
                     try {
                         o = timeline.getJSONObject(i);
-                        item = new AchievementModel(
+                        item = new AcademicModel(
                                 o.getString("_id"),
-                                o.getString("eventName"),
                                 o.getString("rollNo"),
-                                o.getInt("semester"),
-                                o.getString("sessionFrom"),
                                 o.getString("name"),
-                                o.getBoolean("participated"),
-                                o.getString("description"),
-                                o.getString("shift"),
-                                o.getString("sessionTo"),
-                                o.getString("section"),
-                                o.getString("department"),
-                                o.getString("date"),
-                                o.getString("rating"),
-                                o.getString("approvedBy"),
-                                o.getString("category"),
-                                o.getString("title"),
-                                o.getString("imageUrl"),
-                                o.getBoolean("approved"),
-                                o.getString("venue")
+                                o.getString("batch"),
+                                o.getString("programme"),
+                                o.getString("category")
                         );
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    achievementModels.add(item);
+                    academicModels.add(item);
                 }
 
                 progressDialog.dismiss();
-                adapter = new ApprovedAchievementsAdapter(achievementModels, getContext());
+                adapter = new AcademicsAdapter(academicModels, getContext());
                 recyclerView.setAdapter(adapter);
             }
 
@@ -103,7 +94,28 @@ public class ApprovedAchievementsTab extends Fragment {
                 Log.d("Failed: ", "" + statusCode);
                 Log.d("Error : ", "" + throwable);
                 Log.d("Caused By : ", "" + throwable.getCause());
+
+                if (statusCode == 0) {
+                    try {
+                        AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+
+                        alertDialog.setTitle("Info");
+                        alertDialog.setMessage("Internet not available, Cross check your internet connectivity and try again");
+                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                getActivity().finish();
+
+                            }
+                        });
+
+                        alertDialog.show();
+                    } catch (Exception e) {
+                        Log.d("CONNECTION", "Show Dialog: " + e.getMessage());
+                    }
+                }
             }
         });
+
     }
 }
