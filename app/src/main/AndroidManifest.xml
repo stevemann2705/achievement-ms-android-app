@@ -16,11 +16,11 @@
         <activity
             android:name=".LoginActivity"
             android:label="Login"
-            android:theme="@style/AppTheme.Light" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".SignupActivity"
             android:label="Signup"
-            android:theme="@style/AppTheme.Light" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".ResetPasswordActivity"
             android:label="Reset Password"
@@ -32,7 +32,7 @@
         <activity
             android:name=".AddAchievementActivity"
             android:label="Add Achievement"
-            android:theme="@style/AppTheme.Light" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".AchievementDetailsActivity"
             android:label="Achievement Details"
@@ -40,16 +40,16 @@
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".SearchAchievementActivity"
             android:label="Search Achievements"
-            android:theme="@style/AppTheme.Light" />
+            android:theme="@style/AppTheme.Dark" />
         <activity android:name=".SearchResultsActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Dark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,7 +63,7 @@
         <activity
             android:name=".AddAcademicAchievementActivity"
             android:label="Add Academic Achievement"
-            android:theme="@style/AppTheme.Light"></activity>
+            android:theme="@style/AppTheme.Dark"></activity>
     </application>
 
 </manifest>
