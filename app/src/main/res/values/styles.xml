@@ -13,6 +13,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
@@ -22,6 +23,8 @@
         <item name="cardViewStyle">@style/CardViewStyle.Dark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:itemBackground">@color/primaryDarkColor</item>
+        <item name="actionMenuTextColor">@color/primaryTextColor</item>
     </style>
 
     <style name="AppTheme.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">
@@ -40,11 +43,13 @@
         <item name="colorAccent">@color/primaryLightColor</item>
     </style>
 
-    <style name="CardViewStyle.Light" parent="CardView">
+    <style name="CardViewStyle.Dark" parent="CardView.Dark">
         <item name="cardBackgroundColor">@color/primaryLightColor</item>
+        <item name="cardElevation">4dp</item>
     </style>
 
-    <style name="CardViewStyle.Dark" parent="CardView">
-        <item name="cardBackgroundColor">@color/primaryLightColor</item>
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:colorButtonNormal">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryColor</item>
     </style>
 </resources>
