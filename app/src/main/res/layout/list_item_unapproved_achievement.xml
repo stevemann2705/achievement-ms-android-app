@@ -43,6 +43,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Approve"
+                android:background="@color/primaryColor"
                 android:textColor="@color/primaryTextColor" />
         </LinearLayout>
 
