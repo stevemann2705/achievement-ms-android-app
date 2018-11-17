@@ -62,7 +62,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         _resetButton.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(ResetPasswordActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Light_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Resetting Password...");
         progressDialog.show();

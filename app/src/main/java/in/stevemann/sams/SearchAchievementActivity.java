@@ -267,7 +267,7 @@ public class SearchAchievementActivity extends AppCompatActivity {
         _searchButton.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(SearchAchievementActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Light_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Searching...");
         progressDialog.show();

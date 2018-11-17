@@ -85,7 +85,7 @@ public class AchievementDetailsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     final ProgressDialog progressDialog = new ProgressDialog(v.getContext(),
-                            R.style.AppTheme_Dark_Dialog);
+                            R.style.AppTheme_Light_Dialog);
                     progressDialog.setIndeterminate(true);
                     progressDialog.setMessage("Deleting Achievement...");
                     progressDialog.show();

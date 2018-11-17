@@ -53,7 +53,7 @@ public class AcademicsTab extends Fragment {
     private void loadRecyclerViewData() {
 
         final ProgressDialog progressDialog = new ProgressDialog(getContext(),
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Light_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading Academics Data...");
         progressDialog.show();

@@ -140,7 +140,7 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         _submitButton.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(AddAcademicAchievementActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Light_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Submitting Data...");
         progressDialog.show();

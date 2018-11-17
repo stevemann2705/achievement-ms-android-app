@@ -40,16 +40,19 @@
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Light" />
         <activity
             android:name=".SearchAchievementActivity"
             android:label="Search Achievements"
             android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".SearchResultsActivity" />
+        <activity
+            android:name=".SearchResultsActivity"
+            android:label="Search Results"
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.Dark">
+            android:theme="@style/AppTheme.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

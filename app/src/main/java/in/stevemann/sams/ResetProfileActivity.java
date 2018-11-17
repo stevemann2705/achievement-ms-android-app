@@ -69,7 +69,7 @@ public class ResetProfileActivity extends AppCompatActivity {
         _resetProfileButton.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(ResetProfileActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Light_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Resetting Password...");
         progressDialog.show();

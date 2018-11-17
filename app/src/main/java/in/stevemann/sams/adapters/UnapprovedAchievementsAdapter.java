@@ -63,7 +63,7 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(context,
-                        R.style.AppTheme_Dark_Dialog);
+                        R.style.AppTheme_Light_Dialog);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Approving Achievement...");
                 progressDialog.show();
