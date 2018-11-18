@@ -17,12 +17,12 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
 
-import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.DashboardActivity;
 import in.stevemann.sams.R;

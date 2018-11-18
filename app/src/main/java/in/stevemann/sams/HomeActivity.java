@@ -19,9 +19,9 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
 import org.json.JSONObject;
 
-import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;
 import in.stevemann.sams.utils.CryptoUtil;

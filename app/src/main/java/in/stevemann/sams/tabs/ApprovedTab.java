@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +21,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import cz.msebera.android.httpclient.Header;
 import in.stevemann.sams.R;
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
 import in.stevemann.sams.models.AchievementModel;
