@@ -321,7 +321,6 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
 
         startYear = "20" + startYear;
         endYear = "20" + endYear;
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + startYear + " " + endYear);
         return new String[]{startYear, endYear};
     }
 }
