@@ -186,8 +186,8 @@ public class LoginActivity extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+        if (password.isEmpty() || password.length() < 6 || password.length() > 20) {
+            _passwordText.setError("between 6 and 20 alphanumeric characters");
             valid = false;
         } else {
             _passwordText.setError(null);
