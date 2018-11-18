@@ -299,13 +299,6 @@ public class SignupActivity extends AppCompatActivity {
             _reEnterPasswordText.setError(null);
         }
 
-        if (code.isEmpty() || !("code".equals(code))) {
-            _code.setError("Invalid Code");
-            valid = false;
-        } else {
-            _code.setError(null);
-        }
-
         return valid;
     }
 }
