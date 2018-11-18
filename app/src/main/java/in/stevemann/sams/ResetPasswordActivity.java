@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.stevemann.sams.utils.CommonUtils;
+import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.RESTClient;
 
 public class ResetPasswordActivity extends AppCompatActivity {
@@ -68,7 +68,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         progressDialog.show();
 
         RequestParams params = new RequestParams();
-        params.put("email", CommonUtils.email);
+        params.put("email", UserModel.getEmail());
         params.put("currentpass", oldPassword);
         params.put("newpass", newPassword);
 

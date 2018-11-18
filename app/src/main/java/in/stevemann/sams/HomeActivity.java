@@ -20,8 +20,10 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;
 import in.stevemann.sams.utils.CryptoUtil;
@@ -77,6 +79,13 @@ public class HomeActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                     if (statusCode != 401) {
                         Log.i("TOKEN: ", "Yep, token exists, and is valid.");
+                        try {
+                            UserModel.setEmail(timeline.getString("email"));
+                            UserModel.setFirstName(timeline.getString("firstName"));
+                            UserModel.setLastName(timeline.getString("lastName"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                         startActivity(intent);
                     } else {

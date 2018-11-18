@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.RESTClient;
 
 public class ResetProfileActivity extends AppCompatActivity {
@@ -51,6 +52,11 @@ public class ResetProfileActivity extends AppCompatActivity {
                 resetProfile();
             }
         });
+
+        _currentEmailText.setText(UserModel.getEmail());
+        _currentEmailText.setEnabled(false);
+        _resetFirstNameText.setText(UserModel.getFirstName());
+        _resetLastNameText.setText(UserModel.getLastName());
     }
 
     public void resetProfile() {

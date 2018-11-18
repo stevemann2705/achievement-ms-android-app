@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.stevemann.sams.utils.CommonUtils;
+import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
 
@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    RESTClient client = new RESTClient();
     String token = null;
 
     CryptoUtil cryptoUtil = CryptoUtil.getInstance();
@@ -98,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
+                    UserModel.setEmail(timeline.getString("email"));
                     cryptoUtil.encryptToken(token, getApplicationContext());
                     CryptoUtil.saveToken(getApplicationContext());
                 } catch (JSONException e) {
@@ -137,12 +137,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         if(token != null && !token.isEmpty()){
-            CommonUtils.token = token;
-            Log.i("COMMONUTILS.token:", "CommonUtils.token set successfully to value - " + token);
-        }
-        if(email != null && !email.isEmpty()){
-            CommonUtils.email = email;
-            Log.i("COMMONUTILS.email:", "CommonUtils.email set successfully to value - " + email);
+            UserModel.setToken(token);
+            Log.i("UserModel.token:", "UserModel.token set successfully to value - " + token);
         }
 
     }
@@ -166,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginSuccess() {
-        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
         _loginButton.setEnabled(true);
         finish();
