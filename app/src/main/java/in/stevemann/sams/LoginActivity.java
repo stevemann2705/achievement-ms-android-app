@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
-                    UserModel.setEmail(timeline.getString("email"));
                     cryptoUtil.encryptToken(token, getApplicationContext());
                     CryptoUtil.saveToken(getApplicationContext());
                 } catch (JSONException e) {
@@ -147,11 +146,39 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SIGNUP) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) { // On successful signup
+                RequestParams param = new RequestParams();
+                param.put("token", token);
 
-                // TODO: Implement successful signup logic here
-                // By default we just finish the Activity and log them in automatically
-                this.finish();
+                RESTClient.get("users/isvalid", param, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
+                        if (statusCode != 401) {
+                            Log.i("TOKEN: ", "Yep, token exists, and is valid.");
+                            try {
+                                UserModel.setEmail(timeline.getString("email"));
+                                UserModel.setFirstName(timeline.getString("firstName"));
+                                UserModel.setLastName(timeline.getString("lastName"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Log.i("TOKEN: ", "Yep, token exists, but is not valid.");
+                            Toast.makeText(getBaseContext(), "Token Expired. Please login again.", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Log.d("Failed: ", "" + statusCode);
+                        Log.d("Error : ", "" + throwable);
+                        Log.d("Caused By : ", "" + throwable.getCause());
+                    }
+                });
+                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                startActivity(intent);
+                finish();
             }
         }
     }
@@ -162,7 +189,37 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginSuccess() {
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        RequestParams param = new RequestParams();
+        param.put("token", token);
+
+        RESTClient.get("users/isvalid", param, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
+                if (statusCode != 401) {
+                    Log.i("TOKEN: ", "Yep, token exists, and is valid.");
+                    try {
+                        UserModel.setEmail(timeline.getString("email"));
+                        UserModel.setFirstName(timeline.getString("firstName"));
+                        UserModel.setLastName(timeline.getString("lastName"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.i("TOKEN: ", "Yep, token exists, but is not valid.");
+                    Toast.makeText(getBaseContext(), "Token Expired. Please login again.", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Failed: ", "" + statusCode);
+                Log.d("Error : ", "" + throwable);
+                Log.d("Caused By : ", "" + throwable.getCause());
+            }
+        });
+
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         startActivity(intent);
         _loginButton.setEnabled(true);
         finish();
