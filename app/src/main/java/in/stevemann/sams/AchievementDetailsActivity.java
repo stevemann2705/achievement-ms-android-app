@@ -76,7 +76,6 @@ public class AchievementDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         achievementModel = Objects.requireNonNull(getIntent().getExtras()).getParcelable("achievementObj");
 
-        System.out.println(TokenUtil.dataExists(this));
         if (TokenUtil.dataExists(this)) {
             _deleteAchievementButton.setEnabled(true);
             _deleteAchievementButton.setVisibility(View.VISIBLE);
