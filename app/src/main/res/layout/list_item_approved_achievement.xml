@@ -9,24 +9,43 @@
         android:layout_margin="5dp">
 
         <LinearLayout
-            android:id="@+id/linear_layout_approved_achievement_card"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:id="@+id/linear_layout_approved_achievement_card_external"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="@dimen/activity_horizontal_margin">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/textViewEventNameApproved"
-                android:text="Event Name"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/linear_layout_approved_achievement_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/textViewRollNoApproved"
-                android:text="Roll No: "
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textViewEventNameApproved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textViewRollNoApproved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Roll No: " />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/button_unapprove_achievement"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/primaryColor"
+                android:text="Unapprove"
+                android:textColor="@color/primaryTextColor"
+                android:visibility="gone" />
 
         </LinearLayout>
 
