@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,6 +129,26 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         _programme.setAdapter(adapter_programme);
         _programme.setSelection(adapter_programme.getCount()); //set the hint the default selection so it appears on launch.
 
+        _rollNoText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (_rollNoText.getText().toString().length() >= 11) {
+                    String[] batch = getBatch(_rollNoText.getText().toString());
+                    _batchStartYearText.setText(batch[0]);
+                    _batchEndYearText.setText(batch[1]);
+                }
+            }
+        });
     }
 
     public void submit() {
@@ -283,5 +305,23 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    private String[] getBatch(String _rollNo) {
+        String temp = _rollNo.substring(Math.max(_rollNo.length() - 5, 0));
+        String startYear = temp.substring(Math.max(temp.length() - 2, 0));
+        String programme = temp.substring(0, 3);
+        String endYear;
+
+        if ("021".equals(programme)) {
+            endYear = String.valueOf(Integer.parseInt(startYear) + 2);
+        } else {
+            endYear = String.valueOf(Integer.parseInt(startYear) + 3);
+        }
+
+        startYear = "20" + startYear;
+        endYear = "20" + endYear;
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + startYear + " " + endYear);
+        return new String[]{startYear, endYear};
     }
 }
