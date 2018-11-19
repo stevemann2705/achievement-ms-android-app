@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,6 +95,16 @@ public class SearchAchievementActivity extends AppCompatActivity {
         } else if ("in.stevemann.sams.DashboardActivity".equals(callingClass)) {
             _approved.setEnabled(true);
             _unapproved.setEnabled(true);
+        }
+
+        if (TokenUtil.dataExists(this)) {
+            _approved.setVisibility(View.VISIBLE);
+            _unapproved.setVisibility(View.VISIBLE);
+        } else {
+            _approved.setVisibility(View.GONE);
+            _unapproved.setVisibility(View.GONE);
+            LinearLayout checkboxesLayout = findViewById(R.id.linear_layout_search_achievement_checkboxes);
+            checkboxesLayout.setVisibility(View.GONE);
         }
 
         //Department

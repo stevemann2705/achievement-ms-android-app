@@ -39,6 +39,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linear_layout_search_achievement_checkboxes"
                 android:orientation="horizontal"
                 android:paddingTop="15dp"
                 android:layout_width="match_parent"
