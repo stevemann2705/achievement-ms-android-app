@@ -65,6 +65,7 @@ public class DashboardActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.container_dashboard);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOffscreenPageLimit(2);
 
         TabLayout tabLayout = findViewById(R.id.tabs_dashboard);
 
