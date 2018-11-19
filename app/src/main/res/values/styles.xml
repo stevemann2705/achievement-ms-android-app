@@ -19,8 +19,13 @@
         <item name="android:windowBackground">@color/primaryColor</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryColor</item>
         <item name="android:colorButtonNormal">@color/primaryDarkColor</item>
+        <item name="editTextStyle">@style/EditText.Dark</item>
+    </style>
+
+    <style name="AppTheme.Dark.Details" parent="AppTheme.Dark">
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
@@ -61,5 +66,19 @@
     <style name="CardViewStyle.Dark" parent="CardView.Dark">
         <item name="cardBackgroundColor">@color/primaryTextColor</item>
         <item name="cardElevation">2dp</item>
+    </style>
+
+    <style name="EditText.Dark" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="TextInputLayout.Dark" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/primaryTextColor</item>
+        <item name="android:textSize">18dp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="colorControlNormal">@color/primaryTextColor</item>
+        <item name="colorControlActivated">@color/primaryLightColor</item>
     </style>
 </resources>

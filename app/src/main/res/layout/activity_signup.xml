@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_firstname"
@@ -32,7 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_lastname"
@@ -48,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_email"
@@ -64,7 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_password"
@@ -79,7 +83,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_reEnterPassword"
@@ -97,6 +102,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="0"
+            android:outlineAmbientShadowColor="@color/primaryTextColor"
             android:entries="@array/department_array" />
 
         <!-- Shift Label -->
@@ -114,7 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextInputLayout.Dark">
 
             <EditText
                 android:id="@+id/input_code"

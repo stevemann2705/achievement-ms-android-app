@@ -39,7 +39,7 @@
         <activity
             android:name=".AchievementDetailsActivity"
             android:label="Achievement Details"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Dark.Details" />
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
@@ -65,7 +65,7 @@
         <activity
             android:name=".AcademicDetailsActivity"
             android:label="Achievement Details"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Dark.Details" />
         <activity
             android:name=".AddAcademicAchievementActivity"
             android:label="Add Academic Achievement"

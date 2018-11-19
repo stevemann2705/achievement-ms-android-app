@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -105,6 +107,18 @@ public class SignupActivity extends AppCompatActivity {
 
         _department.setAdapter(departmentAdapter);
         _department.setSelection(departmentAdapter.getCount()); //set the hint the default selection so it appears on launch.
+        _department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((CheckedTextView) view).setTextColor(Color.WHITE);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<String> shiftAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
 
@@ -134,6 +148,18 @@ public class SignupActivity extends AppCompatActivity {
 
         _shift.setAdapter(shiftAdapter);
         _shift.setSelection(shiftAdapter.getCount()); //set the hint the default selection so it appears on launch.
+        _shift.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((CheckedTextView) view).setTextColor(Color.WHITE);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     @Override
