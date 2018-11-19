@@ -94,27 +94,6 @@
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Department Label -->
-        <android.widget.Spinner
-            android:id="@+id/input_department"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="0"
-            android:outlineAmbientShadowColor="@color/primaryTextColor"
-            android:entries="@array/department_array" />
-
-        <!-- Shift Label -->
-        <android.widget.Spinner
-            android:id="@+id/input_shift"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="0"
-            android:entries="@array/shift_array" />
-
         <!-- Code Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -130,6 +109,28 @@
                 android:hint="Code"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
+
+        <!-- Department Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_department"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@drawable/spinner_bg"
+            android:entries="@array/department_array" />
+
+        <!-- Shift Label -->
+        <android.widget.Spinner
+            android:id="@+id/input_shift"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:background="@drawable/spinner_bg"
+            android:entries="@array/shift_array" />
 
         <!-- Signup Button -->
         <android.support.v7.widget.AppCompatButton
