@@ -103,7 +103,7 @@ public class SignupActivity extends AppCompatActivity {
         departmentAdapter.add("computerscience");
         departmentAdapter.add("education");
         departmentAdapter.add("management");
-        departmentAdapter.add("Department"); //Spinner selection text
+        departmentAdapter.add("Select Department"); //Spinner selection text
 
         _department.setAdapter(departmentAdapter);
         _department.setSelection(departmentAdapter.getCount()); //set the hint the default selection so it appears on launch.
@@ -144,7 +144,7 @@ public class SignupActivity extends AppCompatActivity {
         shiftAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shiftAdapter.add("morning");
         shiftAdapter.add("evening");
-        shiftAdapter.add("Shift"); //Spinner selection text
+        shiftAdapter.add("Select Shift"); //Spinner selection text
 
         _shift.setAdapter(shiftAdapter);
         _shift.setSelection(shiftAdapter.getCount()); //set the hint the default selection so it appears on launch.
@@ -152,7 +152,6 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((CheckedTextView) view).setTextColor(Color.WHITE);
-
             }
 
             @Override
@@ -291,7 +290,7 @@ public class SignupActivity extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-        if ("Department".equals(department)) {
+        if ("Select Department".equals(department)) {
             TextView errorText = (TextView) _department.getSelectedView();
             errorText.setError("");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -301,7 +300,7 @@ public class SignupActivity extends AppCompatActivity {
             System.out.println("No Error in Department Spinner");
         }
 
-        if ("Shift".equals(shift)) {
+        if ("Select Shift".equals(shift)) {
             TextView errorText = (TextView) _shift.getSelectedView();
             errorText.setError("");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
