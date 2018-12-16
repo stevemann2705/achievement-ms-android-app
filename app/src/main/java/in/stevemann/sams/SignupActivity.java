@@ -257,73 +257,90 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public boolean validate() {
-        boolean valid = true;
+        return isValidFirstName() && isValidLastName() && isValidEmail() && isValidDepartment() && isValidShift() && isValidPassword() && isValidRePassword();
+    }
 
+    private boolean isValidFirstName() {
         String firstName = _firstNameText.getText().toString();
-        String lastName = _lastNameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String department = _department.getSelectedItem().toString();
-        String shift = _shift.getSelectedItem().toString();
-        String password = _passwordText.getText().toString();
-        String reEnterPassword = _reEnterPasswordText.getText().toString();
-        String code = _code.getText().toString();
-
         if (firstName.isEmpty() || firstName.length() < 3) {
             _firstNameText.setError("at least 3 characters");
-            valid = false;
+            return false;
         } else {
             _firstNameText.setError(null);
+            return true;
         }
+    }
 
+    private boolean isValidLastName() {
+        String lastName = _lastNameText.getText().toString();
         if (lastName.isEmpty() || lastName.length() < 3) {
             _lastNameText.setError("at least 3 characters");
-            valid = false;
+            return false;
         } else {
             _lastNameText.setError(null);
+            return true;
         }
+    }
 
-
+    private boolean isValidEmail() {
+        String email = _emailText.getText().toString();
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
-            valid = false;
+            return false;
         } else {
             _emailText.setError(null);
+            return true;
         }
+    }
 
+    private boolean isValidDepartment() {
+        String department = _department.getSelectedItem().toString();
         if ("Select Department".equals(department)) {
             TextView errorText = (TextView) _department.getSelectedView();
             errorText.setError("");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select department");
-            valid = false;
+            return false;
         } else {
             System.out.println("No Error in Department Spinner");
+            return true;
         }
+    }
 
+    private boolean isValidShift() {
+        String shift = _shift.getSelectedItem().toString();
         if ("Select Shift".equals(shift)) {
             TextView errorText = (TextView) _shift.getSelectedView();
             errorText.setError("");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select shift");
-            valid = false;
+            return false;
         } else {
             System.out.println("No Error in Shift Spinner");
+            return true;
         }
+    }
 
+    private boolean isValidPassword() {
+        String password = _passwordText.getText().toString();
         if (password.isEmpty() || password.length() < 6 || password.length() > 20) {
             _passwordText.setError("between 6 and 20 alphanumeric characters");
-            valid = false;
+            return false;
         } else {
             _passwordText.setError(null);
+            return true;
         }
+    }
 
+    private boolean isValidRePassword() {
+        String reEnterPassword = _reEnterPasswordText.getText().toString();
+        String password = _passwordText.getText().toString();
         if (reEnterPassword.isEmpty() || reEnterPassword.length() < 6 || reEnterPassword.length() > 20 || !(reEnterPassword.equals(password))) {
             _reEnterPasswordText.setError("Password don't match");
-            valid = false;
+            return false;
         } else {
             _reEnterPasswordText.setError(null);
+            return true;
         }
-
-        return valid;
     }
 }
