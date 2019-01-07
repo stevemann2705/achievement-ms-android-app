@@ -16,7 +16,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,6 +37,7 @@ import java.io.FileNotFoundException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.stevemann.sams.utils.RESTClient;
+import in.stevemann.sams.utils.SpinnerUtil;
 
 public class AddAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAchievementActivity";
@@ -116,164 +116,25 @@ public class AddAchievementActivity extends AppCompatActivity {
             }
         });
 
-        //Department
-        ArrayAdapter<String> adapter_department = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+        String[] departments = {"computerscience", "education", "management"};
+        ArrayAdapter<String> departmentAdapter = SpinnerUtil.getAdapter(this, departments, "Select Department");
+        SpinnerUtil.setSpinnerProperties(_department, departmentAdapter);
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
+        String[] sections = {"A", "B", "C", "D"};
+        ArrayAdapter<String> sectionAdapter = SpinnerUtil.getAdapter(this, sections, "Select Section");
+        SpinnerUtil.setSpinnerProperties(_section, sectionAdapter);
 
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
+        String[] semesters = {"1", "2", "3", "4", "5", "6"};
+        ArrayAdapter<String> semesterAdapter = SpinnerUtil.getAdapter(this, semesters, "Select Semester");
+        SpinnerUtil.setSpinnerProperties(_semester, semesterAdapter);
 
-                return v;
-            }
+        String[] shifts = {"morning", "evening"};
+        ArrayAdapter<String> shiftAdapter = SpinnerUtil.getAdapter(this, shifts, "Select Shift");
+        SpinnerUtil.setSpinnerProperties(_shift, shiftAdapter);
 
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_department.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_department.add("computerscience");
-        adapter_department.add("education");
-        adapter_department.add("management");
-        adapter_department.add("Department"); //Spinner selection text
-
-        _department.setAdapter(adapter_department);
-        _department.setSelection(adapter_department.getCount()); //set the hint the default selection so it appears on launch.
-
-        //Section
-        ArrayAdapter<String> adapter_section = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_section.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_section.add("A");
-        adapter_section.add("B");
-        adapter_section.add("C");
-        adapter_section.add("D");
-        adapter_section.add("Select Section"); //Spinner selection text
-
-        _section.setAdapter(adapter_section);
-        _section.setSelection(adapter_section.getCount()); //set the hint the default selection so it appears on launch.
-
-        //Semester
-        ArrayAdapter<String> adapter_semester = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_semester.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_semester.add("1");
-        adapter_semester.add("2");
-        adapter_semester.add("3");
-        adapter_semester.add("4");
-        adapter_semester.add("5");
-        adapter_semester.add("6");
-        adapter_semester.add("Select Semester"); //Spinner selection text
-
-        _semester.setAdapter(adapter_semester);
-        _semester.setSelection(adapter_semester.getCount()); //set the hint the default selection so it appears on launch.
-
-        //Shift
-        ArrayAdapter<String> adapter_shift = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_shift.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_shift.add("morning");
-        adapter_shift.add("evening");
-        adapter_shift.add("Select Shift"); //Spinner selection text
-
-        _shift.setAdapter(adapter_shift);
-        _shift.setSelection(adapter_shift.getCount()); //set the hint the default selection so it appears on launch.
-
-        //Category
-        ArrayAdapter<String> adapter_category = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_category.add("sports");
-        adapter_category.add("technical");
-        adapter_category.add("cultural");
-        adapter_category.add("others");
-        adapter_category.add("Select Category"); //Spinner selection text
-
-        _category.setAdapter(adapter_category);
-        _category.setSelection(adapter_category.getCount()); //set the hint the default selection so it appears on launch.
+        String[] categories = {"sports", "technical", "cultural", "others"};
+        ArrayAdapter<String> categoriesAdapter = SpinnerUtil.getAdapter(this, categories, "Select Category");
+        SpinnerUtil.setSpinnerProperties(_category, categoriesAdapter);
 
         _rollNoText.addTextChangedListener(new TextWatcher() {
             @Override

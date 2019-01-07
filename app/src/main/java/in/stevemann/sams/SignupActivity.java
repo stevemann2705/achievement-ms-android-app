@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,11 +24,10 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.stevemann.sams.utils.RESTClient;
+import in.stevemann.sams.utils.SpinnerUtil;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
-
-    RESTClient client = new RESTClient();
 
     @BindView(R.id.input_firstname)
     EditText _firstNameText;
@@ -78,87 +74,15 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> departmentAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+        String[] departments = {"computerscience", "education", "management"};
+        ArrayAdapter<String> departmentAdapter = SpinnerUtil.getAdapter(this, departments, "Select Department");
+        SpinnerUtil.setSpinnerProperties(_department, departmentAdapter);
+        SpinnerUtil.setTextColorOnItemSelected(_department, Color.WHITE);
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        departmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        departmentAdapter.add("computerscience");
-        departmentAdapter.add("education");
-        departmentAdapter.add("management");
-        departmentAdapter.add("Select Department"); //Spinner selection text
-
-        _department.setAdapter(departmentAdapter);
-        _department.setSelection(departmentAdapter.getCount()); //set the hint the default selection so it appears on launch.
-        _department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((CheckedTextView) view).setTextColor(Color.WHITE);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        ArrayAdapter<String> shiftAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        shiftAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        shiftAdapter.add("morning");
-        shiftAdapter.add("evening");
-        shiftAdapter.add("Select Shift"); //Spinner selection text
-
-        _shift.setAdapter(shiftAdapter);
-        _shift.setSelection(shiftAdapter.getCount()); //set the hint the default selection so it appears on launch.
-        _shift.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((CheckedTextView) view).setTextColor(Color.WHITE);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        String[] shifts = {"morning", "evening"};
+        ArrayAdapter<String> shiftAdapter = SpinnerUtil.getAdapter(this, shifts, "Select Shift");
+        SpinnerUtil.setSpinnerProperties(_shift, shiftAdapter);
+        SpinnerUtil.setTextColorOnItemSelected(_shift, Color.WHITE);
     }
 
     @Override

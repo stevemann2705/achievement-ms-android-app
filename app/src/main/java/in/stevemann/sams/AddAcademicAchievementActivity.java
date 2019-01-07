@@ -9,7 +9,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
+import in.stevemann.sams.utils.SpinnerUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class AddAcademicAchievementActivity extends AppCompatActivity {
@@ -63,71 +63,13 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
             }
         });
 
-        //Category
-        ArrayAdapter<String> adapter_category = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+        String[] categories = {"goldmedalist", "exemplary", "both"};
+        ArrayAdapter<String> categoriesAdapter = SpinnerUtil.getAdapter(this, categories, "Select Category");
+        SpinnerUtil.setSpinnerProperties(_category, categoriesAdapter);
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_category.add("goldmedalist");
-        adapter_category.add("exemplary");
-        adapter_category.add("both");
-        adapter_category.add("Select Category"); //Spinner selection text
-
-        _category.setAdapter(adapter_category);
-        _category.setSelection(adapter_category.getCount()); //set the hint the default selection so it appears on launch.
-
-        //Programme
-        ArrayAdapter<String> adapter_programme = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-                if (position == getCount()) {
-                    ((TextView) v.findViewById(android.R.id.text1)).setText("");
-                    ((TextView) v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
-                }
-
-                return v;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount() - 1; // you dont display last item. It is used as hint.
-            }
-
-        };
-
-        adapter_programme.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_programme.add("B. Ed.");
-        adapter_programme.add("BBA (H) 4 years");
-        adapter_programme.add("BBA (General)");
-        adapter_programme.add("BBA (B&I)");
-        adapter_programme.add("BBA (T&TM)");
-        adapter_programme.add("BCA");
-        adapter_programme.add("B.Com (H)");
-        adapter_programme.add("Select Programme"); //Spinner selection text
-
-        _programme.setAdapter(adapter_programme);
-        _programme.setSelection(adapter_programme.getCount()); //set the hint the default selection so it appears on launch.
+        String[] programmes = {"B. Ed.", "BBA (H) 4 years", "BBA (General)", "BBA (B&I)", "BBA (T&TM)", "BCA", "B.Com (H)"};
+        ArrayAdapter<String> programmesAdapter = SpinnerUtil.getAdapter(this, programmes, "Select Programme");
+        SpinnerUtil.setSpinnerProperties(_programme, programmesAdapter);
 
         _rollNoText.addTextChangedListener(new TextWatcher() {
             @Override
