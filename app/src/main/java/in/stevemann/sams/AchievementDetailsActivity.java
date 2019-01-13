@@ -97,7 +97,7 @@ public class AchievementDetailsActivity extends AppCompatActivity {
 
                     RequestParams params = new RequestParams(); //this bloody thing just doesn't work with RequestParams so embedding the params in the URL is the only option. Way to go!
 
-                    new RESTClient().post("achievements/delete?id="+achievementModel.getId()+"&token="+token, params, new JsonHttpResponseHandler() {
+                    RESTClient.post("achievements/delete?id=" + achievementModel.getId() + "&token=" + token, params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
 
