@@ -31,43 +31,43 @@ public class AchievementDetailsActivity extends AppCompatActivity {
     private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.achievement_details_event_name)
-    private TextView _eventNameText;
+    TextView _eventNameText;
     @BindView(R.id.achievement_details_roll_no)
-    private TextView _rollNoText;
+    TextView _rollNoText;
     @BindView(R.id.achievement_details_section)
-    private TextView _sectionText;
+    TextView _sectionText;
     @BindView(R.id.achievement_details_sessionFrom)
-    private TextView _sessionFromText;
+    TextView _sessionFromText;
     @BindView(R.id.achievement_details_sessionTo)
-    private TextView _sessionToText;
+    TextView _sessionToText;
     @BindView(R.id.achievement_details_semester)
-    private TextView _semester;
+    TextView _semester;
     @BindView(R.id.achievement_details_participated_or_organised)
-    private TextView _participatedOrOrganisedText;
+    TextView _participatedOrOrganisedText;
     @BindView(R.id.achievement_details_shift)
-    private TextView _shiftText;
+    TextView _shiftText;
     @BindView(R.id.achievement_details_student_name)
-    private TextView _studentNameText;
+    TextView _studentNameText;
     @BindView(R.id.achievement_details_date)
-    private TextView _eventDateText;
+    TextView _eventDateText;
     @BindView(R.id.achievement_details_title)
-    private TextView _titleAwardedText;
+    TextView _titleAwardedText;
     @BindView(R.id.achievement_details_venue)
-    private TextView _eventVenueText;
+    TextView _eventVenueText;
     @BindView(R.id.achievement_details_category)
-    private TextView _categoryText;
+    TextView _categoryText;
     @BindView(R.id.achievement_details_description)
-    private TextView _eventDescriptionText;
+    TextView _eventDescriptionText;
     @BindView(R.id.achievement_details_rating)
-    private TextView _ratingText;
+    TextView _ratingText;
     @BindView(R.id.achievement_details_approved_by)
-    private TextView _approvedByText;
+    TextView _approvedByText;
     @BindView(R.id.achievement_details_approved)
-    private TextView _approvedText;
+    TextView _approvedText;
     @BindView(R.id.achievement_details_imageUrl)
-    private TextView _imageUrlText;
+    TextView _imageUrlText;
     @BindView(R.id.btn_delete_achievement)
-    private Button _deleteAchievementButton;
+    Button _deleteAchievementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

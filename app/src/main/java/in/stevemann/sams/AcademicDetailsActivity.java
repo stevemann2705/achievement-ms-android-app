@@ -32,17 +32,17 @@ public class AcademicDetailsActivity extends AppCompatActivity {
     private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.academic_details_student_name)
-    private TextView _studentName;
+    TextView _studentName;
     @BindView(R.id.academic_details_batch)
-    private TextView _batch;
+    TextView _batch;
     @BindView(R.id.academic_details_category)
-    private TextView _category;
+    TextView _category;
     @BindView(R.id.academic_details_programme)
-    private TextView _programme;
+    TextView _programme;
     @BindView(R.id.academic_details_roll_no)
-    private TextView _rollNo;
+    TextView _rollNo;
     @BindView(R.id.btn_delete_academic_achievement)
-    private Button _deleteAchievementButton;
+    Button _deleteAchievementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

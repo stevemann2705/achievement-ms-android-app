@@ -43,41 +43,41 @@ public class AddAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAchievementActivity";
 
     @BindView(R.id.input_name)
-    private EditText _nameText;
+    EditText _nameText;
     @BindView(R.id.input_rollNo)
-    private EditText _rollNoText;
+    EditText _rollNoText;
     @BindView(R.id.input_section)
-    private Spinner _section;
+    Spinner _section;
     @BindView(R.id.input_sessionFrom)
-    private EditText _sessionFromText;
+    EditText _sessionFromText;
     @BindView(R.id.input_sessionTo)
-    private EditText _sessionToText;
+    EditText _sessionToText;
     @BindView(R.id.input_semester)
-    private Spinner _semester;
+    Spinner _semester;
     @BindView(R.id.input_department)
-    private Spinner _department;
+    Spinner _department;
     @BindView(R.id.input_shift)
-    private Spinner _shift;
+    Spinner _shift;
     @BindView(R.id.input_eventName)
-    private EditText _eventNameText;
+    EditText _eventNameText;
     @BindView(R.id.input_eventDate)
-    private EditText _eventDateText;
+    EditText _eventDateText;
     @BindView(R.id.input_titleAwarded)
-    private EditText _titleAwardedText;
+    EditText _titleAwardedText;
     @BindView(R.id.input_eventVenue)
-    private EditText _eventVenueText;
+    EditText _eventVenueText;
     @BindView(R.id.input_category)
-    private Spinner _category;
+    Spinner _category;
     @BindView(R.id.input_eventDescription)
-    private EditText _eventDescriptionText;
+    EditText _eventDescriptionText;
     @BindView(R.id.checkbox_participated)
-    private CheckBox _participatedCheckBox;
+    CheckBox _participatedCheckBox;
     @BindView(R.id.checkbox_organized)
-    private CheckBox _organisedCheckBox;
+    CheckBox _organisedCheckBox;
     @BindView(R.id.btn_image)
-    private Button _imageButton;
+    Button _imageButton;
     @BindView(R.id.btn_submit)
-    private Button _submitButton;
+    Button _submitButton;
 
     private static int RESULT_LOAD_IMAGE = 1;
 

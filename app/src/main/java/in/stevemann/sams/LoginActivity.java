@@ -33,13 +33,13 @@ public class LoginActivity extends AppCompatActivity {
     private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_email)
-    private EditText _emailText;
+    EditText _emailText;
     @BindView(R.id.input_password)
-    private EditText _passwordText;
+    EditText _passwordText;
     @BindView(R.id.btn_login)
-    private Button _loginButton;
+    Button _loginButton;
     @BindView(R.id.link_signup)
-    private TextView _signupLink;
+    TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

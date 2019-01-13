@@ -25,17 +25,17 @@ public class ResetProfileActivity extends AppCompatActivity {
     private static final String TAG = "ResetProfileActivity";
 
     @BindView(R.id.input_current_email)
-    private EditText _currentEmailText;
+    EditText _currentEmailText;
     @BindView(R.id.input_new_email)
-    private EditText _newEmailText;
+    EditText _newEmailText;
     @BindView(R.id.input_reset_firstname)
-    private EditText _resetFirstNameText;
+    EditText _resetFirstNameText;
     @BindView(R.id.input_reset_lastname)
-    private EditText _resetLastNameText;
+    EditText _resetLastNameText;
     @BindView(R.id.input_password)
-    private EditText _passwordText;
+    EditText _passwordText;
     @BindView(R.id.btn_reset_profile)
-    private Button _resetProfileButton;
+    Button _resetProfileButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

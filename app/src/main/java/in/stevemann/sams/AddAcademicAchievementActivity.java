@@ -36,19 +36,19 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
     private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_academic_achievement_name)
-    private EditText _nameText;
+    EditText _nameText;
     @BindView(R.id.input_academic_achievement_rollNo)
-    private EditText _rollNoText;
+    EditText _rollNoText;
     @BindView(R.id.input_academic_achievement_batch_start_year)
-    private EditText _batchStartYearText;
+    EditText _batchStartYearText;
     @BindView(R.id.input_academic_achievement_batch_end_year)
-    private EditText _batchEndYearText;
+    EditText _batchEndYearText;
     @BindView(R.id.input_academic_achievement_category)
-    private Spinner _category;
+    Spinner _category;
     @BindView(R.id.input_academic_achievement_programme)
-    private Spinner _programme;
+    Spinner _programme;
     @BindView(R.id.btn_submit_academic_achievement)
-    private Button _submitButton;
+    Button _submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

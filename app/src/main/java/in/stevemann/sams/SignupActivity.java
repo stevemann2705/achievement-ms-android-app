@@ -30,25 +30,25 @@ public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
     @BindView(R.id.input_firstname)
-    private EditText _firstNameText;
+    EditText _firstNameText;
     @BindView(R.id.input_lastname)
-    private EditText _lastNameText;
+    EditText _lastNameText;
     @BindView(R.id.input_email)
-    private EditText _emailText;
+    EditText _emailText;
     @BindView(R.id.input_department)
-    private Spinner _department;
+    Spinner _department;
     @BindView(R.id.input_shift)
-    private Spinner _shift;
+    Spinner _shift;
     @BindView(R.id.input_code)
-    private EditText _code;
+    EditText _code;
     @BindView(R.id.input_password)
-    private EditText _passwordText;
+    EditText _passwordText;
     @BindView(R.id.input_reEnterPassword)
-    private EditText _reEnterPasswordText;
+    EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup)
-    private Button _signupButton;
+    Button _signupButton;
     @BindView(R.id.link_login)
-    private TextView _loginLink;
+    TextView _loginLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

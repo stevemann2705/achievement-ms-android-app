@@ -25,13 +25,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private static final String TAG = "ResetPasswordActivity";
 
     @BindView(R.id.input_old_password)
-    private EditText _oldPasswordText;
+    EditText _oldPasswordText;
     @BindView(R.id.input_new_password)
-    private EditText _newPasswordText;
+    EditText _newPasswordText;
     @BindView(R.id.input_reEnter_new_password)
-    private EditText _reEnterNewPasswordText;
+    EditText _reEnterNewPasswordText;
     @BindView(R.id.btn_reset_password)
-    private Button _resetButton;
+    Button _resetButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

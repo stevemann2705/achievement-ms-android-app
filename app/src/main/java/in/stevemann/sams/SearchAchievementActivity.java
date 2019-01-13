@@ -43,31 +43,31 @@ public class SearchAchievementActivity extends AppCompatActivity {
     private String callingClass;
 
     @BindView(R.id.input_search_rollNo)
-    private EditText _rollNoText;
+    EditText _rollNoText;
     @BindView(R.id.input_search_section)
-    private Spinner _section;
+    Spinner _section;
     @BindView(R.id.input_search_sessionFrom)
-    private EditText _sessionFromText;
+    EditText _sessionFromText;
     @BindView(R.id.input_search_sessionTo)
-    private EditText _sessionToText;
+    EditText _sessionToText;
     @BindView(R.id.input_search_semester)
-    private Spinner _semester;
+    Spinner _semester;
     @BindView(R.id.input_search_department)
-    private Spinner _department;
+    Spinner _department;
     @BindView(R.id.input_search_shift)
-    private Spinner _shift;
+    Spinner _shift;
     @BindView(R.id.input_search_eventStartDate)
-    private EditText _eventStartDateText;
+    EditText _eventStartDateText;
     @BindView(R.id.input_search_eventEndDate)
-    private EditText _eventEndDateText;
+    EditText _eventEndDateText;
     @BindView(R.id.input_search_category)
-    private Spinner _category;
+    Spinner _category;
     @BindView(R.id.checkboxSearch_approved)
-    private CheckBox _approved;
+    CheckBox _approved;
     @BindView(R.id.checkboxSearch_unapproved)
-    private CheckBox _unapproved;
+    CheckBox _unapproved;
     @BindView(R.id.btn_search)
-    private Button _searchButton;
+    Button _searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
