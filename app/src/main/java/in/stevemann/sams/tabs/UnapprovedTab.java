@@ -30,7 +30,7 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class UnapprovedTab extends Fragment {
 
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;

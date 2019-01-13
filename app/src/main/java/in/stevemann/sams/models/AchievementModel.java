@@ -4,26 +4,26 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AchievementModel implements Parcelable {
-    private String id;
-    private String eventName;
-    private String rollNo;
-    private int semester;
-    private String sessionFrom;
-    private String name;
-    private boolean participated;
-    private String description;
-    private String shift;
-    private String sessionTo;
-    private String section;
-    private String department;
-    private String date;
-    private String rating;
-    private String approvedBy;
-    private String category;
-    private String title;
-    private String imageUrl;
-    private boolean approved;
-    private String venue;
+    private final String id;
+    private final String eventName;
+    private final String rollNo;
+    private final int semester;
+    private final String sessionFrom;
+    private final String name;
+    private final boolean participated;
+    private final String description;
+    private final String shift;
+    private final String sessionTo;
+    private final String section;
+    private final String department;
+    private final String date;
+    private final String rating;
+    private final String approvedBy;
+    private final String category;
+    private final String title;
+    private final String imageUrl;
+    private final boolean approved;
+    private final String venue;
 
     public AchievementModel(String id, String eventName, String rollNo, int semester, String sessionFrom, String name, boolean participated, String description, String shift, String sessionTo, String section, String department, String date, String rating, String approvedBy, String category, String title, String imageUrl, boolean approved, String venue) {
         this.id = id;

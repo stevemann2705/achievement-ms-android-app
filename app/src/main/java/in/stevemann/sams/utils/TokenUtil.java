@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class TokenUtil {
-    private static String fileName = "session.token";
+    private static final String fileName = "session.token";
     public static void writeData(String data, Context context) {
         try {
             FileOutputStream fOut = context.openFileOutput(fileName, Context.MODE_PRIVATE);

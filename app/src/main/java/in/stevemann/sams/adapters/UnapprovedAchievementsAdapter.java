@@ -33,10 +33,10 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<UnapprovedAchievementsAdapter.ViewHolder> {
 
-    private List<AchievementModel> achievementModels;
-    private Context context;
+    private final List<AchievementModel> achievementModels;
+    private final Context context;
 
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     public UnapprovedAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
@@ -125,10 +125,10 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewEventName;
-        TextView textViewRollNo;
-        AppCompatButton buttonApprove;
-        LinearLayout linearLayout;
+        final TextView textViewEventName;
+        final TextView textViewRollNo;
+        final AppCompatButton buttonApprove;
+        final LinearLayout linearLayout;
 
         ViewHolder(View itemView) {
             super(itemView);

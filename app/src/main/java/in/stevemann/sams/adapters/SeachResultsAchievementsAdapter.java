@@ -17,8 +17,8 @@ import in.stevemann.sams.R;
 import in.stevemann.sams.models.AchievementModel;
 
 public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachResultsAchievementsAdapter.ViewHolder> {
-    private List<AchievementModel> achievementModels;
-    private Context context;
+    private final List<AchievementModel> achievementModels;
+    private final Context context;
 
     public SeachResultsAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
@@ -57,9 +57,9 @@ public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachR
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewEventName;
-        TextView textViewRollNo;
-        LinearLayout linearLayout;
+        final TextView textViewEventName;
+        final TextView textViewRollNo;
+        final LinearLayout linearLayout;
 
         ViewHolder(View itemView) {
             super(itemView);

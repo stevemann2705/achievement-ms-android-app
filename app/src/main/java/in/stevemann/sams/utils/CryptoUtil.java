@@ -171,7 +171,7 @@ class Encrypter {
     private String encryptionText;
     private byte[] encryption;
     private byte[] iv;
-    private Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+    private final Cipher cipher = Cipher.getInstance(TRANSFORMATION);
 
     private static Encrypter singleton;
 

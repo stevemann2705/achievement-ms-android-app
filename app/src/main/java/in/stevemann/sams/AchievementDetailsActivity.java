@@ -28,7 +28,7 @@ import in.stevemann.sams.utils.TokenUtil;
 public class AchievementDetailsActivity extends AppCompatActivity {
 
     private AchievementModel achievementModel = null;
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.achievement_details_event_name)
     TextView _eventNameText;

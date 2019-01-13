@@ -29,7 +29,7 @@ import in.stevemann.sams.utils.TokenUtil;
 public class AcademicDetailsActivity extends AppCompatActivity {
 
     private AcademicModel academicModel = null;
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.academic_details_student_name)
     TextView _studentName;

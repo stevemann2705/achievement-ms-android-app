@@ -15,12 +15,12 @@ public class AcademicModel implements Parcelable {
             return new AcademicModel[size];
         }
     };
-    private String id;
-    private String rollNo;
-    private String name;
-    private String batch;
-    private String programme;
-    private String category;
+    private final String id;
+    private final String rollNo;
+    private final String name;
+    private final String batch;
+    private final String programme;
+    private final String category;
 
     public AcademicModel(String id, String rollNo, String name, String batch, String programme, String category) {
         this.id = id;

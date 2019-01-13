@@ -17,8 +17,8 @@ import in.stevemann.sams.R;
 import in.stevemann.sams.models.AcademicModel;
 
 public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.ViewHolder> {
-    private List<AcademicModel> academicModels;
-    private Context context;
+    private final List<AcademicModel> academicModels;
+    private final Context context;
 
     public AcademicsAdapter(List<AcademicModel> academicModels, Context context) {
         this.academicModels = academicModels;
@@ -57,9 +57,9 @@ public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewAchievementAcademic;
-        TextView textViewRollNo;
-        LinearLayout linearLayout;
+        final TextView textViewAchievementAcademic;
+        final TextView textViewRollNo;
+        final LinearLayout linearLayout;
 
         ViewHolder(View itemView) {
             super(itemView);

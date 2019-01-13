@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String token = null;
 
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_email)
     EditText _emailText;

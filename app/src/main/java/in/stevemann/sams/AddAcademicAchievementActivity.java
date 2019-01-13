@@ -33,7 +33,7 @@ import in.stevemann.sams.utils.TokenUtil;
 public class AddAcademicAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAcademicAchievement";
 
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_academic_achievement_name)
     EditText _nameText;

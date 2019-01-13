@@ -79,7 +79,7 @@ public class AddAchievementActivity extends AppCompatActivity {
     @BindView(R.id.btn_submit)
     Button _submitButton;
 
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
 
     private boolean booleanParticipated = true;
     private String imageGot = null;

@@ -36,10 +36,10 @@ import in.stevemann.sams.utils.TokenUtil;
 public class SearchAchievementActivity extends AppCompatActivity {
     private static final String TAG = "SearchAchievementActivity";
 
-    private RequestParams params = new RequestParams();
+    private final RequestParams params = new RequestParams();
     private ArrayList<AchievementModel> achievementModels;
     private boolean searchType; // false -> approved; true -> unapproved
-    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
     private String callingClass;
 
     @BindView(R.id.input_search_rollNo)
