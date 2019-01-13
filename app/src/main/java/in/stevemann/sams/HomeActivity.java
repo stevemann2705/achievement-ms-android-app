@@ -207,11 +207,9 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    ApprovedTab approvedTab = new ApprovedTab();
-                    return approvedTab;
+                    return new ApprovedTab();
                 case 1:
-                    AcademicsTab academicsTab = new AcademicsTab();
-                    return academicsTab;
+                    return new AcademicsTab();
                 default:
                     return null;
             }

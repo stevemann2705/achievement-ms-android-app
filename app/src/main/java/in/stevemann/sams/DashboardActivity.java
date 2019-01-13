@@ -162,14 +162,11 @@ public class DashboardActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    ApprovedTab approvedTab = new ApprovedTab();
-                    return approvedTab;
+                    return new ApprovedTab();
                 case 1:
-                    UnapprovedTab unapprovedTab = new UnapprovedTab();
-                    return unapprovedTab;
+                    return new UnapprovedTab();
                 case 2:
-                    AcademicsTab academicsTab = new AcademicsTab();
-                    return academicsTab;
+                    return new AcademicsTab();
                 default:
                     return null;
             }
