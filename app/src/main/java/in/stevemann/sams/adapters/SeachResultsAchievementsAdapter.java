@@ -18,11 +18,9 @@ import in.stevemann.sams.models.AchievementModel;
 
 public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachResultsAchievementsAdapter.ViewHolder> {
     private final List<AchievementModel> achievementModels;
-    private final Context context;
 
     public SeachResultsAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
-        this.context = context;
     }
 
     @NonNull

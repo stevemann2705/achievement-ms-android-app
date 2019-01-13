@@ -281,17 +281,12 @@ public class AddAchievementActivity extends AppCompatActivity {
         String section = _section.getSelectedItem().toString();
         String sessionFrom = _sessionFromText.getText().toString();
         String sessionTo = _sessionToText.getText().toString();
-        String semester = _semester.getSelectedItem().toString();
         String department = _department.getSelectedItem().toString();
-        String shift = _shift.getSelectedItem().toString();
         String eventName = _eventNameText.getText().toString();
         String eventDate = _eventDateText.getText().toString();
         String titleAwarded = _titleAwardedText.getText().toString();
         String eventVenue = _eventVenueText.getText().toString();
-        String category = _category.getSelectedItem().toString();
         String eventDescription = _eventDescriptionText.getText().toString();
-        boolean participated = booleanParticipated;
-        String image = imageGot;
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("at least 3 characters");

@@ -34,7 +34,6 @@ import in.stevemann.sams.utils.SpinnerUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class SearchAchievementActivity extends AppCompatActivity {
-    private static final String TAG = "SearchAchievementActivity";
 
     private final RequestParams params = new RequestParams();
     private ArrayList<AchievementModel> achievementModels;

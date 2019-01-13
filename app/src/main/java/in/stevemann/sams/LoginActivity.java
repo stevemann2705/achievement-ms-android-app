@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     response = (boolean) timeline.get("bool");
                     token = timeline.get("token").toString();
-                    cryptoUtil.encryptToken(token, getApplicationContext());
+                    cryptoUtil.encryptToken(token);
                     CryptoUtil.saveToken(getApplicationContext());
                 } catch (JSONException e) {
                     e.printStackTrace();

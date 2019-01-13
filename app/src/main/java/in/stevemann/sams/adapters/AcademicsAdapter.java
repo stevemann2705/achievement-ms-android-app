@@ -18,11 +18,9 @@ import in.stevemann.sams.models.AcademicModel;
 
 public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.ViewHolder> {
     private final List<AcademicModel> academicModels;
-    private final Context context;
 
     public AcademicsAdapter(List<AcademicModel> academicModels, Context context) {
         this.academicModels = academicModels;
-        this.context = context;
     }
 
     @NonNull

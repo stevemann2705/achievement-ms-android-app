@@ -22,7 +22,6 @@ import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.RESTClient;
 
 public class ResetProfileActivity extends AppCompatActivity {
-    private static final String TAG = "ResetProfileActivity";
 
     @BindView(R.id.input_current_email)
     EditText _currentEmailText;

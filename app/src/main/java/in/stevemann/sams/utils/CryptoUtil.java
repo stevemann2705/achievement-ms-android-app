@@ -75,7 +75,7 @@ public class CryptoUtil {
         return decryptedToken;
     }
 
-    public void encryptToken(String plainText, Context context) {
+    public void encryptToken(String plainText) {
 
         Encrypter encrypter = null;
 

@@ -112,7 +112,6 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String rollNo = _rollNoText.getText().toString();
         String batchStartYear = _batchStartYearText.getText().toString();
-        String batchEndYear = _batchEndYearText.getText().toString();
         String category = _category.getSelectedItem().toString();
         String programme = _programme.getSelectedItem().toString();
 

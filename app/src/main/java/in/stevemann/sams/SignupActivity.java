@@ -127,7 +127,6 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 boolean response = false;
-                String token = null;
                 try {
                     response = (boolean) timeline.get("bool");
                 } catch (JSONException e) {

@@ -22,7 +22,6 @@ import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.RESTClient;
 
 public class ResetPasswordActivity extends AppCompatActivity {
-    private static final String TAG = "ResetPasswordActivity";
 
     @BindView(R.id.input_old_password)
     EditText _oldPasswordText;
