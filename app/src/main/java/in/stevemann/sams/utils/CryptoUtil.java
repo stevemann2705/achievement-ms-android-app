@@ -193,12 +193,11 @@ class Encrypter {
         iv = cipher.getIV();
     }
 
-    String encryptText(final String textToEncrypt)
+    void encryptText(final String textToEncrypt)
             throws BadPaddingException,
             IllegalBlockSizeException, UnsupportedEncodingException {
         encryption = cipher.doFinal(textToEncrypt.getBytes("UTF-8"));
         encryptionText = Base64.encodeToString(encryption, Base64.NO_WRAP);
-        return encryptionText;
     }
 
     @NonNull
