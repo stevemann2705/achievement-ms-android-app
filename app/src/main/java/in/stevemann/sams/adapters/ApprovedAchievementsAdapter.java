@@ -130,12 +130,12 @@ public class ApprovedAchievementsAdapter extends RecyclerView.Adapter<ApprovedAc
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewEventName;
-        public TextView textViewRollNo;
-        public AppCompatButton buttonUnapprove;
-        public LinearLayout linearLayout;
+        TextView textViewEventName;
+        TextView textViewRollNo;
+        AppCompatButton buttonUnapprove;
+        LinearLayout linearLayout;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             textViewEventName = itemView.findViewById(R.id.textViewEventNameApproved);

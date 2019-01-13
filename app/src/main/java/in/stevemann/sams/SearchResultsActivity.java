@@ -11,7 +11,7 @@ import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
 import in.stevemann.sams.models.AchievementModel;
 
 public class SearchResultsActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
     private List<AchievementModel> achievementModels;

@@ -57,11 +57,11 @@ public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachR
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewEventName;
-        public TextView textViewRollNo;
-        public LinearLayout linearLayout;
+        TextView textViewEventName;
+        TextView textViewRollNo;
+        LinearLayout linearLayout;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             textViewEventName = itemView.findViewById(R.id.textViewEventNameSearchResult);

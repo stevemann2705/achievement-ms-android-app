@@ -30,25 +30,25 @@ public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
     @BindView(R.id.input_firstname)
-    EditText _firstNameText;
+    private EditText _firstNameText;
     @BindView(R.id.input_lastname)
-    EditText _lastNameText;
+    private EditText _lastNameText;
     @BindView(R.id.input_email)
-    EditText _emailText;
+    private EditText _emailText;
     @BindView(R.id.input_department)
-    Spinner _department;
+    private Spinner _department;
     @BindView(R.id.input_shift)
-    Spinner _shift;
+    private Spinner _shift;
     @BindView(R.id.input_code)
-    EditText _code;
+    private EditText _code;
     @BindView(R.id.input_password)
-    EditText _passwordText;
+    private EditText _passwordText;
     @BindView(R.id.input_reEnterPassword)
-    EditText _reEnterPasswordText;
+    private EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup)
-    Button _signupButton;
+    private Button _signupButton;
     @BindView(R.id.link_login)
-    TextView _loginLink;
+    private TextView _loginLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class SignupActivity extends AppCompatActivity {
         finish();
     }
 
-    public void signup() {
+    private void signup() {
         Log.d(TAG, "Signup");
 
         if (!validate()) {
@@ -169,18 +169,18 @@ public class SignupActivity extends AppCompatActivity {
     }
 
 
-    public void onSignupSuccess() {
+    private void onSignupSuccess() {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
     }
 
-    public void onSignupFailed() {
+    private void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Signup failed", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         return isValidFirstName() && isValidLastName() && isValidEmail() && isValidDepartment() && isValidShift() && isValidPassword() && isValidRePassword();
     }
 

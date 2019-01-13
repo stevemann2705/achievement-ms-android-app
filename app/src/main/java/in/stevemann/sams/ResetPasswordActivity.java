@@ -24,16 +24,14 @@ import in.stevemann.sams.utils.RESTClient;
 public class ResetPasswordActivity extends AppCompatActivity {
     private static final String TAG = "ResetPasswordActivity";
 
-    RESTClient client = new RESTClient();
-
     @BindView(R.id.input_old_password)
-    EditText _oldPasswordText;
+    private EditText _oldPasswordText;
     @BindView(R.id.input_new_password)
-    EditText _newPasswordText;
+    private EditText _newPasswordText;
     @BindView(R.id.input_reEnter_new_password)
-    EditText _reEnterNewPasswordText;
+    private EditText _reEnterNewPasswordText;
     @BindView(R.id.btn_reset_password)
-    Button _resetButton;
+    private Button _resetButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         });
     }
 
-    public void resetPassword() {
+    private void resetPassword() {
         String oldPassword = _oldPasswordText.getText().toString();
         String newPassword = _newPasswordText.getText().toString();
 
@@ -124,18 +122,18 @@ public class ResetPasswordActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onResetSuccess() {
+    private void onResetSuccess() {
         Toast.makeText(getBaseContext(), "Password Reset Successful", Toast.LENGTH_LONG).show();
         _resetButton.setEnabled(true);
         finish();
     }
 
-    public void onResetFailed(String message) {
+    private void onResetFailed(String message) {
         Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
         _resetButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String oldPassword = _oldPasswordText.getText().toString();

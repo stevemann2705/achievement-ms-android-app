@@ -28,21 +28,21 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class AcademicDetailsActivity extends AppCompatActivity {
 
-    AcademicModel academicModel = null;
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private AcademicModel academicModel = null;
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.academic_details_student_name)
-    TextView _studentName;
+    private TextView _studentName;
     @BindView(R.id.academic_details_batch)
-    TextView _batch;
+    private TextView _batch;
     @BindView(R.id.academic_details_category)
-    TextView _category;
+    private TextView _category;
     @BindView(R.id.academic_details_programme)
-    TextView _programme;
+    private TextView _programme;
     @BindView(R.id.academic_details_roll_no)
-    TextView _rollNo;
+    private TextView _rollNo;
     @BindView(R.id.btn_delete_academic_achievement)
-    Button _deleteAchievementButton;
+    private Button _deleteAchievementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class AcademicDetailsActivity extends AppCompatActivity {
         _rollNo.setText(academicModel.getRollNo());
     }
 
-    public void onDeleteSuccess() {
+    private void onDeleteSuccess() {
         _deleteAchievementButton.setEnabled(true);
         Toast.makeText(getBaseContext(), "Academic Achievement Deletion Successful", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DashboardActivity.class);
@@ -137,7 +137,7 @@ public class AcademicDetailsActivity extends AppCompatActivity {
         this.finish();
     }
 
-    public void onDeleteFailed() {
+    private void onDeleteFailed() {
         Toast.makeText(getBaseContext(), "Academic Achievement Deletion failed", Toast.LENGTH_LONG).show();
         _deleteAchievementButton.setEnabled(true);
         finish();

@@ -30,7 +30,7 @@ import in.stevemann.sams.utils.RESTClient;
 
 public class AcademicsTab extends Fragment {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
     private List<AcademicModel> academicModels;

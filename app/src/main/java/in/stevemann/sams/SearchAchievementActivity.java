@@ -40,34 +40,34 @@ public class SearchAchievementActivity extends AppCompatActivity {
     private ArrayList<AchievementModel> achievementModels;
     private boolean searchType; // false -> approved; true -> unapproved
     private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
-    String callingClass;
+    private String callingClass;
 
     @BindView(R.id.input_search_rollNo)
-    EditText _rollNoText;
+    private EditText _rollNoText;
     @BindView(R.id.input_search_section)
-    Spinner _section;
+    private Spinner _section;
     @BindView(R.id.input_search_sessionFrom)
-    EditText _sessionFromText;
+    private EditText _sessionFromText;
     @BindView(R.id.input_search_sessionTo)
-    EditText _sessionToText;
+    private EditText _sessionToText;
     @BindView(R.id.input_search_semester)
-    Spinner _semester;
+    private Spinner _semester;
     @BindView(R.id.input_search_department)
-    Spinner _department;
+    private Spinner _department;
     @BindView(R.id.input_search_shift)
-    Spinner _shift;
+    private Spinner _shift;
     @BindView(R.id.input_search_eventStartDate)
-    EditText _eventStartDateText;
+    private EditText _eventStartDateText;
     @BindView(R.id.input_search_eventEndDate)
-    EditText _eventEndDateText;
+    private EditText _eventEndDateText;
     @BindView(R.id.input_search_category)
-    Spinner _category;
+    private Spinner _category;
     @BindView(R.id.checkboxSearch_approved)
-    CheckBox _approved;
+    private CheckBox _approved;
     @BindView(R.id.checkboxSearch_unapproved)
-    CheckBox _unapproved;
+    private CheckBox _unapproved;
     @BindView(R.id.btn_search)
-    Button _searchButton;
+    private Button _searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,7 +262,7 @@ public class SearchAchievementActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onSearchSuccess() {
+    private void onSearchSuccess() {
         _searchButton.setEnabled(true);
         Intent intent = new Intent(this, SearchResultsActivity.class);
         Bundle bundle = new Bundle();
@@ -273,13 +273,13 @@ public class SearchAchievementActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onSearchFailed() {
+    private void onSearchFailed() {
         Toast.makeText(getBaseContext(), "Achievement Search Failed", Toast.LENGTH_LONG).show();
         _searchButton.setEnabled(true);
     }
 
     // TODO: Validation for Search
-    public boolean seachable() {
+    private boolean seachable() {
         boolean searchable = false;
         int i = 0;
 

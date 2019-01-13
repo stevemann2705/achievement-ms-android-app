@@ -27,47 +27,47 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class AchievementDetailsActivity extends AppCompatActivity {
 
-    AchievementModel achievementModel = null;
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private AchievementModel achievementModel = null;
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.achievement_details_event_name)
-    TextView _eventNameText;
+    private TextView _eventNameText;
     @BindView(R.id.achievement_details_roll_no)
-    TextView _rollNoText;
+    private TextView _rollNoText;
     @BindView(R.id.achievement_details_section)
-    TextView _sectionText;
+    private TextView _sectionText;
     @BindView(R.id.achievement_details_sessionFrom)
-    TextView _sessionFromText;
+    private TextView _sessionFromText;
     @BindView(R.id.achievement_details_sessionTo)
-    TextView _sessionToText;
+    private TextView _sessionToText;
     @BindView(R.id.achievement_details_semester)
-    TextView _semester;
+    private TextView _semester;
     @BindView(R.id.achievement_details_participated_or_organised)
-    TextView _participatedOrOrganisedText;
+    private TextView _participatedOrOrganisedText;
     @BindView(R.id.achievement_details_shift)
-    TextView _shiftText;
+    private TextView _shiftText;
     @BindView(R.id.achievement_details_student_name)
-    TextView _studentNameText;
+    private TextView _studentNameText;
     @BindView(R.id.achievement_details_date)
-    TextView _eventDateText;
+    private TextView _eventDateText;
     @BindView(R.id.achievement_details_title)
-    TextView _titleAwardedText;
+    private TextView _titleAwardedText;
     @BindView(R.id.achievement_details_venue)
-    TextView _eventVenueText;
+    private TextView _eventVenueText;
     @BindView(R.id.achievement_details_category)
-    TextView _categoryText;
+    private TextView _categoryText;
     @BindView(R.id.achievement_details_description)
-    TextView _eventDescriptionText;
+    private TextView _eventDescriptionText;
     @BindView(R.id.achievement_details_rating)
-    TextView _ratingText;
+    private TextView _ratingText;
     @BindView(R.id.achievement_details_approved_by)
-    TextView _approvedByText;
+    private TextView _approvedByText;
     @BindView(R.id.achievement_details_approved)
-    TextView _approvedText;
+    private TextView _approvedText;
     @BindView(R.id.achievement_details_imageUrl)
-    TextView _imageUrlText;
+    private TextView _imageUrlText;
     @BindView(R.id.btn_delete_achievement)
-    Button _deleteAchievementButton;
+    private Button _deleteAchievementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,13 +167,13 @@ public class AchievementDetailsActivity extends AppCompatActivity {
 
     }
 
-    public void onDeleteSuccess() {
+    private void onDeleteSuccess() {
         _deleteAchievementButton.setEnabled(true);
         Toast.makeText(getBaseContext(), "Achievement Deletion Successful", Toast.LENGTH_LONG).show();
         finish();
     }
 
-    public void onDeleteFailed() {
+    private void onDeleteFailed() {
         Toast.makeText(getBaseContext(), "Achievement Deletion failed", Toast.LENGTH_LONG).show();
         _deleteAchievementButton.setEnabled(true);
         finish();

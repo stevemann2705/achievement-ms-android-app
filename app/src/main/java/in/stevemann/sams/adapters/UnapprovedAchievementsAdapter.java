@@ -36,8 +36,7 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
     private List<AchievementModel> achievementModels;
     private Context context;
 
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
-    RESTClient client = new RESTClient();
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     public UnapprovedAchievementsAdapter(List<AchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
@@ -126,12 +125,12 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewEventName;
-        public TextView textViewRollNo;
-        public AppCompatButton buttonApprove;
-        public LinearLayout linearLayout;
+        TextView textViewEventName;
+        TextView textViewRollNo;
+        AppCompatButton buttonApprove;
+        LinearLayout linearLayout;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             textViewEventName = itemView.findViewById(R.id.textViewEventNameUnapproved);

@@ -32,7 +32,7 @@ import in.stevemann.sams.utils.TokenUtil;
 
 public class HomeActivity extends AppCompatActivity {
 
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -197,9 +197,9 @@ public class HomeActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

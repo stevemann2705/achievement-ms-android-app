@@ -48,7 +48,7 @@ public class AchievementModel implements Parcelable {
         this.venue = venue;
     }
 
-    public AchievementModel(Parcel in){
+    private AchievementModel(Parcel in) {
         this.id = in.readString();
         this.eventName =in.readString();
         this.rollNo = in.readString();

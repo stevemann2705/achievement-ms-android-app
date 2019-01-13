@@ -28,18 +28,18 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    String token = null;
+    private String token = null;
 
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_email)
-    EditText _emailText;
+    private EditText _emailText;
     @BindView(R.id.input_password)
-    EditText _passwordText;
+    private EditText _passwordText;
     @BindView(R.id.btn_login)
-    Button _loginButton;
+    private Button _loginButton;
     @BindView(R.id.link_signup)
-    TextView _signupLink;
+    private TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void login() {
+    private void login() {
         Log.d(TAG, "Login");
 
         if (!validate()) {
@@ -188,7 +188,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onLoginSuccess() {
+    private void onLoginSuccess() {
         RequestParams param = new RequestParams();
         param.put("token", token);
 
@@ -225,12 +225,12 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onLoginFailed() {
+    private void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String email = _emailText.getText().toString();

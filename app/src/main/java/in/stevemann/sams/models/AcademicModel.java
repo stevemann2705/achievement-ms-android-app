@@ -31,7 +31,7 @@ public class AcademicModel implements Parcelable {
         this.category = category;
     }
 
-    protected AcademicModel(Parcel in) {
+    private AcademicModel(Parcel in) {
         this.id = in.readString();
         this.rollNo = in.readString();
         this.name = in.readString();

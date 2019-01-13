@@ -33,22 +33,22 @@ import in.stevemann.sams.utils.TokenUtil;
 public class AddAcademicAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAcademicAchievement";
 
-    CryptoUtil cryptoUtil = CryptoUtil.getInstance();
+    private CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_academic_achievement_name)
-    EditText _nameText;
+    private EditText _nameText;
     @BindView(R.id.input_academic_achievement_rollNo)
-    EditText _rollNoText;
+    private EditText _rollNoText;
     @BindView(R.id.input_academic_achievement_batch_start_year)
-    EditText _batchStartYearText;
+    private EditText _batchStartYearText;
     @BindView(R.id.input_academic_achievement_batch_end_year)
-    EditText _batchEndYearText;
+    private EditText _batchEndYearText;
     @BindView(R.id.input_academic_achievement_category)
-    Spinner _category;
+    private Spinner _category;
     @BindView(R.id.input_academic_achievement_programme)
-    Spinner _programme;
+    private Spinner _programme;
     @BindView(R.id.btn_submit_academic_achievement)
-    Button _submitButton;
+    private Button _submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,7 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         });
     }
 
-    public void submit() {
+    private void submit() {
         Log.d(TAG, "Submit");
 
         if (!validate()) {
@@ -175,7 +175,7 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         });
     }
 
-    public void onSubmitSuccess() {
+    private void onSubmitSuccess() {
         _submitButton.setEnabled(true);
         Toast.makeText(getBaseContext(), "Academic Achievement Submission Successful", Toast.LENGTH_LONG).show();
         setResult(RESULT_OK, null);
@@ -183,12 +183,12 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSubmitFailed() {
+    private void onSubmitFailed() {
         Toast.makeText(getBaseContext(), "Academic Achievement Submission failed", Toast.LENGTH_LONG).show();
         _submitButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String name = _nameText.getText().toString();

@@ -43,46 +43,46 @@ public class AddAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddAchievementActivity";
 
     @BindView(R.id.input_name)
-    EditText _nameText;
+    private EditText _nameText;
     @BindView(R.id.input_rollNo)
-    EditText _rollNoText;
+    private EditText _rollNoText;
     @BindView(R.id.input_section)
-    Spinner _section;
+    private Spinner _section;
     @BindView(R.id.input_sessionFrom)
-    EditText _sessionFromText;
+    private EditText _sessionFromText;
     @BindView(R.id.input_sessionTo)
-    EditText _sessionToText;
+    private EditText _sessionToText;
     @BindView(R.id.input_semester)
-    Spinner _semester;
+    private Spinner _semester;
     @BindView(R.id.input_department)
-    Spinner _department;
+    private Spinner _department;
     @BindView(R.id.input_shift)
-    Spinner _shift;
+    private Spinner _shift;
     @BindView(R.id.input_eventName)
-    EditText _eventNameText;
+    private EditText _eventNameText;
     @BindView(R.id.input_eventDate)
-    EditText _eventDateText;
+    private EditText _eventDateText;
     @BindView(R.id.input_titleAwarded)
-    EditText _titleAwardedText;
+    private EditText _titleAwardedText;
     @BindView(R.id.input_eventVenue)
-    EditText _eventVenueText;
+    private EditText _eventVenueText;
     @BindView(R.id.input_category)
-    Spinner _category;
+    private Spinner _category;
     @BindView(R.id.input_eventDescription)
-    EditText _eventDescriptionText;
+    private EditText _eventDescriptionText;
     @BindView(R.id.checkbox_participated)
-    CheckBox _participatedCheckBox;
+    private CheckBox _participatedCheckBox;
     @BindView(R.id.checkbox_organized)
-    CheckBox _organisedCheckBox;
+    private CheckBox _organisedCheckBox;
     @BindView(R.id.btn_image)
-    Button _imageButton;
+    private Button _imageButton;
     @BindView(R.id.btn_submit)
-    Button _submitButton;
+    private Button _submitButton;
 
     private static int RESULT_LOAD_IMAGE = 1;
 
-    boolean booleanParticipated = true;
-    String imageGot = null;
+    private boolean booleanParticipated = true;
+    private String imageGot = null;
 
     private static final int PERMISSION_REQUEST_CODE = 1;
 
@@ -158,7 +158,7 @@ public class AddAchievementActivity extends AppCompatActivity {
         });
     }
 
-    public void submit() {
+    private void submit() {
         Log.d(TAG, "Submit");
 
         if (!validate()) {
@@ -261,19 +261,19 @@ public class AddAchievementActivity extends AppCompatActivity {
 
     }
 
-    public void onSubmitSuccess() {
+    private void onSubmitSuccess() {
         _submitButton.setEnabled(true);
         Toast.makeText(getBaseContext(), "Achievement Submission Successful", Toast.LENGTH_LONG).show();
         setResult(RESULT_OK, null);
         finish();
     }
 
-    public void onSubmitFailed() {
+    private void onSubmitFailed() {
         Toast.makeText(getBaseContext(), "Achievement Submission failed", Toast.LENGTH_LONG).show();
         _submitButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String name = _nameText.getText().toString();

@@ -24,20 +24,18 @@ import in.stevemann.sams.utils.RESTClient;
 public class ResetProfileActivity extends AppCompatActivity {
     private static final String TAG = "ResetProfileActivity";
 
-    RESTClient client = new RESTClient();
-
     @BindView(R.id.input_current_email)
-    EditText _currentEmailText;
+    private EditText _currentEmailText;
     @BindView(R.id.input_new_email)
-    EditText _newEmailText;
+    private EditText _newEmailText;
     @BindView(R.id.input_reset_firstname)
-    EditText _resetFirstNameText;
+    private EditText _resetFirstNameText;
     @BindView(R.id.input_reset_lastname)
-    EditText _resetLastNameText;
+    private EditText _resetLastNameText;
     @BindView(R.id.input_password)
-    EditText _passwordText;
+    private EditText _passwordText;
     @BindView(R.id.btn_reset_profile)
-    Button _resetProfileButton;
+    private Button _resetProfileButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,7 @@ public class ResetProfileActivity extends AppCompatActivity {
         _resetLastNameText.setText(UserModel.getLastName());
     }
 
-    public void resetProfile() {
+    private void resetProfile() {
 
         String currentEmail = _currentEmailText.getText().toString();
         String newEmail = _newEmailText.getText().toString();
@@ -139,18 +137,18 @@ public class ResetProfileActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onResetSuccess() {
+    private void onResetSuccess() {
         Toast.makeText(getBaseContext(), "Profile Reset Successful", Toast.LENGTH_LONG).show();
         _resetProfileButton.setEnabled(true);
         finish();
     }
 
-    public void onResetFailed(String message) {
+    private void onResetFailed(String message) {
         Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
         _resetProfileButton.setEnabled(true);
     }
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String currentEmail = _currentEmailText.getText().toString();

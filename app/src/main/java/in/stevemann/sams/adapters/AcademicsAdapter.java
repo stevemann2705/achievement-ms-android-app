@@ -57,11 +57,11 @@ public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewAchievementAcademic;
-        public TextView textViewRollNo;
-        public LinearLayout linearLayout;
+        TextView textViewAchievementAcademic;
+        TextView textViewRollNo;
+        LinearLayout linearLayout;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             textViewAchievementAcademic = itemView.findViewById(R.id.textViewAchievementAcademic);
