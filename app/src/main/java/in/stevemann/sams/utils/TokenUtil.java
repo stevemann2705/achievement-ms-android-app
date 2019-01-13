@@ -29,13 +29,11 @@ public class TokenUtil {
         try {
             FileInputStream fin = context.openFileInput(fileName);
             int c;
-            String temp="";
+            StringBuilder temp = new StringBuilder();
             while( (c = fin.read()) != -1){
-                temp = temp + Character.toString((char)c);
+                temp.append(Character.toString((char) c));
             }
-                ret = temp;
-            } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
+            ret = temp.toString();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
