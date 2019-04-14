@@ -32,5 +32,9 @@
     <string name="action_search">Search</string>
     <string name="title_activity_home">Home</string>
     <string name="tab_text_3">Academics</string>
+    <string name="action_teacher_achievement">Teacher Achievement</string>
+    <string name="tab_text_5">My Achievements</string>
+    <string name="tab_text_6">All Achievements</string>
+    <string name="action_student_dashboard">Student Dashboard</string>
 
 </resources>
