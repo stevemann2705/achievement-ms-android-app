@@ -1,6 +1,6 @@
 package in.stevemann.sams.models;
 
-public class TeacherAchievement {
+public class TeacherAchievementModel {
     private static String user;
     private static String taType;
     private static boolean international;
@@ -18,7 +18,7 @@ public class TeacherAchievement {
     }
 
     public static void setUser(String user) {
-        TeacherAchievement.user = user;
+        TeacherAchievementModel.user = user;
     }
 
     public static String getTaType() {
@@ -26,7 +26,7 @@ public class TeacherAchievement {
     }
 
     public static void setTaType(String taType) {
-        TeacherAchievement.taType = taType;
+        TeacherAchievementModel.taType = taType;
     }
 
     public static boolean isInternational() {
@@ -34,7 +34,7 @@ public class TeacherAchievement {
     }
 
     public static void setInternational(boolean international) {
-        TeacherAchievement.international = international;
+        TeacherAchievementModel.international = international;
     }
 
     public static String getTopic() {
@@ -42,7 +42,7 @@ public class TeacherAchievement {
     }
 
     public static void setTopic(String topic) {
-        TeacherAchievement.topic = topic;
+        TeacherAchievementModel.topic = topic;
     }
 
     public static String getPublished() {
@@ -50,7 +50,7 @@ public class TeacherAchievement {
     }
 
     public static void setPublished(String published) {
-        TeacherAchievement.published = published;
+        TeacherAchievementModel.published = published;
     }
 
     public static boolean isSponsored() {
@@ -58,7 +58,7 @@ public class TeacherAchievement {
     }
 
     public static void setSponsored(boolean sponsored) {
-        TeacherAchievement.sponsored = sponsored;
+        TeacherAchievementModel.sponsored = sponsored;
     }
 
     public static boolean isReviewed() {
@@ -66,7 +66,7 @@ public class TeacherAchievement {
     }
 
     public static void setReviewed(boolean reviewed) {
-        TeacherAchievement.reviewed = reviewed;
+        TeacherAchievementModel.reviewed = reviewed;
     }
 
     public static String getDate() {
@@ -74,7 +74,7 @@ public class TeacherAchievement {
     }
 
     public static void setDate(String date) {
-        TeacherAchievement.date = date;
+        TeacherAchievementModel.date = date;
     }
 
     public static String getDescription() {
@@ -82,7 +82,7 @@ public class TeacherAchievement {
     }
 
     public static void setDescription(String description) {
-        TeacherAchievement.description = description;
+        TeacherAchievementModel.description = description;
     }
 
     public static boolean isMsi() {
@@ -90,7 +90,7 @@ public class TeacherAchievement {
     }
 
     public static void setMsi(boolean msi) {
-        TeacherAchievement.msi = msi;
+        TeacherAchievementModel.msi = msi;
     }
 
     public static String getPlace() {
@@ -98,6 +98,6 @@ public class TeacherAchievement {
     }
 
     public static void setPlace(String place) {
-        TeacherAchievement.place = place;
+        TeacherAchievementModel.place = place;
     }
 }
