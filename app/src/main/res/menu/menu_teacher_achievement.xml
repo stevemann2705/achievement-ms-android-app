@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TeacherAchievementActivity">
+    <item
+        android:id="@+id/action_dashboard_student"
+        android:orderInCategory="100"
+        android:title="@string/action_student_dashboard"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dashboard_reset_password"
+        android:orderInCategory="100"
+        android:title="@string/action_reset_password"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dashboard_reset_profile"
+        android:orderInCategory="100"
+        android:title="@string/action_reset_profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dashboard_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
+        app:showAsAction="never" />
+</menu>
