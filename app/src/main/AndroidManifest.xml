@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TeacherAchievementActivity"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -73,6 +72,10 @@
         <activity
             android:name=".AddAcademicAchievementActivity"
             android:label="Add Academic Achievement"
+            android:theme="@style/AppTheme.Light" />
+        <activity
+            android:name=".TeacherAchievementActivity"
+            android:label="@string/title_activity_teacher_achievement"
             android:theme="@style/AppTheme.Light" />
     </application>
 
