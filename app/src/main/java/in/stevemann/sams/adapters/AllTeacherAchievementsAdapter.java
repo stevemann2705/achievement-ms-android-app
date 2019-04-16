@@ -30,7 +30,7 @@ public class AllTeacherAchievementsAdapter extends RecyclerView.Adapter<AllTeach
     @Override
     public AllTeacherAchievementsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_unapproved_achievement, parent, false);
+                .inflate(R.layout.list_item_teacher_achievement, parent, false);
         return new AllTeacherAchievementsAdapter.ViewHolder(v);
     }
 
@@ -69,7 +69,7 @@ public class AllTeacherAchievementsAdapter extends RecyclerView.Adapter<AllTeach
 
             textViewAchievement = itemView.findViewById(R.id.textViewTeacherAchievement);
             textViewUserId = itemView.findViewById(R.id.textViewUserId);
-            linearLayout = itemView.findViewById(R.id.linear_layout_unapproved_achievement_card_external);
+            linearLayout = itemView.findViewById(R.id.linear_layout_teacher_achievement_card);
         }
     }
 }
