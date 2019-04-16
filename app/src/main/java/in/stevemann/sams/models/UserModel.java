@@ -1,10 +1,20 @@
 package in.stevemann.sams.models;
 
 public class UserModel {
+
+    private static String userId;
     private static String token;
     private static String email;
     private static String firstName;
     private static String lastName;
+
+    public static String getUserId() {
+        return userId;
+    }
+
+    public static void setUserId(String userId) {
+        UserModel.userId = userId;
+    }
 
     public static String getFirstName() {
         return firstName;
