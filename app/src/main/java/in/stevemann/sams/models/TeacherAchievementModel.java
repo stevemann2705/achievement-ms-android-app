@@ -13,6 +13,22 @@ public class TeacherAchievementModel {
     private static boolean msi;
     private static String place;
 
+    public TeacherAchievementModel(String user, String taType, boolean international, String topic,
+                                   String published, boolean sponsored, boolean reviewed,
+                                   String date, String description, boolean msi, String place) {
+        this.user = user;
+        this.taType = taType;
+        this.international = international;
+        this.topic = topic;
+        this.published = published;
+        this.sponsored = sponsored;
+        this.reviewed = reviewed;
+        this.date = date;
+        this.description = description;
+        this.msi = msi;
+        this.place = place;
+    }
+
     public static String getUser() {
         return user;
     }
