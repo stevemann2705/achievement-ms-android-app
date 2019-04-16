@@ -49,6 +49,8 @@ public class SignupActivity extends AppCompatActivity {
     Button _signupButton;
     @BindView(R.id.link_login)
     TextView _loginLink;
+    @BindView(R.id.input_designation)
+    EditText _designation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,7 @@ public class SignupActivity extends AppCompatActivity {
         String shift = _shift.getSelectedItem().toString();
         String password = _passwordText.getText().toString();
         String code = _code.getText().toString();
+        String designation = _designation.getText().toString();
 
         RequestParams params = new RequestParams();
         params.put("firstName", firstName);
@@ -122,6 +125,7 @@ public class SignupActivity extends AppCompatActivity {
         params.put("email", email);
         params.put("password", password);
         params.put("code", code);
+        params.put("designation", designation);
 
         RESTClient.post("users/add", params, new JsonHttpResponseHandler() {
             @Override
@@ -180,7 +184,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        return isValidFirstName() && isValidLastName() && isValidEmail() && isValidDepartment() && isValidShift() && isValidPassword() && isValidRePassword();
+        return isValidFirstName() && isValidLastName() && isValidEmail() && isValidDepartment() &&
+                isValidShift() && isValidPassword() && isValidRePassword();
     }
 
     private boolean isValidFirstName() {
