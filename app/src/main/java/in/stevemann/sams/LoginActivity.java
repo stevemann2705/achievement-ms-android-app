@@ -159,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                                 UserModel.setEmail(timeline.getString("email"));
                                 UserModel.setFirstName(timeline.getString("firstName"));
                                 UserModel.setLastName(timeline.getString("lastName"));
-                                UserModel.setUserId(timeline.getString("_id"));
+                                UserModel.setUserId(timeline.getString("id"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -197,12 +197,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 if (statusCode != 401) {
-                    Log.i("TOKEN: ", "Yep, token exists, and is valid.");
+                    Log.i("TOKEN: ", "Yep, token exists, and is valid.    " + token);
                     try {
                         UserModel.setEmail(timeline.getString("email"));
                         UserModel.setFirstName(timeline.getString("firstName"));
                         UserModel.setLastName(timeline.getString("lastName"));
-                        UserModel.setUserId(timeline.getString("_id"));
+                        UserModel.setUserId(timeline.getString("id"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
