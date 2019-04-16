@@ -56,29 +56,31 @@ public class MyTeacherAchievementsTab extends Fragment {
         progressDialog.show();
 
         RequestParams params = new RequestParams();
-        params.put("userId", UserModel.getUserId());
 
-        RESTClient.get("tachievements/allUserid", params, new JsonHttpResponseHandler() {
+        RESTClient.get("tachievements/allUserid?userId=" + UserModel.getUserId(), params, new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 for (int i = 0; i < timeline.length(); i++) {
-                    JSONObject o = null;
+                    JSONObject o = timeline;
                     TeacherAchievementModel item = null;
                     try {
-                        o = timeline.getJSONObject(i);
-                        item = new TeacherAchievementModel(
-                                o.getString("_id"),
-                                o.getString("taType"),
-                                o.getBoolean("international"),
-                                o.getString("topic"),
-                                o.getString("published"),
-                                o.getBoolean("sponsored"),
-                                o.getBoolean("reviewed"),
-                                o.getString("date"),
-                                o.getString("description"),
-                                o.getBoolean("msi"),
-                                o.getString("place")
-                        );
+                        JSONArray arr = (JSONArray) o.get("achs");
+                        for (int j = 0; j < arr.length(); j++) {
+                            JSONObject object = arr.getJSONObject(j);
+                            item = new TeacherAchievementModel(
+                                    o.getString("_id"),
+                                    o.getString("taType"),
+                                    o.getBoolean("international"),
+                                    o.getString("topic"),
+                                    o.getString("published"),
+                                    o.getBoolean("sponsored"),
+                                    o.getBoolean("reviewed"),
+                                    o.getString("date"),
+                                    o.getString("description"),
+                                    o.getBoolean("msi"),
+                                    o.getString("place")
+                            );
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -91,7 +93,7 @@ public class MyTeacherAchievementsTab extends Fragment {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+            public void onFailure(int statusCode, Header[] headers, String s, Throwable throwable) {
                 progressDialog.dismiss();
                 Log.d("Failed: ", "" + statusCode);
                 Log.d("Error : ", "" + throwable);
