@@ -60,32 +60,31 @@ public class MyTeacherAchievementsTab extends Fragment {
         RESTClient.get("tachievements/allUserid?userId=" + UserModel.getUserId(), params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
-                for (int i = 0; i < timeline.length(); i++) {
-                    JSONObject o = timeline;
-                    TeacherAchievementModel item = null;
-                    try {
-                        JSONArray arr = (JSONArray) o.get("achs");
-                        for (int j = 0; j < arr.length(); j++) {
-                            JSONObject object = arr.getJSONObject(j);
-                            item = new TeacherAchievementModel(
-                                    o.getString("_id"),
-                                    o.getString("taType"),
-                                    o.getBoolean("international"),
-                                    o.getString("topic"),
-                                    o.getString("published"),
-                                    o.getBoolean("sponsored"),
-                                    o.getBoolean("reviewed"),
-                                    o.getString("date"),
-                                    o.getString("description"),
-                                    o.getBoolean("msi"),
-                                    o.getString("place")
-                            );
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                JSONObject o = timeline;
+                TeacherAchievementModel item = null;
+                try {
+                    JSONArray arr = (JSONArray) o.get("achs");
+                    for (int j = 0; j < arr.length(); j++) {
+                        JSONObject object = arr.getJSONObject(j);
+                        item = new TeacherAchievementModel(
+                                object.getString("_id"),
+                                object.getString("taType"),
+                                object.getBoolean("international"),
+                                object.getString("topic"),
+                                object.getString("published"),
+                                object.getBoolean("sponsored"),
+                                object.getBoolean("reviewed"),
+                                object.getString("date"),
+                                object.getString("description"),
+                                object.getBoolean("msi"),
+                                object.getString("place")
+                        );
                     }
-                    achievementModels.add(item);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+                achievementModels.add(item);
+
 
                 progressDialog.dismiss();
                 adapter = new AllTeacherAchievementsAdapter(achievementModels, getContext());

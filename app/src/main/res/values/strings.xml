@@ -36,5 +36,6 @@
     <string name="tab_text_5">My Achievements</string>
     <string name="tab_text_6">All Achievements</string>
     <string name="action_student_dashboard">Student Dashboard</string>
+    <string name="title_activity_teacher_achievement">Teacher Achievements</string>
 
 </resources>
