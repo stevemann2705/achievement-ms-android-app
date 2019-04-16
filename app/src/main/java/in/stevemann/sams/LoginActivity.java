@@ -159,6 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                                 UserModel.setEmail(timeline.getString("email"));
                                 UserModel.setFirstName(timeline.getString("firstName"));
                                 UserModel.setLastName(timeline.getString("lastName"));
+                                UserModel.setUserId(timeline.getString("_id"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -201,6 +202,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserModel.setEmail(timeline.getString("email"));
                         UserModel.setFirstName(timeline.getString("firstName"));
                         UserModel.setLastName(timeline.getString("lastName"));
+                        UserModel.setUserId(timeline.getString("_id"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
