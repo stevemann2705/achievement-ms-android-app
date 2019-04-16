@@ -83,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
                             UserModel.setEmail(timeline.getString("email"));
                             UserModel.setFirstName(timeline.getString("firstName"));
                             UserModel.setLastName(timeline.getString("lastName"));
+                            UserModel.setUserId(timeline.getString("id"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
