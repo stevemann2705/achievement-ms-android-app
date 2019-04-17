@@ -150,9 +150,6 @@ public class LoginActivity extends AppCompatActivity {
                 RequestParams param = new RequestParams();
                 param.put("token", token);
 
-                UserModel.setToken(token);
-                System.out.println("Token set here: ---------------------------------------------------" + token);
-
                 RESTClient.get("users/isvalid", param, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
@@ -195,8 +192,6 @@ public class LoginActivity extends AppCompatActivity {
     private void onLoginSuccess() {
         RequestParams param = new RequestParams();
         param.put("token", token);
-
-        UserModel.setToken(token);
 
         RESTClient.get("users/isvalid", param, new JsonHttpResponseHandler() {
             @Override
