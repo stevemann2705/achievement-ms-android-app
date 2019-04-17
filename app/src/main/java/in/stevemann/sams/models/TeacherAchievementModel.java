@@ -1,17 +1,17 @@
 package in.stevemann.sams.models;
 
 public class TeacherAchievementModel {
-    private static String user;
-    private static String taType;
-    private static boolean international;
-    private static String topic;
-    private static String published;
-    private static boolean sponsored;
-    private static boolean reviewed;
-    private static String date;
-    private static String description;
-    private static boolean msi;
-    private static String place;
+    private String user;
+    private String taType;
+    private boolean international;
+    private String topic;
+    private String published;
+    private boolean sponsored;
+    private boolean reviewed;
+    private String date;
+    private String description;
+    private boolean msi;
+    private String place;
 
     public TeacherAchievementModel(String user, String taType, boolean international, String topic,
                                    String published, boolean sponsored, boolean reviewed,
@@ -29,91 +29,91 @@ public class TeacherAchievementModel {
         this.place = place;
     }
 
-    public static String getUser() {
+    public String getUser() {
         return user;
     }
 
-    public static void setUser(String user) {
-        TeacherAchievementModel.user = user;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public static String getTaType() {
+    public String getTaType() {
         return taType;
     }
 
-    public static void setTaType(String taType) {
-        TeacherAchievementModel.taType = taType;
+    public void setTaType(String taType) {
+        this.taType = taType;
     }
 
-    public static boolean isInternational() {
+    public boolean isInternational() {
         return international;
     }
 
-    public static void setInternational(boolean international) {
-        TeacherAchievementModel.international = international;
+    public void setInternational(boolean international) {
+        this.international = international;
     }
 
-    public static String getTopic() {
+    public String getTopic() {
         return topic;
     }
 
-    public static void setTopic(String topic) {
-        TeacherAchievementModel.topic = topic;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
-    public static String getPublished() {
+    public String getPublished() {
         return published;
     }
 
-    public static void setPublished(String published) {
-        TeacherAchievementModel.published = published;
+    public void setPublished(String published) {
+        this.published = published;
     }
 
-    public static boolean isSponsored() {
+    public boolean isSponsored() {
         return sponsored;
     }
 
-    public static void setSponsored(boolean sponsored) {
-        TeacherAchievementModel.sponsored = sponsored;
+    public void setSponsored(boolean sponsored) {
+        this.sponsored = sponsored;
     }
 
-    public static boolean isReviewed() {
+    public boolean isReviewed() {
         return reviewed;
     }
 
-    public static void setReviewed(boolean reviewed) {
-        TeacherAchievementModel.reviewed = reviewed;
+    public void setReviewed(boolean reviewed) {
+        this.reviewed = reviewed;
     }
 
-    public static String getDate() {
+    public String getDate() {
         return date;
     }
 
-    public static void setDate(String date) {
-        TeacherAchievementModel.date = date;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public static String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) {
-        TeacherAchievementModel.description = description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public static boolean isMsi() {
+    public boolean isMsi() {
         return msi;
     }
 
-    public static void setMsi(boolean msi) {
-        TeacherAchievementModel.msi = msi;
+    public void setMsi(boolean msi) {
+        this.msi = msi;
     }
 
-    public static String getPlace() {
+    public String getPlace() {
         return place;
     }
 
-    public static void setPlace(String place) {
-        TeacherAchievementModel.place = place;
+    public void setPlace(String place) {
+        this.place = place;
     }
 }
