@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.stevemann.sams.R;
-import in.stevemann.sams.adapters.AllTeacherAchievementsAdapter;
+import in.stevemann.sams.adapters.MyTeacherAchievementsAdapter;
 import in.stevemann.sams.models.TeacherAchievementModel;
 import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.utils.RESTClient;
@@ -86,7 +86,7 @@ public class MyTeacherAchievementsTab extends Fragment {
                 }
 
                 progressDialog.dismiss();
-                adapter = new AllTeacherAchievementsAdapter(achievementModels, getContext());
+                adapter = new MyTeacherAchievementsAdapter(achievementModels, getContext());
                 recyclerView.setAdapter(adapter);
             }
 
