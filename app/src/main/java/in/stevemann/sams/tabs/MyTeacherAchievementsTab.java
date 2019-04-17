@@ -79,12 +79,11 @@ public class MyTeacherAchievementsTab extends Fragment {
                                 object.getBoolean("msi"),
                                 object.getString("place")
                         );
+                        achievementModels.add(item);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                achievementModels.add(item);
-
 
                 progressDialog.dismiss();
                 adapter = new AllTeacherAchievementsAdapter(achievementModels, getContext());
