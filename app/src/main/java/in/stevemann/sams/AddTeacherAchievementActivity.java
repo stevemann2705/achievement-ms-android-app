@@ -83,7 +83,7 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
 
         String[] subTypes = {"SEMINAR", "CONFERENCE", "WORKSHOP", "FDP", "FDP1WEEK"};
         ArrayAdapter<String> subTypeAdapter = SpinnerUtil.getAdapter(this, subTypes, "Select Sub Type");
-        SpinnerUtil.setSpinnerProperties(_type, subTypeAdapter);
+        SpinnerUtil.setSpinnerProperties(_subType, subTypeAdapter);
     }
 
     private void submit() {
