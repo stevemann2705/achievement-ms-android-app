@@ -24,12 +24,15 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.stevemann.sams.models.UserModel;
+import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.SpinnerUtil;
+import in.stevemann.sams.utils.TokenUtil;
 
 public class AddTeacherAchievementActivity extends AppCompatActivity {
     private static final String TAG = "AddTeacherAchievement";
+
+    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     @BindView(R.id.input_topic)
     EditText _topicText;
@@ -86,6 +89,13 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
     private void submit() {
         Log.d(TAG, "Submit");
 
+        String encryptedData = TokenUtil.readData(this);
+        String[] data = encryptedData.split(" ");
+        String encryptedToken = data[1];
+        String iv = data[0];
+
+        String token = cryptoUtil.decryptToken(encryptedToken, iv);
+
         if (!validate()) {
             onSubmitFailed();
             return;
@@ -112,7 +122,7 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
         String msi = String.valueOf(booleanMsi);
 
         RequestParams params = new RequestParams();
-        params.put("token", UserModel.getToken());
+        params.put("token", token);
         params.put("topic", topic);
         params.put("taType", type);
         params.put("subType", subType);
