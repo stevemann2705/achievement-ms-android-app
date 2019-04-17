@@ -37,5 +37,14 @@
     <string name="tab_text_6">All Achievements</string>
     <string name="action_student_dashboard">Student Dashboard</string>
     <string name="title_activity_teacher_achievement">Teacher Achievements</string>
+    <string name="input_topic">Topic</string>
+    <string name="input_description">Description</string>
+    <string name="input_published">Published</string>
+    <string name="input_date">Date</string>
+    <string name="input_place">Place</string>
+    <string name="checkbox_international">International</string>
+    <string name="checkbox_sponsored">Sponsored</string>
+    <string name="checkbox_reviewed">Reviewed</string>
+    <string name="checkbox_msi">MSI</string>
 
 </resources>

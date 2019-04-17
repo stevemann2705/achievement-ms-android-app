@@ -38,4 +38,19 @@
         <item>others</item>
         <item>Select Category</item>
     </string-array>
+    <string-array name="taType_array">
+        <item>Book</item>
+        <item>Journal</item>
+        <item>Conference</item>
+        <item>SeminarAttended</item>
+        <item>Select Type</item>
+    </string-array>
+    <string-array name="taSubtype_array">
+        <item>SEMINAR</item>
+        <item>CONFERENCE</item>
+        <item>WORKSHOP</item>
+        <item>FDP</item>
+        <item>FDP1WEEK</item>
+        <item>Select Type</item>
+    </string-array>
 </resources>

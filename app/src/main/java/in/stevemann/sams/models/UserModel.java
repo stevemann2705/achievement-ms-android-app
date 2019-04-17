@@ -41,6 +41,11 @@ public class UserModel {
         UserModel.email = email;
     }
 
+
+    public static String getToken() {
+        return token;
+    }
+
     public static void setToken(String token) {
         UserModel.token = token;
     }
