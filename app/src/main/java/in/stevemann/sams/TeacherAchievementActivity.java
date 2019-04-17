@@ -2,7 +2,6 @@ package in.stevemann.sams;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,13 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import in.stevemann.sams.tabs.AllTeacherAchievementsTab;
 import in.stevemann.sams.tabs.MyTeacherAchievementsTab;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.TokenUtil;
 
 public class TeacherAchievementActivity extends AppCompatActivity {
-
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -29,7 +26,7 @@ public class TeacherAchievementActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private TeacherAchievementActivity.SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -45,17 +42,12 @@ public class TeacherAchievementActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new TeacherAchievementActivity.SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = findViewById(R.id.container_teacher_achievement);
+        mViewPager = findViewById(R.id.container_teacher_achievement1);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOffscreenPageLimit(2);
-
-        TabLayout tabLayout = findViewById(R.id.tabs_teacher_achievement);
-
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
+        mViewPager.setOffscreenPageLimit(1);
     }
 
     @Override
@@ -121,8 +113,6 @@ public class TeacherAchievementActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return new MyTeacherAchievementsTab();
-                case 1:
-                    return new AllTeacherAchievementsTab();
                 default:
                     return null;
             }
@@ -131,7 +121,7 @@ public class TeacherAchievementActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 2 total pages.
-            return 2;
+            return 1;
         }
     }
 }
