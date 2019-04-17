@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import in.stevemann.sams.tabs.AcademicsTab;
@@ -46,12 +45,9 @@ public class DashboardActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.floatbutton_add_academic_achievement);
         fab.hide();
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddAcademicAchievementActivity.class);
-                startActivity(intent);
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AddAcademicAchievementActivity.class);
+            startActivity(intent);
         });
 
         Toolbar toolbar = findViewById(R.id.toolbar_dashboard);
