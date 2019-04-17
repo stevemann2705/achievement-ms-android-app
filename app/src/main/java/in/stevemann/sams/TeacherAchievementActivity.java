@@ -2,6 +2,7 @@ package in.stevemann.sams;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -37,6 +38,13 @@ public class TeacherAchievementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_achievement);
+
+        FloatingActionButton fab = findViewById(R.id.floatbutton_add_teacher_achievement);
+        fab.hide();
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AddTeacherAchievementActivity.class);
+            startActivity(intent);
+        });
 
         Toolbar toolbar = findViewById(R.id.toolbar_teacher_achievement);
         setSupportActionBar(toolbar);
