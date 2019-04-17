@@ -39,7 +39,7 @@ public class AllTeacherAchievementsAdapter extends RecyclerView.Adapter<AllTeach
         final TeacherAchievementModel achievementModel = achievementModels.get(position);
 
         holder.textViewAchievement.setText(achievementModel.getTopic());
-        holder.textViewUserId.setText(achievementModel.getUser());
+        holder.textViewDescription.setText((achievementModel.getDescription().length() < 30) ? achievementModel.getDescription() + "..." : achievementModel.getDescription().substring(0, 30) + "...");
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
 
@@ -61,14 +61,14 @@ public class AllTeacherAchievementsAdapter extends RecyclerView.Adapter<AllTeach
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         final TextView textViewAchievement;
-        final TextView textViewUserId;
+        final TextView textViewDescription;
         final LinearLayout linearLayout;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             textViewAchievement = itemView.findViewById(R.id.textViewTeacherAchievement);
-            textViewUserId = itemView.findViewById(R.id.textViewUserId);
+            textViewDescription = itemView.findViewById(R.id.textViewDescription);
             linearLayout = itemView.findViewById(R.id.linear_layout_teacher_achievement_card);
         }
     }
