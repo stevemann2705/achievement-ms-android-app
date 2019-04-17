@@ -40,7 +40,6 @@ public class TeacherAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_achievement);
 
         FloatingActionButton fab = findViewById(R.id.floatbutton_add_teacher_achievement);
-        fab.hide();
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), AddTeacherAchievementActivity.class);
             startActivity(intent);
