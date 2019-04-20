@@ -250,13 +250,6 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
             _dateText.setError(null);
         }
 
-        if (place.isEmpty() || place.length() < 3) {
-            _placeText.setError("at least 3 characters");
-            valid = false;
-        } else {
-            _placeText.setError(null);
-        }
-
         if ("Select Type".equals(type)) {
             TextView errorText = (TextView) _type.getSelectedView();
             errorText.setError("");
