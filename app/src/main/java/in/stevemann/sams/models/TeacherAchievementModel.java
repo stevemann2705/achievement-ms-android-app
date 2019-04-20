@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TeacherAchievementModel implements Parcelable {
+    private String id;
     private String user;
     private String taType;
     private boolean international;
@@ -16,9 +17,10 @@ public class TeacherAchievementModel implements Parcelable {
     private boolean msi;
     private String place;
 
-    public TeacherAchievementModel(String user, String taType, boolean international, String topic,
+    public TeacherAchievementModel(String id, String user, String taType, boolean international, String topic,
                                    String published, boolean sponsored, boolean reviewed,
                                    String date, String description, boolean msi, String place) {
+        this.id = id;
         this.user = user;
         this.taType = taType;
         this.international = international;
@@ -131,6 +133,7 @@ public class TeacherAchievementModel implements Parcelable {
     }
 
     public TeacherAchievementModel(Parcel in) {
+        this.id = in.readString();
         this.user = in.readString();
         this.taType = in.readString();
         this.international = Boolean.parseBoolean(in.readString());
@@ -144,6 +147,14 @@ public class TeacherAchievementModel implements Parcelable {
         this.place = in.readString();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -151,6 +162,7 @@ public class TeacherAchievementModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
         dest.writeString(user);
         dest.writeString(taType);
         dest.writeString(String.valueOf(international));
