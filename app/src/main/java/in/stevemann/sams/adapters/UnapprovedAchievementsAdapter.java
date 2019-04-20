@@ -23,9 +23,9 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import in.stevemann.sams.AchievementDetailsActivity;
-import in.stevemann.sams.DashboardActivity;
 import in.stevemann.sams.R;
+import in.stevemann.sams.activities.AchievementDetailsActivity;
+import in.stevemann.sams.activities.DashboardActivity;
 import in.stevemann.sams.models.AchievementModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;

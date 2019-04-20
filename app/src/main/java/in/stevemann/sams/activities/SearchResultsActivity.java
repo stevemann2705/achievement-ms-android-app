@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import in.stevemann.sams.R;
 import in.stevemann.sams.adapters.ApprovedAchievementsAdapter;
 import in.stevemann.sams.models.AchievementModel;
 

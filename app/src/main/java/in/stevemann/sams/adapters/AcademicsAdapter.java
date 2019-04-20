@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import in.stevemann.sams.AcademicDetailsActivity;
 import in.stevemann.sams.R;
+import in.stevemann.sams.activities.AcademicDetailsActivity;
 import in.stevemann.sams.models.AcademicModel;
 
 public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.ViewHolder> {

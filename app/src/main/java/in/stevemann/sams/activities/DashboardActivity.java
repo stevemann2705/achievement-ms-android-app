@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import in.stevemann.sams.R;
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;
 import in.stevemann.sams.tabs.UnapprovedTab;

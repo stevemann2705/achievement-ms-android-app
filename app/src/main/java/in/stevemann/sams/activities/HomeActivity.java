@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import in.stevemann.sams.R;
 import in.stevemann.sams.models.UserModel;
 import in.stevemann.sams.tabs.AcademicsTab;
 import in.stevemann.sams.tabs.ApprovedTab;

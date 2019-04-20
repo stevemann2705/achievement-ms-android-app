@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import in.stevemann.sams.AchievementDetailsActivity;
 import in.stevemann.sams.R;
+import in.stevemann.sams.activities.AchievementDetailsActivity;
 import in.stevemann.sams.models.AchievementModel;
 
 public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachResultsAchievementsAdapter.ViewHolder> {

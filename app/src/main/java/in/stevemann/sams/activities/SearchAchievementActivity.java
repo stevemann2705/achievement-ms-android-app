@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -27,6 +27,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.stevemann.sams.R;
 import in.stevemann.sams.models.AchievementModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
@@ -85,12 +86,12 @@ public class SearchAchievementActivity extends AppCompatActivity {
 
         callingClass = Objects.requireNonNull(this.getCallingActivity()).getClassName();
 
-        if ("in.stevemann.sams.HomeActivity".equals(callingClass)) {
+        if ("in.stevemann.sams.activities.HomeActivity".equals(callingClass)) {
             _approved.setChecked(true);
             _approved.setEnabled(false);
             _unapproved.setChecked(false);
             _unapproved.setEnabled(false);
-        } else if ("in.stevemann.sams.DashboardActivity".equals(callingClass)) {
+        } else if ("in.stevemann.sams.activities.DashboardActivity".equals(callingClass)) {
             _approved.setEnabled(true);
             _unapproved.setEnabled(true);
         }

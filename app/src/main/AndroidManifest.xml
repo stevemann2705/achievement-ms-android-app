@@ -20,43 +20,43 @@
             android:required="false" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:label="Login"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".activities.SignupActivity"
             android:label="Signup"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".activities.ResetPasswordActivity"
             android:label="Reset Password"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".ResetProfileActivity"
+            android:name=".activities.ResetProfileActivity"
             android:label="Reset Profile"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".AddAchievementActivity"
+            android:name=".activities.AddAchievementActivity"
             android:label="Add Achievement"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".AchievementDetailsActivity"
+            android:name=".activities.AchievementDetailsActivity"
             android:label="Achievement Details"
             android:theme="@style/AppTheme.Dark.Details" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".activities.DashboardActivity"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".SearchAchievementActivity"
+            android:name=".activities.SearchAchievementActivity"
             android:label="Search Achievements"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".SearchResultsActivity"
+            android:name=".activities.SearchResultsActivity"
             android:label="Search Results"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.Light">
             <intent-filter>
@@ -66,19 +66,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AcademicDetailsActivity"
+            android:name=".activities.AcademicDetailsActivity"
             android:label="Achievement Details"
             android:theme="@style/AppTheme.Dark.Details" />
         <activity
-            android:name=".AddAcademicAchievementActivity"
+            android:name=".activities.AddAcademicAchievementActivity"
             android:label="Add Academic Achievement"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".TeacherAchievementActivity"
+            android:name=".activities.TeacherAchievementActivity"
             android:label="@string/title_activity_teacher_achievement"
             android:theme="@style/AppTheme.Light" />
         <activity
-            android:name=".AddTeacherAchievementActivity"
+            android:name=".activities.AddTeacherAchievementActivity"
             android:label="Add Teacher Achievement"
             android:theme="@style/AppTheme.Light" />
     </application>

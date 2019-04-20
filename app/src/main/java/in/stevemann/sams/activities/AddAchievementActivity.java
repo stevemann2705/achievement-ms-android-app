@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -36,6 +36,7 @@ import java.io.FileNotFoundException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.stevemann.sams.R;
 import in.stevemann.sams.utils.RESTClient;
 import in.stevemann.sams.utils.SpinnerUtil;
 

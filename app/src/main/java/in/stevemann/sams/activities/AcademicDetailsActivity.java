@@ -1,4 +1,4 @@
-package in.stevemann.sams;
+package in.stevemann.sams.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.stevemann.sams.R;
 import in.stevemann.sams.models.AcademicModel;
 import in.stevemann.sams.utils.CryptoUtil;
 import in.stevemann.sams.utils.RESTClient;
