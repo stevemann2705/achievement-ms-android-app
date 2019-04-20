@@ -1,6 +1,7 @@
 package in.stevemann.sams.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import in.stevemann.sams.R;
+import in.stevemann.sams.activities.TeacherAchievementDetailsActivity;
 import in.stevemann.sams.models.TeacherAchievementModel;
 import in.stevemann.sams.utils.CryptoUtil;
 
@@ -45,10 +47,9 @@ public class MyTeacherAchievementsAdapter extends RecyclerView.Adapter<MyTeacher
 
             @Override
             public void onClick(View v) {
-                // TODO: Add TeacherAchievementDetailsActivity and start activity on click
-//                Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
-//                intent.putExtra("classFrom", DashboardActivity.class.toString());
-//                v.getContext().startActivity(intent);
+
+                Intent intent = new Intent(v.getContext(), TeacherAchievementDetailsActivity.class).putExtra("teacherAchievementObject", achievementModel);
+                v.getContext().startActivity(intent);
             }
         });
     }
