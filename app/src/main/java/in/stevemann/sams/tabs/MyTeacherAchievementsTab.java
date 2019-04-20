@@ -62,13 +62,18 @@ public class MyTeacherAchievementsTab extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
                 JSONObject o = timeline;
                 TeacherAchievementModel item = null;
+                String userId = null;
                 try {
+                    JSONObject userDetails = o.getJSONObject("user");
+                    userId = userDetails.getString("id");
                     JSONArray arr = (JSONArray) o.get("achs");
                     for (int j = 0; j < arr.length(); j++) {
                         JSONObject object = arr.getJSONObject(j);
                         item = new TeacherAchievementModel(
                                 object.getString("_id"),
+                                userId,
                                 object.getString("taType"),
+                                object.getString("subType"),
                                 object.getBoolean("international"),
                                 object.getString("topic"),
                                 object.getString("published"),
