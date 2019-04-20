@@ -1,6 +1,9 @@
 package in.stevemann.sams.models;
 
-public class TeacherAchievementModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class TeacherAchievementModel implements Parcelable {
     private String user;
     private String taType;
     private boolean international;
@@ -28,6 +31,16 @@ public class TeacherAchievementModel {
         this.msi = msi;
         this.place = place;
     }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public TeacherAchievementModel createFromParcel(Parcel in) {
+            return new TeacherAchievementModel(in);
+        }
+
+        public TeacherAchievementModel[] newArray(int size) {
+            return new TeacherAchievementModel[size];
+        }
+    };
 
     public String getUser() {
         return user;
@@ -115,5 +128,39 @@ public class TeacherAchievementModel {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public TeacherAchievementModel(Parcel in) {
+        this.user = in.readString();
+        this.taType = in.readString();
+        this.international = Boolean.parseBoolean(in.readString());
+        this.topic = in.readString();
+        this.published = in.readString();
+        this.sponsored = Boolean.parseBoolean(in.readString());
+        this.reviewed = Boolean.parseBoolean(in.readString());
+        this.date = in.readString();
+        this.description = in.readString();
+        this.msi = Boolean.parseBoolean(in.readString());
+        this.place = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(user);
+        dest.writeString(taType);
+        dest.writeString(String.valueOf(international));
+        dest.writeString(topic);
+        dest.writeString(published);
+        dest.writeString(String.valueOf(sponsored));
+        dest.writeString(String.valueOf(reviewed));
+        dest.writeString(date);
+        dest.writeString(description);
+        dest.writeString(String.valueOf(msi));
+        dest.writeString(place);
     }
 }
