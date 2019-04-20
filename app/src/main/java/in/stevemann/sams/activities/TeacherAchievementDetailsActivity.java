@@ -88,7 +88,7 @@ public class TeacherAchievementDetailsActivity extends AppCompatActivity {
                     params.put("token", token);
                     params.put("id", achievementModel.getId());
 
-                    RESTClient.post("tachievements/delete", params, new JsonHttpResponseHandler() {
+                    RESTClient.delete("tachievements/delete", params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
 
