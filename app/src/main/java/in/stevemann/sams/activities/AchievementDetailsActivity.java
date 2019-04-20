@@ -1,6 +1,7 @@
 package in.stevemann.sams.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -171,6 +172,8 @@ public class AchievementDetailsActivity extends AppCompatActivity {
     private void onDeleteSuccess() {
         _deleteAchievementButton.setEnabled(true);
         Toast.makeText(getBaseContext(), "Achievement Deletion Successful", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
         finish();
     }
 
