@@ -46,5 +46,18 @@
     <string name="checkbox_sponsored">Sponsored</string>
     <string name="checkbox_reviewed">Reviewed</string>
     <string name="checkbox_msi">MSI</string>
+    <string name="delete_teacher_achievement">Delete Teacher Achievement</string>
+    <string name="teacher_achievement_details_msi">MSI: </string>
+    <string name="teacher_achievement_details_reviewed">Reviewed: </string>
+    <string name="teacher_achievement_details_sponsored">Sponsored: </string>
+    <string name="teacher_achievement_details_international">International: </string>
+    <string name="teacher_achievement_details_place">Place: </string>
+    <string name="teacher_achievement_details_date">Date: </string>
+    <string name="teacher_achievement_details_published">Published: </string>
+    <string name="teacher_achievement_details_subtype">Sub Type: </string>
+    <string name="teacher_achievement_details_type">Type: </string>
+    <string name="teacher_achievement_details_description">Description: </string>
+    <string name="teacher_achievement_details_topic">Topic: </string>
+    <string name="teacher_achievement_details_userid">UserID: </string>
 
 </resources>
