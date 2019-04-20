@@ -7,6 +7,7 @@ public class TeacherAchievementModel implements Parcelable {
     private String id;
     private String user;
     private String taType;
+    private String subType;
     private boolean international;
     private String topic;
     private String published;
@@ -17,12 +18,14 @@ public class TeacherAchievementModel implements Parcelable {
     private boolean msi;
     private String place;
 
-    public TeacherAchievementModel(String id, String user, String taType, boolean international, String topic,
-                                   String published, boolean sponsored, boolean reviewed,
-                                   String date, String description, boolean msi, String place) {
+    public TeacherAchievementModel(String id, String user, String taType, String subType,
+                                   boolean international, String topic, String published,
+                                   boolean sponsored, boolean reviewed, String date,
+                                   String description, boolean msi, String place) {
         this.id = id;
         this.user = user;
         this.taType = taType;
+        this.subType = subType;
         this.international = international;
         this.topic = topic;
         this.published = published;
@@ -32,6 +35,22 @@ public class TeacherAchievementModel implements Parcelable {
         this.description = description;
         this.msi = msi;
         this.place = place;
+    }
+
+    public TeacherAchievementModel(Parcel in) {
+        this.id = in.readString();
+        this.user = in.readString();
+        this.taType = in.readString();
+        this.subType = in.readString();
+        this.international = Boolean.parseBoolean(in.readString());
+        this.topic = in.readString();
+        this.published = in.readString();
+        this.sponsored = Boolean.parseBoolean(in.readString());
+        this.reviewed = Boolean.parseBoolean(in.readString());
+        this.date = in.readString();
+        this.description = in.readString();
+        this.msi = Boolean.parseBoolean(in.readString());
+        this.place = in.readString();
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
@@ -132,19 +151,12 @@ public class TeacherAchievementModel implements Parcelable {
         this.place = place;
     }
 
-    public TeacherAchievementModel(Parcel in) {
-        this.id = in.readString();
-        this.user = in.readString();
-        this.taType = in.readString();
-        this.international = Boolean.parseBoolean(in.readString());
-        this.topic = in.readString();
-        this.published = in.readString();
-        this.sponsored = Boolean.parseBoolean(in.readString());
-        this.reviewed = Boolean.parseBoolean(in.readString());
-        this.date = in.readString();
-        this.description = in.readString();
-        this.msi = Boolean.parseBoolean(in.readString());
-        this.place = in.readString();
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 
     public String getId() {
@@ -165,6 +177,7 @@ public class TeacherAchievementModel implements Parcelable {
         dest.writeString(id);
         dest.writeString(user);
         dest.writeString(taType);
+        dest.writeString(subType);
         dest.writeString(String.valueOf(international));
         dest.writeString(topic);
         dest.writeString(published);
