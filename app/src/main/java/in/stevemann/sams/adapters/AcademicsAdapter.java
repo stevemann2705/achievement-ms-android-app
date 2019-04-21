@@ -38,13 +38,9 @@ public class AcademicsAdapter extends RecyclerView.Adapter<AcademicsAdapter.View
         holder.textViewAchievementAcademic.setText(academicModel.getName());
         holder.textViewRollNo.setText(academicModel.getRollNo());
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AcademicDetailsActivity.class).putExtra("academicObj", academicModel);
-                v.getContext().startActivity(intent);
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), AcademicDetailsActivity.class).putExtra("academicObj", academicModel);
+            v.getContext().startActivity(intent);
         });
     }
 

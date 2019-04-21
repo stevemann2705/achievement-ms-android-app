@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TeacherAchievementModel implements Parcelable {
+
     private String id;
     private String user;
     private String taType;
@@ -52,16 +53,6 @@ public class TeacherAchievementModel implements Parcelable {
         this.msi = Boolean.parseBoolean(in.readString());
         this.place = in.readString();
     }
-
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public TeacherAchievementModel createFromParcel(Parcel in) {
-            return new TeacherAchievementModel(in);
-        }
-
-        public TeacherAchievementModel[] newArray(int size) {
-            return new TeacherAchievementModel[size];
-        }
-    };
 
     public String getUser() {
         return user;
@@ -166,6 +157,16 @@ public class TeacherAchievementModel implements Parcelable {
     public void setId(String id) {
         this.id = id;
     }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public TeacherAchievementModel createFromParcel(Parcel in) {
+            return new TeacherAchievementModel(in);
+        }
+
+        public TeacherAchievementModel[] newArray(int size) {
+            return new TeacherAchievementModel[size];
+        }
+    };
 
     @Override
     public int describeContents() {

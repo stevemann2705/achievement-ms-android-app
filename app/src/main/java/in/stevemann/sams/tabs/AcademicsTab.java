@@ -102,12 +102,7 @@ public class AcademicsTab extends Fragment {
                         alertDialog.setTitle("Info");
                         alertDialog.setMessage("Internet not available, Cross check your internet connectivity and try again");
                         alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                getActivity().finish();
-
-                            }
-                        });
+                        alertDialog.setButton("OK", (dialog, which) -> getActivity().finish());
 
                         alertDialog.show();
                     } catch (Exception e) {

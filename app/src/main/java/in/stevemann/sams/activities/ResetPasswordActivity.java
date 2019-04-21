@@ -39,13 +39,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reset_password);
         ButterKnife.bind(this);
 
-        _resetButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                resetPassword();
-            }
-        });
+        _resetButton.setOnClickListener(v -> resetPassword());
     }
 
     private void resetPassword() {
@@ -84,24 +78,14 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
                 final String finalMessage = message;
                 if (response) {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    onResetSuccess();
-                                    // onLoginFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onResetSuccess();
+                                progressDialog.dismiss();
                             }, 3000);
                 } else {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    //onLoginSuccess();
-                                    onResetFailed(finalMessage);
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onResetFailed(finalMessage);
+                                progressDialog.dismiss();
                             }, 3000);
                 }
             }

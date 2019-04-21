@@ -57,12 +57,7 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_academic_achievement);
         ButterKnife.bind(this);
 
-        _submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
+        _submitButton.setOnClickListener(v -> submit());
 
         String[] categories = {"goldmedalist", "exemplary", "both"};
         ArrayAdapter<String> categoriesAdapter = SpinnerUtil.getAdapter(this, categories, "Select Category");
@@ -143,24 +138,14 @@ public class AddAcademicAchievementActivity extends AppCompatActivity {
                 }
 
                 if (response) {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    onSubmitSuccess();
-                                    // onLoginFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onSubmitSuccess();
+                                progressDialog.dismiss();
                             }, 3000);
                 } else {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    //onLoginSuccess();
-                                    onSubmitFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onSubmitFailed();
+                                progressDialog.dismiss();
                             }, 3000);
                 }
             }

@@ -58,63 +58,56 @@ public class UnapprovedAchievementsAdapter extends RecyclerView.Adapter<Unapprov
         holder.textViewEventName.setText(achievementModel.getEventName());
         holder.textViewRollNo.setText(achievementModel.getRollNo());
 
-        holder.buttonApprove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final ProgressDialog progressDialog = new ProgressDialog(context,
-                        R.style.AppTheme_Light_Dialog);
-                progressDialog.setIndeterminate(true);
-                progressDialog.setMessage("Approving Achievement...");
-                progressDialog.show();
+        holder.buttonApprove.setOnClickListener(v -> {
+            final ProgressDialog progressDialog = new ProgressDialog(context,
+                    R.style.AppTheme_Light_Dialog);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Approving Achievement...");
+            progressDialog.show();
 
-                String id = achievementModel.getId();
-                String encryptedData = TokenUtil.readData(context);
-                String[] data = encryptedData.split(" ");
-                String encryptedToken = data[1];
-                String iv = data[0];
+            String id = achievementModel.getId();
+            String encryptedData = TokenUtil.readData(context);
+            String[] data = encryptedData.split(" ");
+            String encryptedToken = data[1];
+            String iv = data[0];
 
-                final String token = cryptoUtil.decryptToken(encryptedToken, iv);
+            final String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
-                RequestParams params = new RequestParams();
+            RequestParams params = new RequestParams();
 
-                RESTClient.post("achievements/approve?id="+id+"&token="+token, params, new JsonHttpResponseHandler(){
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
-                        boolean response = false;
-                        try {
-                            response = (boolean) timeline.get("bool");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        if(response){
-                            holder.buttonApprove.setEnabled(false);
-                            Intent intent = new Intent(context, DashboardActivity.class);
-                            context.startActivity(intent);
-                            progressDialog.dismiss();
-                        }else{
-                            Toast.makeText(context, "Unable to approve achievement", Toast.LENGTH_SHORT).show();
-                        }
+            RESTClient.post("achievements/approve?id="+id+"&token="+token, params, new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject timeline) {
+                    boolean response = false;
+                    try {
+                        response = (boolean) timeline.get("bool");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, String error, Throwable throwable){
+                    if(response){
+                        holder.buttonApprove.setEnabled(false);
+                        Intent intent = new Intent(context, DashboardActivity.class);
+                        context.startActivity(intent);
                         progressDialog.dismiss();
-                        Log.d("Failed: ", "" + statusCode);
-                        Log.d("Error : ", "" + throwable);
-                        Log.d("Caused By : ", "" + throwable.getCause());
+                    }else{
+                        Toast.makeText(context, "Unable to approve achievement", Toast.LENGTH_SHORT).show();
                     }
-                });
-            }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String error, Throwable throwable){
+                    progressDialog.dismiss();
+                    Log.d("Failed: ", "" + statusCode);
+                    Log.d("Error : ", "" + throwable);
+                    Log.d("Caused By : ", "" + throwable.getCause());
+                }
+            });
         });
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
-                intent.putExtra("classFrom", DashboardActivity.class.toString());
-                v.getContext().startActivity(intent);
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj",achievementModel);
+            intent.putExtra("classFrom", DashboardActivity.class.toString());
+            v.getContext().startActivity(intent);
         });
     }
 

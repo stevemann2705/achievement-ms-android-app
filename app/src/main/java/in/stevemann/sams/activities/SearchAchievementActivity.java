@@ -75,12 +75,7 @@ public class SearchAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_achievement);
         ButterKnife.bind(this);
 
-        _searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search();
-            }
-        });
+        _searchButton.setOnClickListener(v -> search());
 
         achievementModels = new ArrayList<>();
 
@@ -156,7 +151,6 @@ public class SearchAchievementActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
                     achievementModels.clear();
-                    //System.out.println(timeline.length());
                     for (int i = 0; i < timeline.length(); i++) {
                         JSONObject o = null;
                         AchievementModel item = null;

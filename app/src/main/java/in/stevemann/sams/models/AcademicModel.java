@@ -4,17 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AcademicModel implements Parcelable {
-    public static final Creator<AcademicModel> CREATOR = new Creator<AcademicModel>() {
-        @Override
-        public AcademicModel createFromParcel(Parcel in) {
-            return new AcademicModel(in);
-        }
 
-        @Override
-        public AcademicModel[] newArray(int size) {
-            return new AcademicModel[size];
-        }
-    };
     private final String id;
     private final String rollNo;
     private final String name;
@@ -63,6 +53,18 @@ public class AcademicModel implements Parcelable {
     public String getCategory() {
         return category;
     }
+
+    public static final Creator<AcademicModel> CREATOR = new Creator<AcademicModel>() {
+        @Override
+        public AcademicModel createFromParcel(Parcel in) {
+            return new AcademicModel(in);
+        }
+
+        @Override
+        public AcademicModel[] newArray(int size) {
+            return new AcademicModel[size];
+        }
+    };
 
     @Override
     public int describeContents() {

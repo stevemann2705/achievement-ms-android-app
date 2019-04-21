@@ -101,20 +101,14 @@ public class TeacherAchievementDetailsActivity extends AppCompatActivity {
                             }
 
                             if (response) {
-                                new android.os.Handler().postDelayed(
-                                        new Runnable() {
-                                            public void run() {
-                                                onDeleteSuccess();
-                                                progressDialog.dismiss();
-                                            }
+                                new android.os.Handler().postDelayed(() -> {
+                                            onDeleteSuccess();
+                                            progressDialog.dismiss();
                                         }, 3000);
                             } else {
-                                new android.os.Handler().postDelayed(
-                                        new Runnable() {
-                                            public void run() {
-                                                onDeleteFailed();
-                                                progressDialog.dismiss();
-                                            }
+                                new android.os.Handler().postDelayed(() -> {
+                                            onDeleteFailed();
+                                            progressDialog.dismiss();
                                         }, 3000);
                             }
                         }

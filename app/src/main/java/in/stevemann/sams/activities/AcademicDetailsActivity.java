@@ -71,7 +71,7 @@ public class AcademicDetailsActivity extends AppCompatActivity {
                     String iv = data[0];
                     String token = cryptoUtil.decryptToken(encryptedToken, iv);
 
-                    RequestParams params = new RequestParams(); //this bloody thing just doesn't work with RequestParams so embedding the params in the URL is the only option. Way to go!
+                    RequestParams params = new RequestParams();
                     params.put("token", token);
                     params.put("id", academicModel.getId());
 
@@ -87,24 +87,14 @@ public class AcademicDetailsActivity extends AppCompatActivity {
                             }
 
                             if (response) {
-                                new android.os.Handler().postDelayed(
-                                        new Runnable() {
-                                            public void run() {
-                                                // On complete call either onLoginSuccess or onLoginFailed
-                                                onDeleteSuccess();
-                                                // onLoginFailed();
-                                                progressDialog.dismiss();
-                                            }
+                                new android.os.Handler().postDelayed(() -> {
+                                            onDeleteSuccess();
+                                            progressDialog.dismiss();
                                         }, 3000);
                             } else {
-                                new android.os.Handler().postDelayed(
-                                        new Runnable() {
-                                            public void run() {
-                                                // On complete call either onLoginSuccess or onLoginFailed
-                                                //onLoginSuccess();
-                                                onDeleteFailed();
-                                                progressDialog.dismiss();
-                                            }
+                                new android.os.Handler().postDelayed(() -> {
+                                            onDeleteFailed();
+                                            progressDialog.dismiss();
                                         }, 3000);
                             }
                         }

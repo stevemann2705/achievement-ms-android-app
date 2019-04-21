@@ -15,13 +15,10 @@ import java.util.List;
 import in.stevemann.sams.R;
 import in.stevemann.sams.activities.TeacherAchievementDetailsActivity;
 import in.stevemann.sams.models.TeacherAchievementModel;
-import in.stevemann.sams.utils.CryptoUtil;
 
 public class MyTeacherAchievementsAdapter extends RecyclerView.Adapter<MyTeacherAchievementsAdapter.ViewHolder> {
     private final List<TeacherAchievementModel> achievementModels;
     private final Context context;
-
-    private final CryptoUtil cryptoUtil = CryptoUtil.getInstance();
 
     public MyTeacherAchievementsAdapter(List<TeacherAchievementModel> achievementModels, Context context) {
         this.achievementModels = achievementModels;
@@ -43,14 +40,9 @@ public class MyTeacherAchievementsAdapter extends RecyclerView.Adapter<MyTeacher
         holder.textViewAchievement.setText(achievementModel.getTopic());
         holder.textViewDescription.setText((achievementModel.getDescription().length() < 30) ? achievementModel.getDescription() + "..." : achievementModel.getDescription().substring(0, 30) + "...");
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(v.getContext(), TeacherAchievementDetailsActivity.class).putExtra("teacherAchievementObject", achievementModel);
-                v.getContext().startActivity(intent);
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), TeacherAchievementDetailsActivity.class).putExtra("teacherAchievementObject", achievementModel);
+            v.getContext().startActivity(intent);
         });
     }
 

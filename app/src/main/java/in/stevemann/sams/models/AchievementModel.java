@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AchievementModel implements Parcelable {
+
     private final String id;
     private final String eventName;
     private final String rollNo;

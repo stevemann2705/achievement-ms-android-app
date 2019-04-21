@@ -110,12 +110,7 @@ public class AddAchievementActivity extends AppCompatActivity {
             // Do next code
         }
 
-        _submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
+        _submitButton.setOnClickListener(v -> submit());
 
         String[] departments = {"computerscience", "education", "management"};
         ArrayAdapter<String> departmentAdapter = SpinnerUtil.getAdapter(this, departments, "Select Department");
@@ -229,24 +224,14 @@ public class AddAchievementActivity extends AppCompatActivity {
                 }
 
                 if (response) {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    onSubmitSuccess();
-                                    // onLoginFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onSubmitSuccess();
+                                progressDialog.dismiss();
                             }, 3000);
                 } else {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    //onLoginSuccess();
-                                    onSubmitFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onSubmitFailed();
+                                progressDialog.dismiss();
                             }, 3000);
                 }
             }

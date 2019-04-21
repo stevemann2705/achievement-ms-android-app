@@ -71,12 +71,7 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_teacher_achievement);
         ButterKnife.bind(this);
 
-        _submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
+        _submitButton.setOnClickListener(v -> submit());
 
         String[] types = {"Book", "Journal", "Conference", "SeminarAttended"};
         ArrayAdapter<String> typeAdapter = SpinnerUtil.getAdapter(this, types, "Select Type");
@@ -219,15 +214,9 @@ public class AddTeacherAchievementActivity extends AppCompatActivity {
 
         String topic = _topicText.getText().toString();
         String description = _descriptionText.getText().toString();
-        String published = _publishedText.getText().toString();
         String date = _dateText.getText().toString();
-        String place = _placeText.getText().toString();
         String type = _type.getSelectedItem().toString();
         String subType = _subType.getSelectedItem().toString();
-        String international = String.valueOf(booleanInternational);
-        String sponsored = String.valueOf(booleanSponsored);
-        String reviewed = String.valueOf(booleanReviewed);
-        String msi = String.valueOf(booleanMsi);
 
         if (topic.isEmpty() || topic.length() < 3) {
             _topicText.setError("at least 3 characters");

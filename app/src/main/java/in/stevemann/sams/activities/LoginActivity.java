@@ -48,23 +48,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        _loginButton.setOnClickListener(new View.OnClickListener() {
+        _loginButton.setOnClickListener(v -> login());
 
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
-
-        _signupLink.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
-                finish();
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-            }
+        _signupLink.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+            startActivityForResult(intent, REQUEST_SIGNUP);
+            finish();
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         });
     }
 
@@ -105,24 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if (response) {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    onLoginSuccess();
-                                    // onLoginFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onLoginSuccess();
+                                progressDialog.dismiss();
                             }, 3000);
                 } else {
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    // On complete call either onLoginSuccess or onLoginFailed
-                                    //onLoginSuccess();
-                                    onLoginFailed();
-                                    progressDialog.dismiss();
-                                }
+                    new android.os.Handler().postDelayed(() -> {
+                                onLoginFailed();
+                                progressDialog.dismiss();
                             }, 3000);
                 }
             }

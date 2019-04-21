@@ -38,13 +38,9 @@ public class SeachResultsAchievementsAdapter extends RecyclerView.Adapter<SeachR
         holder.textViewEventName.setText(achievementModel.getEventName());
         holder.textViewRollNo.setText(achievementModel.getRollNo());
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj", achievementModel);
-                v.getContext().startActivity(intent);
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), AchievementDetailsActivity.class).putExtra("achievementObj", achievementModel);
+            v.getContext().startActivity(intent);
         });
     }
 
